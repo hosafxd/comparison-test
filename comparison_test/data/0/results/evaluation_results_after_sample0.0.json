@@ -1,0 +1,87 @@
+[
+  {
+    "sample_name": "sample0.0.json",
+    "timestamp": "2026-01-30T17:57:37.943613",
+    "input_text": "Acute displaced fracture of the distal radius with approximately 5 mm shortening.",
+    "structural": {
+      "overall_score": 0.556,
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "break",
+            "finding": "bone break with reduction",
+            "presence": "present",
+            "location": [
+              "distal radius"
+            ],
+            "degree": [
+              "sharp",
+              "shifted",
+              "shortened"
+            ],
+            "measurement": "about 5 mm",
+            "comparison": "None"
+          },
+          "similarity": 0.6
+        }
+      ],
+      "field_scores": {
+        "abnormality": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "presence": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        },
+        "location": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        },
+        "degree": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "measurement": {
+          "mean": 0.7,
+          "all_scores": [
+            0.7
+          ]
+        },
+        "finding": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "comparison": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        }
+      }
+    },
+    "semantic_similarity": 0.0,
+    "llm_evaluation": {
+      "error": "Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2."
+    },
+    "entity_analysis": {
+      "perfect_matches": 0,
+      "partial_matches": 1,
+      "missing_entities": 0,
+      "extra_entities": 0,
+      "field_errors": {}
+    }
+  }
+]

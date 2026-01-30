@@ -1,0 +1,21 @@
+  {
+    "instruction": "Extract medical entities from the given radiology report snippet and format them into the specified JSON schema. Pay attention to negations and normal anatomy.",
+    "input": "Acute displaced fracture of the distal radius with approximately 5 mm shortening.",
+    "output": [
+      {
+        "abnormality": "fracture",
+        "finding": "fracture shortening",
+        "presence": "present",
+        "location": [
+          "distal radius"
+        ],
+        "degree": [
+          "acute",
+          "displaced",
+          "shortening"
+        ],
+        "measurement": "5 mm",
+        "comparison": "None"
+      }
+    ]
+  }

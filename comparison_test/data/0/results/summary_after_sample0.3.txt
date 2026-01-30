@@ -1,0 +1,19 @@
+======================================================================
+MEDICAL SCHEMA EVALUATION - SUMMARY REPORT
+======================================================================
+
+Timestamp: 2026-01-30T17:58:46.550525
+Samples evaluated: 4
+Ground truth: gt0.json
+
+STRUCTURAL EVALUATION:
+  Mean score: 0.4990
+  Std dev: 0.1203
+  Range: [0.3000, 0.6200]
+
+PER-SAMPLE RESULTS:
+----------------------------------------------------------------------
+sample0.0.json      : Structural=0.556
+sample0.1.json      : Structural=0.300, LLM=0.000
+sample0.2.json      : Structural=0.520, LLM=0.100
+sample0.3.json      : Structural=0.620, LLM=0.100
