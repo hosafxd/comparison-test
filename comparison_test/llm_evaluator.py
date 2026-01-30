@@ -66,6 +66,7 @@ class LLMEvaluator:
     
     # Her model için rate limit ayarları (saniye cinsinden bekleme süresi)
     RATE_LIMITS = {
+        "gemini-2.5-pro": 60 / 1,          # 1 req/min
         "gemini-2.5-flash": 60 / 5,      # 5 req/min = 12 sn bekle
         "gemini-2.5-flash-lite": 60 / 10, # 10 req/min = 6 sn bekle
         "gemini-1.5-flash": 60 / 15,      # 15 req/min = 4 sn bekle
@@ -221,7 +222,35 @@ class LLMEvaluator:
         
         print(f"✓ Değerlendirme tamamlandı!")
         return results
-    
+    def _safe_extract_gemini_text(self, response) -> Optional[str]:
+        """
+        Gemini response'tan güvenli şekilde text çıkar
+        (finish_reason=2 gibi durumları tolere eder)
+        """
+        try:
+            if not hasattr(response, "candidates") or not response.candidates:
+                return None
+
+            candidate = response.candidates[0]
+
+            if not hasattr(candidate, "content") or not candidate.content:
+                return None
+
+            parts = candidate.content.parts
+            if not parts:
+                return None
+
+            texts = []
+            for part in parts:
+                if hasattr(part, "text") and part.text:
+                    texts.append(part.text)
+
+            return "\n".join(texts) if texts else None
+
+        except Exception:
+            return None
+
+
     def _generate(self, prompt: str) -> str:
         """
         Seçilen model ile text üret
@@ -243,24 +272,33 @@ class LLMEvaluator:
             raise
     
     def _generate_gemini(self, prompt: str) -> str:
-        """Gemini/Gemma için üretim"""
-        
-        # Generation config (modelinizin kodundaki gibi)
+        """Gemini/Gemma için üretim (SAFE)"""
+
         generation_config = {
-            "temperature": 0.1,  # Değerlendirme için düşük temperature
+            "temperature": 0.1,
             "top_p": 0.85,
             "max_output_tokens": 2048
         }
-        
+
         response = self.model.generate_content(
             prompt,
             generation_config=generation_config
         )
-        
-        if hasattr(response, 'text') and response.text:
-            return response.text.strip()
-        
-        raise Exception("Gemini API'den boş cevap geldi")
+
+        text = self._safe_extract_gemini_text(response)
+
+        if text is None:
+            finish_reason = (
+                response.candidates[0].finish_reason
+                if hasattr(response, "candidates") and response.candidates
+                else "unknown"
+            )
+            raise RuntimeError(
+                f"Empty / blocked Gemini response (finish_reason={finish_reason})"
+            )
+
+        return text.strip()
+
     
     def _generate_openai_compatible(self, prompt: str) -> str:
         """GLM, DeepSeek gibi OpenAI-compatible API'ler için üretim"""
@@ -290,7 +328,11 @@ class LLMEvaluator:
         gt_output = json.dumps(gt.get('output', []), indent=2)
         pred_output = json.dumps(pred.get('output', []), indent=2)
         
-        prompt = f"""You are an expert medical information extraction evaluator. Compare two medical schema extractions and determine if they are clinically equivalent.
+        prompt = f"""You are an expert medical information extraction evaluator. Compare two medical schema extractions and determine if they are clinically equivalent.IMPORTANT:
+- This is a text consistency evaluation task.
+- Do NOT provide medical advice or diagnosis.
+- Do NOT suggest treatment.
+
 
 📋 INPUT RADIOLOGY TEXT:
 {input_text}
