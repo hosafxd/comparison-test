@@ -1,0 +1,263 @@
+[
+  {
+    "sample_name": "sample0.0.json",
+    "timestamp": "2026-01-30T18:57:26.029920",
+    "input_text": "Acute displaced fracture of the distal radius with approximately 5 mm shortening.",
+    "structural": {
+      "overall_score": 0.556,
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "break",
+            "finding": "bone break with reduction",
+            "presence": "present",
+            "location": [
+              "distal radius"
+            ],
+            "degree": [
+              "sharp",
+              "shifted",
+              "shortened"
+            ],
+            "measurement": "about 5 mm",
+            "comparison": "None"
+          },
+          "similarity": 0.6
+        }
+      ],
+      "field_scores": {
+        "abnormality": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "presence": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        },
+        "location": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        },
+        "degree": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "measurement": {
+          "mean": 0.7,
+          "all_scores": [
+            0.7
+          ]
+        },
+        "finding": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "comparison": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        }
+      }
+    },
+    "semantic_similarity": 0.8421676158905029,
+    "llm_evaluation": {
+      "similarity_score": 0.0,
+      "clinical_equivalence": "unknown",
+      "are_same_meaning": false,
+      "entity_level_analysis": [],
+      "critical_errors": [
+        "JSON parse failed"
+      ],
+      "minor_differences": [],
+      "overall_assessment": "Evaluation failed due to parse error",
+      "raw_response": "{\n  \"similarity_score\": 0.4,\n  \"clinical_equivalence\": \"low\",\n  \"are_same_meaning\": false,\n  \"entity_level_analysis\": [\n    {\n      \"gt_entity_idx\": 0,\n      \"pred_entity_idx\": 0,\n      \"field_scores\": {\n        \"abnormality\": 1.0,\n        \"presence\": 1.0,\n        \"location\": 1.0,\n        \"degree\": 0.67,\n        \"measurement\": 0.9\n      },\n      \"notes\": \"The prediction correctly identifies the location and presence of the fracture but introduces two clinically significant errors: it hallucinates a 'reduction' procedure in the 'finding' field and misinterprets the temporal descriptor 'acute' as 'sharp' in the 'degree' field.\"\n    }\n  ],\n  \"critical_errors\": [\n    \"The 'finding' field incorrectly states 'bone break with reduction'. The source text does not mention reduction, which is a medical procedure. This is a clinically significant"
+    },
+    "entity_analysis": {
+      "perfect_matches": 0,
+      "partial_matches": 1,
+      "missing_entities": 0,
+      "extra_entities": 0,
+      "field_errors": {}
+    }
+  },
+  {
+    "sample_name": "sample0.1.json",
+    "timestamp": "2026-01-30T18:57:45.138593",
+    "input_text": "Acute displaced fracture of the distal radius with approximately 5 mm shortening.",
+    "structural": {
+      "overall_score": 0.3,
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "effusion",
+            "finding": "joint effusion",
+            "presence": "present",
+            "location": [
+              "knee"
+            ],
+            "degree": [
+              "moderate"
+            ],
+            "measurement": "None",
+            "comparison": "None"
+          },
+          "similarity": 0.0
+        }
+      ],
+      "field_scores": {
+        "abnormality": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "presence": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        },
+        "location": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "degree": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "measurement": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "finding": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "comparison": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        }
+      }
+    },
+    "semantic_similarity": 0.3743959367275238,
+    "llm_evaluation": {
+      "error": "403 Your API key was reported as leaked. Please use another API key."
+    },
+    "entity_analysis": {
+      "perfect_matches": 0,
+      "partial_matches": 1,
+      "missing_entities": 0,
+      "extra_entities": 0,
+      "field_errors": {}
+    }
+  },
+  {
+    "sample_name": "sample0.2.json",
+    "timestamp": "2026-01-30T18:57:45.391536",
+    "input_text": "Acute displaced fracture of the distal radius with approximately 5 mm shortening.",
+    "structural": {
+      "overall_score": 0.52,
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "fracture",
+            "finding": "fracture shortening",
+            "presence": "absent",
+            "location": [
+              "distal radius"
+            ],
+            "degree": [
+              "no acute",
+              "nondisplaced"
+            ],
+            "measurement": "None",
+            "comparison": "None"
+          },
+          "similarity": 1.0
+        }
+      ],
+      "field_scores": {
+        "abnormality": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        },
+        "presence": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "location": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        },
+        "degree": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "measurement": {
+          "mean": 0.0,
+          "all_scores": [
+            0.0
+          ]
+        },
+        "finding": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        },
+        "comparison": {
+          "mean": 1.0,
+          "all_scores": [
+            1.0
+          ]
+        }
+      }
+    },
+    "semantic_similarity": 0.7255654335021973,
+    "llm_evaluation": {
+      "error": "403 Your API key was reported as leaked. Please use another API key."
+    },
+    "entity_analysis": {
+      "perfect_matches": 1,
+      "partial_matches": 0,
+      "missing_entities": 0,
+      "extra_entities": 0,
+      "field_errors": {}
+    }
+  }
+]
