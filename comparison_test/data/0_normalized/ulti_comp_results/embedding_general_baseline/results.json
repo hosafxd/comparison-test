@@ -1,0 +1,260 @@
+[
+  {
+    "sample": "sample0.0.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "break",
+            "finding": "bone break with reduction",
+            "presence": "present",
+            "location": [
+              "distal radius"
+            ],
+            "degree": [
+              "sharp",
+              "shifted",
+              "shortened"
+            ],
+            "measurement": "about 5 mm",
+            "comparison": null
+          },
+          "similarity": 0.6
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          0.0
+        ],
+        "presence": [
+          1.0
+        ],
+        "location": [
+          1.0
+        ],
+        "degree": [
+          0.0
+        ],
+        "measurement": [
+          0.7
+        ],
+        "finding": [
+          0.0
+        ],
+        "comparison": [
+          1.0
+        ]
+      },
+      "overall_score": 0.54
+    },
+    "semantic_similarity": 0.7858237624168396
+  },
+  {
+    "sample": "sample0.1.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "effusion",
+            "finding": "joint effusion",
+            "presence": "present",
+            "location": [
+              "knee"
+            ],
+            "degree": [
+              "moderate"
+            ],
+            "measurement": null,
+            "comparison": null
+          },
+          "similarity": 0.0
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          0.0
+        ],
+        "presence": [
+          1.0
+        ],
+        "location": [
+          0.0
+        ],
+        "degree": [
+          0.0
+        ],
+        "measurement": [
+          0.0
+        ],
+        "finding": [
+          0.0
+        ],
+        "comparison": [
+          1.0
+        ]
+      },
+      "overall_score": 0.27
+    },
+    "semantic_similarity": 0.22598440945148468
+  },
+  {
+    "sample": "sample0.2.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "fracture",
+            "finding": "fracture shortening",
+            "presence": "absent",
+            "location": [
+              "distal radius"
+            ],
+            "degree": [
+              "no acute",
+              "nondisplaced"
+            ],
+            "measurement": null,
+            "comparison": null
+          },
+          "similarity": 1.0
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          1.0
+        ],
+        "presence": [
+          0.0
+        ],
+        "location": [
+          1.0
+        ],
+        "degree": [
+          0.0
+        ],
+        "measurement": [
+          0.0
+        ],
+        "finding": [
+          1.0
+        ],
+        "comparison": [
+          1.0
+        ]
+      },
+      "overall_score": 0.5
+    },
+    "semantic_similarity": 0.9194267988204956
+  },
+  {
+    "sample": "sample0.3.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "fracture",
+            "finding": null,
+            "presence": "present",
+            "location": [
+              "proximal ulna"
+            ],
+            "degree": [
+              "chronic",
+              "displaced",
+              "lengthening"
+            ],
+            "measurement": "10 mm",
+            "comparison": "worsened"
+          },
+          "similarity": 0.4
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          1.0
+        ],
+        "presence": [
+          1.0
+        ],
+        "location": [
+          0.0
+        ],
+        "degree": [
+          0.2
+        ],
+        "measurement": [
+          0.0
+        ],
+        "finding": [
+          0.0
+        ],
+        "comparison": [
+          0.0
+        ]
+      },
+      "overall_score": 0.53
+    },
+    "semantic_similarity": 0.6806423664093018
+  },
+  {
+    "sample": "sample0.4.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "fracture",
+            "finding": "Colles' fracture with shortening",
+            "presence": "present",
+            "location": [
+              "distal radius"
+            ],
+            "degree": [
+              "acute",
+              "displaced",
+              "shortening",
+              "angulated"
+            ],
+            "measurement": "approximately 5 mm",
+            "comparison": null
+          },
+          "similarity": 1.0
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          1.0
+        ],
+        "presence": [
+          1.0
+        ],
+        "location": [
+          1.0
+        ],
+        "degree": [
+          0.75
+        ],
+        "measurement": [
+          0.7
+        ],
+        "finding": [
+          0.0
+        ],
+        "comparison": [
+          1.0
+        ]
+      },
+      "overall_score": 0.9025
+    },
+    "semantic_similarity": 0.9260040521621704
+  }
+]
