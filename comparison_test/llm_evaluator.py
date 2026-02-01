@@ -35,15 +35,15 @@ import os
 import time
 from typing import Dict, List, Any, Optional
 import logging
-
+from google.genai import types
 # Google AI için
 try:
-    import google.generativeai as genai
+    from google import genai
     GEMINI_AVAILABLE = True
 except ImportError:
     GEMINI_AVAILABLE = False
-    print("⚠ google-generativeai kurulu değil. Gemini/Gemma kullanmak için:")
-    print("  pip install google-generativeai")
+    print("⚠ google-genai kurulu değil. Lütfen çalıştır:")
+    print("  pip install google-genai")
 
 # OpenAI-compatible API'ler için
 try:
@@ -105,22 +105,18 @@ class LLMEvaluator:
         print(f"  Rate limit: Her istek arası {self.sleep_time:.1f} saniye bekleme")
     
     def _initialize_model(self):
-        """Seçilen modeli başlat"""
-        
         if self.model_type in ["gemini", "gemma"]:
             if not GEMINI_AVAILABLE:
-                raise ImportError("google-generativeai kurulu değil!")
+                raise ImportError("google-genai kurulu değil!")
             
-            genai.configure(api_key=self.api_key)
+            self.client = genai.Client(api_key=self.api_key)
             
-            # Model adını düzelt (gemma için models/ prefix gerekli)
+            # Model adını düzelt (gemma için hâlâ prefix gerekebiliyor)
             if self.model_type == "gemma":
-                model_path = f"models/{self.model_name}"
-            else:
-                model_path = self.model_name
+                self.model_name = f"models/{self.model_name}"   # ← burayı self.model_name olarak güncelle
             
-            self.model = genai.GenerativeModel(model_path)
-            
+          
+                
         elif self.model_type in ["glm", "deepseek"]:
             if not OPENAI_AVAILABLE:
                 raise ImportError("openai kurulu değil!")
@@ -272,32 +268,53 @@ class LLMEvaluator:
             raise
     
     def _generate_gemini(self, prompt: str) -> str:
-        """Gemini/Gemma için üretim (SAFE)"""
+        """Gemini/Gemma için üretim - google-genai SDK uyumlu"""
 
-        generation_config = {
-            "temperature": 0.1,
-            "top_p": 0.85,
-            "max_output_tokens": 2048
-        }
+        # Safety ayarlarını tanımla
+        safety_settings = [
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
+                threshold=types.HarmBlockThreshold.BLOCK_NONE
+            ),
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+                threshold=types.HarmBlockThreshold.BLOCK_NONE
+            ),
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+                threshold=types.HarmBlockThreshold.BLOCK_NONE
+            ),
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                threshold=types.HarmBlockThreshold.BLOCK_NONE
+            ),
+        ]
 
-        response = self.model.generate_content(
-            prompt,
-            generation_config=generation_config
+        # Config yapısı - Safety settings BURAYA eklenmeli
+        config = types.GenerateContentConfig(
+            temperature=0.1,
+            top_p=0.85,
+            max_output_tokens=8192,
+            safety_settings=safety_settings  # <--- Moved inside config
         )
 
-        text = self._safe_extract_gemini_text(response)
+        # API Çağrısı (safety_settings argümanı kaldırıldı)
+        response = self.client.models.generate_content(
+            model=self.model_name,
+            contents=[{"role": "user", "parts": [{"text": prompt}]}],
+            config=config
+        )
 
-        if text is None:
-            finish_reason = (
-                response.candidates[0].finish_reason
-                if hasattr(response, "candidates") and response.candidates
-                else "unknown"
-            )
-            raise RuntimeError(
-                f"Empty / blocked Gemini response (finish_reason={finish_reason})"
-            )
+        # Metni çek
+        if response.text:
+            return response.text.strip()
 
-        return text.strip()
+        # Alternatif (candidates yapısı)
+        try:
+            return response.candidates[0].content.parts[0].text.strip()
+        except (AttributeError, IndexError, KeyError, TypeError):
+            raise Exception(f"Gemini'den metin çıkarılamadı - response: {response}")
+
 
     
     def _generate_openai_compatible(self, prompt: str) -> str:
@@ -308,7 +325,7 @@ class LLMEvaluator:
             messages=[
                 {"role": "user", "content": prompt}
             ],
-            temperature=0.1,
+            temperature=0.0,
             max_tokens=2048
         )
         
@@ -329,6 +346,7 @@ class LLMEvaluator:
         pred_output = json.dumps(pred.get('output', []), indent=2)
         
         prompt = f"""You are an expert medical information extraction evaluator. Compare two medical schema extractions and determine if they are clinically equivalent.IMPORTANT:
+- Ignore formatting differences (e.g., '13mm' vs '13 mm'). Focus only on clinical meaning conflicts.
 - This is a text consistency evaluation task.
 - Do NOT provide medical advice or diagnosis.
 - Do NOT suggest treatment.
@@ -366,50 +384,33 @@ class LLMEvaluator:
    - Which differences are clinically significant?
    - Which are just formatting/wording differences?
 
-🎯 RESPOND IN THIS EXACT JSON FORMAT (no additional text):
+Return this exact JSON structure (NO extra text, NO markdown):
 {{
-  "similarity_score": <float 0.0 to 1.0>,
-  "clinical_equivalence": "<exact|high|partial|low>",
-  "are_same_meaning": <true or false>,
-  "entity_level_analysis": [
-    {{
-      "gt_entity_idx": <int>,
-      "pred_entity_idx": <int or null>,
-      "field_scores": {{
-        "abnormality": <float 0.0-1.0>,
-        "presence": <float 0.0-1.0>,
-        "location": <float 0.0-1.0>,
-        "degree": <float 0.0-1.0>,
-        "measurement": <float 0.0-1.0>
-      }},
-      "notes": "<brief explanation>"
-    }}
-  ],
-  "critical_errors": [<list of critical mistakes>],
-  "minor_differences": [<list of acceptable variations>],
-  "overall_assessment": "<brief summary in 1-2 sentences>"
+  "similarity_score": 0.0-1.0,
+  "clinical_equivalence": "exact|high|partial|low",
+  "are_same_meaning": true or false,
+  "critical_errors": ["list if any"],
+  "minor_differences": ["list if any"],
+  "overall_assessment": "one sentence summary"
 }}
 
 IMPORTANT RULES:
 - Be strict on presence/absence (critical for diagnosis)
 - Be lenient on synonyms and paraphrasing
 - Focus on clinical impact, not textual similarity
-- Return ONLY valid JSON, no markdown, no extra text
 """
         
         return prompt
     
+    # llm_evaluator.py → _parse_json_response() düzelt
+
     def _parse_json_response(self, response: str) -> Dict[str, Any]:
-        """
-        LLM cevabını parse et
+        """LLM cevabını parse et - robust version"""
         
-        Bazı LLM'ler markdown ile JSON döndürür (```json ... ```),
-        bunları temizleyip parse ediyoruz
-        """
         # Temizle
         response = response.strip()
         
-        # Markdown code block varsa kaldır
+        # Markdown kaldır
         if response.startswith('```json'):
             response = response.replace('```json', '', 1)
         if response.startswith('```'):
@@ -419,7 +420,29 @@ IMPORTANT RULES:
         
         response = response.strip()
         
-        # JSON parse et
+        # ⭐ FIX 1: Incomplete JSON repair
+        # Eğer son } yoksa, ekle
+        if response.count('{') > response.count('}'):
+            response += '}' * (response.count('{') - response.count('}'))
+        
+        # ⭐ FIX 2: Unterminated strings
+        # Son satırda tırnak açıksa kapat
+        lines = response.split('\n')
+        fixed_lines = []
+        for line in lines:
+            # Tek tırnak sayısı
+            quote_count = line.count('"') - line.count('\\"')
+            if quote_count % 2 == 1:  # Tek sayıda tırnak
+                # Satır sonu virgül varsa kaldır, yoksa ekle
+                if line.rstrip().endswith(','):
+                    line = line.rstrip()[:-1] + '",'
+                else:
+                    line = line.rstrip() + '"'
+            fixed_lines.append(line)
+        
+        response = '\n'.join(fixed_lines)
+        
+        # JSON parse
         try:
             parsed = json.loads(response)
             return parsed
@@ -428,17 +451,40 @@ IMPORTANT RULES:
             print(f"⚠ JSON parse hatası: {e}")
             print(f"Raw response (ilk 500 char): {response[:500]}")
             
-            # Hata durumunda minimal bir yapı döndür
-            return {
-                'similarity_score': 0.0,
-                'clinical_equivalence': 'unknown',
-                'are_same_meaning': False,
-                'entity_level_analysis': [],
-                'critical_errors': ['JSON parse failed'],
-                'minor_differences': [],
-                'overall_assessment': 'Evaluation failed due to parse error',
-                'raw_response': response
-            }
+            # ⭐ FIX 3: Fallback - minimal valid response
+            try:
+                # Extract similarity_score en azından
+                import re
+                sim_match = re.search(r'"similarity_score":\s*([0-9.]+)', response)
+                sim_score = float(sim_match.group(1)) if sim_match else 0.0
+                
+                equiv_match = re.search(r'"clinical_equivalence":\s*"(\w+)"', response)
+                equiv = equiv_match.group(1) if equiv_match else 'unknown'
+                
+                return {
+                    'similarity_score': sim_score,
+                    'clinical_equivalence': equiv,
+                    'are_same_meaning': False,
+                    'entity_level_analysis': [],
+                    'critical_errors': ['Incomplete LLM response - partial data'],
+                    'minor_differences': [],
+                    'overall_assessment': 'Evaluation incomplete due to parse error',
+                    'raw_response': response[:500],
+                    'parse_error': str(e)
+                }
+            except:
+                # Son çare - tamamen boş
+                return {
+                    'similarity_score': 0.0,
+                    'clinical_equivalence': 'unknown',
+                    'are_same_meaning': False,
+                    'entity_level_analysis': [],
+                    'critical_errors': ['Complete JSON parse failure'],
+                    'minor_differences': [],
+                    'overall_assessment': 'Evaluation failed',
+                    'raw_response': response[:500],
+                    'parse_error': str(e)
+                }
     
     def _save_intermediate(self, results: List[Dict], count: int):
         """Ara sonuçları kaydet (hata durumunda kaybetmemek için)"""
@@ -554,7 +600,7 @@ def example_basic_usage():
     
     # API keylerini tanımla
     API_KEYS = {
-        "gemini": "AIzaSyAVNB1TaFtlLSUZeUkB3n9C0-zn82ITLws",
+        "gemini": "AIzaSyDKfk3iyWUilm8SU-f70PSRjo9etZBxrDk",
         "gemma": "KGAT_7b8482384bb20717b1fa8b9c914ff365",
         "glm": "sk-t80kLqA1bkLIoTi0x0vjmno3-gbMvrX3A44SOh4QWHRpiYJvMeOTpUOScAAWzOPzpDxC8AyC0KPdgaqHrn_5RPa_RhY_",
         "deepseek": "sk-450186e490b34beb8347badc0fa91e6b",
@@ -565,7 +611,7 @@ def example_basic_usage():
     # Evaluator oluştur (model seçimi çok basit!)
     evaluator = LLMEvaluator(
         model_type="gemini",              # "gemini", "gemma", "glm", "deepseek"
-        model_name="gemini-1.5-flash",    # Model adı
+        model_name="models/gemini-2.5-flash",    # Model adı
         api_key=API_KEYS["gemini"]        # API key
     )
     
@@ -618,20 +664,20 @@ def example_batch_evaluation():
     print("="*70)
     
     # API key
-    API_KEY = "AIzaSy..."  # Kendi keyiniz
+    API_KEY = "AIzaSyDKfk3iyWUilm8SU-f70PSRjo9etZBxrDk"
     
     # Evaluator
     evaluator = LLMEvaluator(
         model_type="gemini",
-        model_name="gemini-1.5-flash",
+        model_name="models/gemini-2.5-flash",
         api_key=API_KEY
     )
     
     # Ground truth ve predictions yükle
-    with open('schema_train.json', 'r') as f:
+    with open('./data/0_normalized/gt0.json', 'r') as f:
         ground_truths = json.load(f)
     
-    with open('your_model_predictions.json', 'r') as f:
+    with open('./data/0_normalized/sample0.0.json', 'r') as f:
         predictions = json.load(f)
     
     # Karşılaştırma listesi hazırla
@@ -670,7 +716,7 @@ def example_multi_model_comparison():
     
     # Tüm API keyler
     API_KEYS = {
-        "gemini": "AIzaSyAVNB1TaFtlLSUZeUkB3n9C0-zn82ITLws",
+        "gemini": "AIzaSyDKfk3iyWUilm8SU-f70PSRjo9etZBxrDk",
         "gemma": "KGAT_7b8482384bb20717b1fa8b9c914ff365",
     }
     
@@ -700,20 +746,9 @@ def example_multi_model_comparison():
 
 
 if __name__ == '__main__':
-    print("""
-
-   pip install google-generativeai  # Gemini/Gemma için
-   pip install openai               # GLM/DeepSeek için
-   pip install sentence-transformers  # Embedding için
-
-
-   # Bu dosyayı düzenleyin ve örnekleri test edin
-   python llm_evaluator.py
-
-    """)
     
     # Örnekleri çalıştırmak isterseniz uncomment edin:
-    example_basic_usage()
-    example_batch_evaluation()
-    example_multi_model_comparison()
-
+    # example_basic_usage()
+    # example_batch_evaluation()
+    # example_multi_model_comparison()
+    pass

@@ -1,0 +1,24 @@
+======================================================================
+EVALUATION SUMMARY: embedding_general_baseline
+======================================================================
+
+sample0.0.json:
+  Structural: 0.5400
+  Semantic: 0.8436
+
+sample0.1.json:
+  Structural: 0.2700
+  Semantic: 0.4941
+
+sample0.2.json:
+  Structural: 0.5000
+  Semantic: 0.9154
+
+sample0.3.json:
+  Structural: 0.5300
+  Semantic: 0.8430
+
+sample0.4.json:
+  Structural: 0.9025
+  Semantic: 0.8808
+

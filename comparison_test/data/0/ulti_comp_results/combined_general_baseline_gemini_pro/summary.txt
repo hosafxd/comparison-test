@@ -1,0 +1,29 @@
+======================================================================
+EVALUATION SUMMARY: combined_general_baseline_gemini_pro
+======================================================================
+
+sample0.0.json:
+  Structural: 0.5400
+  Semantic: 0.8436
+  LLM: 0.0000
+
+sample0.1.json:
+  Structural: 0.2700
+  Semantic: 0.4941
+  LLM: 0.0000
+
+sample0.2.json:
+  Structural: 0.5000
+  Semantic: 0.9154
+  LLM: 0.1000
+
+sample0.3.json:
+  Structural: 0.5300
+  Semantic: 0.8430
+  LLM: 0.1000
+
+sample0.4.json:
+  Structural: 0.9025
+  Semantic: 0.8808
+  LLM: 0.0000
+

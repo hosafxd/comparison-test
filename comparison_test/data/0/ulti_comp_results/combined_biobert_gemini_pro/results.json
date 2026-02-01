@@ -1,0 +1,372 @@
+[
+  {
+    "sample": "sample0.0.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "break",
+            "finding": "bone break with reduction",
+            "presence": "present",
+            "location": [
+              "distal radius"
+            ],
+            "degree": [
+              "sharp",
+              "shifted",
+              "shortened"
+            ],
+            "measurement": "about 5 mm",
+            "comparison": "None"
+          },
+          "similarity": 0.6
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          0.0
+        ],
+        "presence": [
+          1.0
+        ],
+        "location": [
+          1.0
+        ],
+        "degree": [
+          0.0
+        ],
+        "measurement": [
+          0.7
+        ],
+        "finding": [
+          0.0
+        ],
+        "comparison": [
+          1.0
+        ]
+      },
+      "overall_score": 0.54
+    },
+    "semantic_similarity": 0.980329155921936,
+    "llm_evaluation": {
+      "error": "Empty / blocked Gemini response (finish_reason=2)"
+    }
+  },
+  {
+    "sample": "sample0.1.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "effusion",
+            "finding": "joint effusion",
+            "presence": "present",
+            "location": [
+              "knee"
+            ],
+            "degree": [
+              "moderate"
+            ],
+            "measurement": "None",
+            "comparison": "None"
+          },
+          "similarity": 0.0
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          0.0
+        ],
+        "presence": [
+          1.0
+        ],
+        "location": [
+          0.0
+        ],
+        "degree": [
+          0.0
+        ],
+        "measurement": [
+          0.0
+        ],
+        "finding": [
+          0.0
+        ],
+        "comparison": [
+          1.0
+        ]
+      },
+      "overall_score": 0.27
+    },
+    "semantic_similarity": 0.9485850930213928,
+    "llm_evaluation": {
+      "similarity_score": 0.0,
+      "clinical_equivalence": "low",
+      "are_same_meaning": false,
+      "entity_level_analysis": [
+        {
+          "gt_entity_idx": 0,
+          "pred_entity_idx": 0,
+          "field_scores": {
+            "abnormality": 0.0,
+            "presence": 1.0,
+            "location": 0.0,
+            "degree": 0.0,
+            "measurement": 0.0
+          },
+          "notes": "The predicted entity is completely incorrect, describing a knee effusion instead of the distal radius fracture mentioned in the text. All key fields (abnormality, location, degree, measurement) are wrong."
+        }
+      ],
+      "critical_errors": [
+        "Missed the primary finding of 'fracture'.",
+        "Incorrectly identified the abnormality as 'effusion'.",
+        "Incorrectly identified the location as 'knee' instead of 'distal radius'.",
+        "Missed all degrees: 'acute', 'displaced', 'shortening'.",
+        "Missed the '5 mm' measurement."
+      ],
+      "minor_differences": [],
+      "overall_assessment": "The predicted schema is completely incorrect and clinically misleading. It fails to extract the reported distal radius fracture and instead hallucinates an unrelated finding of a knee effusion."
+    }
+  },
+  {
+    "sample": "sample0.2.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "fracture",
+            "finding": "fracture shortening",
+            "presence": "absent",
+            "location": [
+              "distal radius"
+            ],
+            "degree": [
+              "no acute",
+              "nondisplaced"
+            ],
+            "measurement": "None",
+            "comparison": "None"
+          },
+          "similarity": 1.0
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          1.0
+        ],
+        "presence": [
+          0.0
+        ],
+        "location": [
+          1.0
+        ],
+        "degree": [
+          0.0
+        ],
+        "measurement": [
+          0.0
+        ],
+        "finding": [
+          1.0
+        ],
+        "comparison": [
+          1.0
+        ]
+      },
+      "overall_score": 0.5
+    },
+    "semantic_similarity": 0.9867550730705261,
+    "llm_evaluation": {
+      "similarity_score": 0.1,
+      "clinical_equivalence": "low",
+      "are_same_meaning": false,
+      "entity_level_analysis": [
+        {
+          "gt_entity_idx": 0,
+          "pred_entity_idx": 0,
+          "field_scores": {
+            "abnormality": 1.0,
+            "presence": 0.0,
+            "location": 1.0,
+            "degree": 0.0,
+            "measurement": 0.0
+          },
+          "notes": "The predicted schema incorrectly negates the presence, degree, and measurement of the fracture, completely reversing the clinical meaning."
+        }
+      ],
+      "critical_errors": [
+        "Presence is 'absent' instead of 'present', which is a direct contradiction and a missed finding.",
+        "Degree is 'no acute' and 'nondisplaced' instead of 'acute' and 'displaced', which misrepresents the nature of the fracture.",
+        "Measurement of '5 mm' shortening was missed."
+      ],
+      "minor_differences": [],
+      "overall_assessment": "The predicted schema is clinically opposite to the ground truth. It incorrectly states that the fracture is absent and has opposing characteristics (non-acute, nondisplaced), which constitutes a critical missed diagnosis."
+    }
+  },
+  {
+    "sample": "sample0.3.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "fracture",
+            "finding": "None",
+            "presence": "present",
+            "location": [
+              "proximal ulna"
+            ],
+            "degree": [
+              "chronic",
+              "displaced",
+              "lengthening"
+            ],
+            "measurement": "10 mm",
+            "comparison": "worsened"
+          },
+          "similarity": 0.4
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          1.0
+        ],
+        "presence": [
+          1.0
+        ],
+        "location": [
+          0.0
+        ],
+        "degree": [
+          0.2
+        ],
+        "measurement": [
+          0.0
+        ],
+        "finding": [
+          0.0
+        ],
+        "comparison": [
+          0.0
+        ]
+      },
+      "overall_score": 0.53
+    },
+    "semantic_similarity": 0.9881569147109985,
+    "llm_evaluation": {
+      "similarity_score": 0.1,
+      "clinical_equivalence": "low",
+      "are_same_meaning": false,
+      "entity_level_analysis": [
+        {
+          "gt_entity_idx": 0,
+          "pred_entity_idx": 0,
+          "field_scores": {
+            "abnormality": 1.0,
+            "presence": 1.0,
+            "location": 0.0,
+            "degree": 0.33,
+            "measurement": 0.0
+          },
+          "notes": "The prediction correctly identifies a present fracture but is incorrect on every other clinically significant detail: location, chronicity, type of displacement, and measurement."
+        }
+      ],
+      "critical_errors": [
+        "Location is incorrect ('distal radius' vs. 'proximal ulna'), which is a different bone and location.",
+        "Degree of chronicity is incorrect and opposite ('acute' vs. 'chronic').",
+        "Type of displacement is incorrect and opposite ('shortening' vs. 'lengthening').",
+        "Measurement is incorrect ('5 mm' vs. '10 mm').",
+        "A comparison ('worsened') was hallucinated and is not present in the source text."
+      ],
+      "minor_differences": [],
+      "overall_assessment": "The predicted schema is clinically non-equivalent to the ground truth. It describes a completely different injury by misidentifying the bone, chronicity, type of displacement, and measurement, leading to a critically incorrect clinical picture."
+    }
+  },
+  {
+    "sample": "sample0.4.json",
+    "structural": {
+      "num_gt_entities": 1,
+      "num_pred_entities": 1,
+      "entity_matches": [
+        {
+          "matched_entity": {
+            "abnormality": "fracture",
+            "finding": "Colles' fracture with shortening",
+            "presence": "present",
+            "location": [
+              "distal radius"
+            ],
+            "degree": [
+              "acute",
+              "displaced",
+              "shortening",
+              "angulated"
+            ],
+            "measurement": "approximately 5 mm",
+            "comparison": "None"
+          },
+          "similarity": 1.0
+        }
+      ],
+      "field_scores": {
+        "abnormality": [
+          1.0
+        ],
+        "presence": [
+          1.0
+        ],
+        "location": [
+          1.0
+        ],
+        "degree": [
+          0.75
+        ],
+        "measurement": [
+          0.7
+        ],
+        "finding": [
+          0.0
+        ],
+        "comparison": [
+          1.0
+        ]
+      },
+      "overall_score": 0.9025
+    },
+    "semantic_similarity": 0.9881335496902466,
+    "llm_evaluation": {
+      "similarity_score": 0.6,
+      "clinical_equivalence": "low",
+      "are_same_meaning": false,
+      "entity_level_analysis": [
+        {
+          "gt_entity_idx": 0,
+          "pred_entity_idx": 0,
+          "field_scores": {
+            "abnormality": 1.0,
+            "presence": 1.0,
+            "location": 1.0,
+            "degree": 0.75,
+            "measurement": 1.0
+          },
+          "notes": "The predicted schema correctly identifies the core finding but makes clinically significant additions. It adds 'angulated' to the 'degree' field and infers a 'Colles' fracture' in the 'finding' field, neither of which are explicitly mentioned in the source text."
+        }
+      ],
+      "critical_errors": [
+        "The predicted schema hallucinates the term 'angulated' in the 'degree' field. Angulation is a key characteristic of a fracture and adding it without textual support is a significant error.",
+        "The predicted schema infers a specific fracture type, 'Colles' fracture', in the 'finding' field. A Colles' fracture is a specific clinical diagnosis (dorsally displaced extra-articular distal radius fracture) that cannot be definitively made from the provided text alone."
+      ],
+      "minor_differences": [
+        "The predicted schema's 'measurement' ('approximately 5 mm') is more faithful to the source text than the ground truth's ('5 mm')."
+      ],
+      "overall_assessment": "The predicted schema is not clinically equivalent to the ground truth because it hallucinates clinically significant information, specifically adding 'angulated' and inferring a 'Colles' fracture', which are not supported by the input text."
+    }
+  }
+]

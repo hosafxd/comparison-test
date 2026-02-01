@@ -1,0 +1,36 @@
+======================================================================
+COMPREHENSIVE MULTI-MODEL EVALUATION - FINAL REPORT
+======================================================================
+
+Timestamp: 2026-01-31T21:43:15.498493
+Ground Truth: gt0.json
+Modes Run: structural, embedding, llm, combined
+
+COMPARISON ACROSS ALL MODES:
+----------------------------------------------------------------------
+
+structural_only:
+  Avg Structural: 0.5485
+
+embedding_general_baseline:
+  Avg Structural: 0.5485
+  Avg Semantic: 0.7954
+
+embedding_biobert:
+  Avg Structural: 0.5485
+  Avg Semantic: 0.9784
+
+llm_gemini_pro:
+  Avg Structural: 0.5485
+  Avg LLM: 0.0400
+
+combined_general_baseline_gemini_pro:
+  Avg Structural: 0.5485
+  Avg Semantic: 0.7954
+  Avg LLM: 0.0400
+
+combined_biobert_gemini_pro:
+  Avg Structural: 0.5485
+  Avg Semantic: 0.9784
+  Avg LLM: 0.2000
+
