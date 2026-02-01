@@ -1,108 +1,84 @@
-comparison_test/
-│
-├── 📊 VERİ
-│   ├── data/0/
-│   │   ├── gt0.json              → Ground truth (doğru cevap)
-│   │   └── sample0.X.json        → Modelinizin tahminleri
-│   │   └── data/0_normalized/    → Otomatik düzeltilmiş versiyonlar
-│
-├── 🧠 CORE MODÜLLERİ (Evaluation Mekanizmaları)
-│   ├── medical_schema_evaluator.py
-│   │   └── Field-by-field karşılaştırma (structural)
-│   │       • abnormality doğru mu? ✓/✗
-│   │       • presence doğru mu? ✓/✗
-│   │       • location eşleşiyor mu? ✓/✗
-│   │
-│   ├── multi_embedding_evaluator.py
-│   │   └── Semantic benzerlik (BioBERT, PubMedBERT...)
-│   │       • "fracture" ≈ "break" → 0.95 similarity
-│   │       • "fracture" ≈ "effusion" → 0.30 similarity
-│   │
-│   └── llm_evaluator.py
-│       └── LLM ile klinik validasyon (Gemini, Gemma...)
-│           • "Aynı anlama mı geliyor?" → Yes/No
-│           • "Kritik hata var mı?" → List
-│
-├── 🎛️ ORKESTRATÖRLERİ (Ana Kontrol)
-│   ├── comprehensive_evaluation.py
-│   │   └── Tüm modelleri test et, sonuçları karşılaştır
-│   │
-│   └── comprehensive_evaluation.ipynb
-│       └── Notebook versiyonu (çalıştırmak için)
-│
-└── 📄 SONUÇLAR
-    └── data/0_normalized/ulti_comp_results/
-        ├── structural_only/          → Sadece rule-based
-        ├── embedding_biobert/        → BioBERT semantic
-        ├── llm_gemini_pro/          → LLM validation
-        └── combined_X_Y/            → Hepsi birlikte
 
+### **INPUT:**
 
-        
-
-INPUT: 
-  GT: "fracture, present, distal radius, acute, 5mm"
-  Prediction: "break, present, distal radius, sharp, about 5mm"
+* **GT:** "fracture, present, distal radius, acute, 5mm"
+* **Prediction:** "break, present, distal radius, sharp, about 5mm"
 
 ↓
 
-LEVEL 1: STRUCTURAL (medical_schema_evaluator.py)
-  ├─ abnormality: "fracture" vs "break" → FARKLI (0.0)
-  ├─ presence: "present" vs "present" → AYNI (1.0)
-  ├─ location: "distal radius" vs "distal radius" → AYNI (1.0)
-  ├─ degree: "acute" vs "sharp" → FARKLI (0.0)
-  └─ measurement: "5mm" vs "about 5mm" → YAKIN (0.7)
-  
-  SKOR: 0.54 (weighted average)
+### **LEVEL 1: STRUCTURAL (medical_schema_evaluator.py)**
+
+```text
+├─ abnormality: "fracture" vs "break" → FARKLI (0.0)
+├─ presence: "present" vs "present" → AYNI (1.0)
+├─ location: "distal radius" vs "distal radius" → AYNI (1.0)
+├─ degree: "acute" vs "sharp" → FARKLI (0.0)
+└─ measurement: "5mm" vs "about 5mm" → YAKIN (0.7)
+
+```
+
+**SKOR:** 0.54 (weighted average)
 
 ↓
 
-LEVEL 2: SEMANTIC (multi_embedding_evaluator.py)
-  Text1: "fracture present distal radius acute 5mm"
-  Text2: "break present distal radius sharp about 5mm"
-  
-  BioBERT embedding → Cosine similarity: 0.98
-  (Çünkü "fracture"≈"break", "acute"≈"sharp" synonym)
+### **LEVEL 2: SEMANTIC (multi_embedding_evaluator.py)**
+
+* **Text1:** "fracture present distal radius acute 5mm"
+* **Text2:** "break present distal radius sharp about 5mm"
+
+**BioBERT embedding → Cosine similarity:** 0.98
+*(Çünkü "fracture"≈"break", "acute"≈"sharp" synonym)*
 
 ↓
 
-LEVEL 3: LLM (llm_evaluator.py)
-  Gemini'ye sor: "Klinik olarak aynı mı?"
-  
-  Cevap: {
-    "similarity": 0.7,
-    "clinical_equivalence": "high",
-    "critical_errors": ["degree mismatch"],
-    "assessment": "Semantically equivalent, minor terminology difference"
-  }
+### **LEVEL 3: LLM (llm_evaluator.py)**
+
+**Gemini'ye sor:** "Klinik olarak aynı mı?"
+
+**Cevap:**
+
+```json
+{
+  "similarity": 0.7,
+  "clinical_equivalence": "high",
+  "critical_errors": ["degree mismatch"],
+  "assessment": "Semantically equivalent, minor terminology difference"
+}
+
+```
 
 ↓
 
-FINAL REPORT:
-  Structural: 0.54 (katı kurallar)
-  Semantic: 0.98 (synonym yakalar)
-  LLM: 0.70 (klinik bakış)
-  
-  SONUÇ: Model iyi çalışıyor ama terminology standardize edilmeli
-1. comprehensive_evaluation.ipynb açılır
-   ↓
-2. CELL 0: JSON normalization (otomatik düzeltme)
-   ↓
-3. CELL 1: Evaluation başlat
-   ↓
-4. Loop: Her sample için
-   ├─ Structural eval
-   ├─ Embedding eval (4 farklı model)
-   └─ LLM eval (Gemini)
-   ↓
-5. Sonuçları kaydet:
-   ├─ JSON (detaylı)
-   ├─ TXT (özet)
-   └─ FINAL_REPORT.txt (karşılaştırma)
+### **FINAL REPORT:**
 
+* **Structural:** 0.54 (katı kurallar)
+* **Semantic:** 0.98 (synonym yakalar)
+* **LLM:** 0.70 (klinik bakış)
 
+**SONUÇ:** Model iyi çalışıyor ama terminology standardize edilmeli
 
-   
+---
+
+### **Execution Flow**
+
+1. **comprehensive_evaluation.ipynb açılır**
+↓
+2. **CELL 0:** JSON normalization (otomatik düzeltme)
+↓
+3. **CELL 1:** Evaluation başlat
+↓
+4. **Loop: Her sample için**
+* ├─ Structural eval
+* ├─ Embedding eval (4 farklı model)
+* └─ LLM eval (Gemini)
+↓
+
+5. **Sonuçları kaydet:**
+* ├─ JSON (detaylı)
+* ├─ TXT (özet)
+* └─ FINAL_REPORT.txt (karşılaştırma)
+# THE TEXT ABOVE IS THE MOST RECENT
+
 # Medical Schema Extraction - Evaluation Framework
 
 A comprehensive, multi-level evaluation framework for medical information extraction systems, designed for academic research and publication.
