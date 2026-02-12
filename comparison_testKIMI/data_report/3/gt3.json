@@ -1,0 +1,356 @@
+{
+  "report": "FINDINGS: The study demonstrates no acute intracranial hemorrhage or infarct. There is stable small focal GRE low signal intensity in the left posterior parietal lobe. There is stable left frontal lobe and anterior body of the corpus callosum encephalomalacia. No abnormal focal enhancement or lesion identified. There are stable scattered white matter FLAIR signal intensity foci which could represent chronic small vessel white matter ischemic change. No evidence of mass lesion within the bilateral cerebellopontine angles. Bilateral hypoglossal canals are well visualized and unremarkable. The ventricles, bilateral orbital contents, and mastoid air cells are within normal limits. There is mucosal disease of the paranasal sinuses. There is stable bridging osteophyte of the cervical spine. Soft tissue is unremarkable. IMPRESSION: 1. STABLE POSTSURGICAL CHANGE WITH ENCEPHALOMALACIA IN THE LEFT PARASAGITTAL FRONTAL LOBE AND ANTERIOR BODY OF THE CORPUS CALLOSUM. NO ABNORMAL CONTRAST ENHANCEMENT OR LESION IDENTIFIED. 2. BILATERAL CEREBELLOPONTINE ANGLES SHOW NO EVIDENCE OF FOCAL MASS. BILATERAL HYPOGLOSSAL CANALS ARE VISUALIZED AND UNREMARKABLE. 3. STABLE SMALL FOCAL GRE LOW SIGNAL INTENSITY IN THE POSTERIOR LEFT PARIETAL LOBE.",
+  "inputs": [
+    {
+      "input": "FINDINGS: The study demonstrates no acute intracranial hemorrhage or infarct.",
+      "output": [
+        {
+          "general_finding": "Intracranial hemorrhage",
+          "specific_finding": "Acute intracranial hemorrhage",
+          "finding_presence": "absent",
+          "location": [
+            "intracranial"
+          ],
+          "degree": [
+            "acute"
+          ],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Infarct",
+          "specific_finding": "Acute infarct",
+          "finding_presence": "absent",
+          "location": [
+            "intracranial"
+          ],
+          "degree": [
+            "acute"
+          ],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "There is stable small focal GRE low signal intensity in the left posterior parietal lobe.",
+      "output": [
+        {
+          "general_finding": "Signal intensity",
+          "specific_finding": "GRE low signal intensity",
+          "finding_presence": "present",
+          "location": [
+            "left posterior parietal lobe"
+          ],
+          "degree": [
+            "small",
+            "focal"
+          ],
+          "measurement": null,
+          "comparison": "stable"
+        }
+      ]
+    },
+    {
+      "input": "There is stable left frontal lobe and anterior body of the corpus callosum encephalomalacia.",
+      "output": [
+        {
+          "general_finding": "Encephalomalacia",
+          "specific_finding": null,
+          "finding_presence": "present",
+          "location": [
+            "left frontal lobe",
+            "anterior body of the corpus callosum"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": "stable"
+        }
+      ]
+    },
+    {
+      "input": "No abnormal focal enhancement or lesion identified.",
+      "output": [
+        {
+          "general_finding": "Enhancement",
+          "specific_finding": "Focal enhancement",
+          "finding_presence": "absent",
+          "location": [
+            "brain"
+          ],
+          "degree": [
+            "abnormal"
+          ],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Lesion",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [
+            "brain"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "There are stable scattered white matter FLAIR signal intensity foci which could represent chronic small vessel white matter ischemic change.",
+      "output": [
+        {
+          "general_finding": "Signal intensity",
+          "specific_finding": "FLAIR signal intensity foci",
+          "finding_presence": "present",
+          "location": [
+            "white matter"
+          ],
+          "degree": [
+            "scattered"
+          ],
+          "measurement": null,
+          "comparison": "stable"
+        },
+        {
+          "general_finding": "Ischemic change",
+          "specific_finding": "Chronic small vessel ischemic change",
+          "finding_presence": "uncertain",
+          "location": [
+            "white matter"
+          ],
+          "degree": [
+            "chronic",
+            "small vessel"
+          ],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "No evidence of mass lesion within the bilateral cerebellopontine angles.",
+      "output": [
+        {
+          "general_finding": "Lesion",
+          "specific_finding": "Mass lesion",
+          "finding_presence": "absent",
+          "location": [
+            "bilateral cerebellopontine angles"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "Bilateral hypoglossal canals are well visualized and unremarkable.",
+      "output": [
+        {
+          "general_finding": "Hypoglossal canal abnormality",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [
+            "bilateral hypoglossal canals"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "The ventricles, bilateral orbital contents, and mastoid air cells are within normal limits.",
+      "output": [
+        {
+          "general_finding": "Ventricle abnormality",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [
+            "ventricles"
+          ],
+          "degree": [
+            "within normal limits"
+          ],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Orbital abnormality",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [
+            "bilateral orbital contents"
+          ],
+          "degree": [
+            "within normal limits"
+          ],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Mastoid abnormality",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [
+            "mastoid air cells"
+          ],
+          "degree": [
+            "within normal limits"
+          ],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "There is mucosal disease of the paranasal sinuses.",
+      "output": [
+        {
+          "general_finding": "Mucosal disease",
+          "specific_finding": null,
+          "finding_presence": "present",
+          "location": [
+            "paranasal sinuses"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "There is stable bridging osteophyte of the cervical spine.",
+      "output": [
+        {
+          "general_finding": "Osteophyte",
+          "specific_finding": "Bridging osteophyte",
+          "finding_presence": "present",
+          "location": [
+            "cervical spine"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": "stable"
+        }
+      ]
+    },
+    {
+      "input": "Soft tissue is unremarkable.",
+      "output": [
+        {
+          "general_finding": "Soft tissue abnormality",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [
+            "soft tissue"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "IMPRESSION: 1. STABLE POSTSURGICAL CHANGE WITH ENCEPHALOMALACIA IN THE LEFT PARASAGITTAL FRONTAL LOBE AND ANTERIOR BODY OF THE CORPUS CALLOSUM. NO ABNORMAL CONTRAST ENHANCEMENT OR LESION IDENTIFIED.",
+      "output": [
+        {
+          "general_finding": "Postsurgical change",
+          "specific_finding": null,
+          "finding_presence": "present",
+          "location": [
+            "left parasagittal frontal lobe",
+            "anterior body of the corpus callosum"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": "stable"
+        },
+        {
+          "general_finding": "Encephalomalacia",
+          "specific_finding": null,
+          "finding_presence": "present",
+          "location": [
+            "left parasagittal frontal lobe",
+            "anterior body of the corpus callosum"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": "stable"
+        },
+        {
+          "general_finding": "Enhancement",
+          "specific_finding": "Contrast enhancement",
+          "finding_presence": "absent",
+          "location": [
+            "brain"
+          ],
+          "degree": [
+            "abnormal"
+          ],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Lesion",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [
+            "brain"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "2. BILATERAL CEREBELLOPONTINE ANGLES SHOW NO EVIDENCE OF FOCAL MASS. BILATERAL HYPOGLOSSAL CANALS ARE VISUALIZED AND UNREMARKABLE.",
+      "output": [
+        {
+          "general_finding": "Mass",
+          "specific_finding": "Focal mass",
+          "finding_presence": "absent",
+          "location": [
+            "bilateral cerebellopontine angles"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Hypoglossal canal abnormality",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [
+            "bilateral hypoglossal canals"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "3. STABLE SMALL FOCAL GRE LOW SIGNAL INTENSITY IN THE POSTERIOR LEFT PARIETAL LOBE.",
+      "output": [
+        {
+          "general_finding": "Signal intensity",
+          "specific_finding": "GRE low signal intensity",
+          "finding_presence": "present",
+          "location": [
+            "posterior left parietal lobe"
+          ],
+          "degree": [
+            "small",
+            "focal"
+          ],
+          "measurement": null,
+          "comparison": "stable"
+        }
+      ]
+    }
+  ]
+}

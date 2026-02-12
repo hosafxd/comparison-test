@@ -1,0 +1,294 @@
+{
+  "report": "FINDINGS: AP portable chest July 29th 2002 at 0810 hours reviewed without comparisons: The right subclavian PICC catheter terminates in the superior vena cava approximately 3 cm below the carina. There is diffuse increased parenchymal opacity bilaterally, right greater than left consistent with pulmonary edema. The left diaphragm is obscured suggesting additional left lower lobe consolidation and / or pleural effusion may be present. No pneumothorax. Heart size upper limits of normal. Follow-up portable chest 7/29/2002 at 1420 hours reveals slight increase in patchy pulmonary opacities bilaterally especially at the upper lobes and periphery. This pattern is somewhat unusual for pulmonary edema alone, and may indicate some superimposed infection, or atypical inflammatory process such as eosinophilic pneumonia. Lines and tubes are stable. There is increased atelectasis in the right base. IMPRESSION: 1. INCREASING BILATERAL PULMONARY ILL-DEFINED OPACITIES CONSISTENT WITH PULMONARY EDEMA. OF NOTE THE SLIGHT PERIPHERAL PREDOMINANCE AND UPPER LOBE PROMINENCE ON THE LAST FILM CAN BE SEEN IN PATIENT'S WITH UNUSUAL CAUSES SUCH AS ATYPICAL INFECTION OR EOSINOPHILIC PNEUMONITIS. 2. INCREASING PATCHY PARENCHYMAL OPACITIES AS WELL AT THE BASES. ATELECTASIS VERSUS CONSOLIDATION.",
+  "inputs": [
+    {
+      "input": "FINDINGS: AP portable chest July 29th 2002 at 0810 hours reviewed without comparisons: The right subclavian PICC catheter terminates in the superior vena cava approximately 3 cm below the carina.",
+      "output": [
+        {
+          "general_finding": "Support device",
+          "specific_finding": "PICC catheter",
+          "finding_presence": "present",
+          "location": [
+            "right subclavian",
+            "superior vena cava"
+          ],
+          "degree": [],
+          "measurement": "3 cm below the carina",
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "There is diffuse increased parenchymal opacity bilaterally, right greater than left consistent with pulmonary edema.",
+      "output": [
+        {
+          "general_finding": "Opacity",
+          "specific_finding": "Parenchymal opacity",
+          "finding_presence": "present",
+          "location": [
+            "bilateral",
+            "right",
+            "left"
+          ],
+          "degree": [
+            "diffuse",
+            "increased",
+            "right greater than left"
+          ],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Edema",
+          "specific_finding": "Pulmonary edema",
+          "finding_presence": "present",
+          "location": [
+            "bilateral"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "The left diaphragm is obscured suggesting additional left lower lobe consolidation and / or pleural effusion may be present.",
+      "output": [
+        {
+          "general_finding": "Obscuration",
+          "specific_finding": "Obscured diaphragm",
+          "finding_presence": "present",
+          "location": [
+            "left diaphragm"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Consolidation",
+          "specific_finding": null,
+          "finding_presence": "uncertain",
+          "location": [
+            "left lower lobe"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Effusion",
+          "specific_finding": "Pleural effusion",
+          "finding_presence": "uncertain",
+          "location": [
+            "left"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "No pneumothorax.",
+      "output": [
+        {
+          "general_finding": "Pneumothorax",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "Heart size upper limits of normal.",
+      "output": [
+        {
+          "general_finding": "Cardiomegaly",
+          "specific_finding": null,
+          "finding_presence": "absent",
+          "location": [
+            "heart"
+          ],
+          "degree": [
+            "upper limits of normal"
+          ],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "Follow-up portable chest 7/29/2002 at 1420 hours reveals slight increase in patchy pulmonary opacities bilaterally especially at the upper lobes and periphery. This pattern is somewhat unusual for pulmonary edema alone, and may indicate some superimposed infection, or atypical inflammatory process such as eosinophilic pneumonia.",
+      "output": [
+        {
+          "general_finding": "Opacity",
+          "specific_finding": "Pulmonary opacities",
+          "finding_presence": "present",
+          "location": [
+            "bilateral",
+            "upper lobes",
+            "periphery"
+          ],
+          "degree": [
+            "patchy",
+            "slight increase"
+          ],
+          "measurement": null,
+          "comparison": "worsened"
+        },
+        {
+          "general_finding": "Edema",
+          "specific_finding": "Pulmonary edema",
+          "finding_presence": "uncertain",
+          "location": [],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Infection",
+          "specific_finding": "Superimposed infection",
+          "finding_presence": "uncertain",
+          "location": [],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Pneumonia",
+          "specific_finding": "Eosinophilic pneumonia",
+          "finding_presence": "uncertain",
+          "location": [],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "Lines and tubes are stable.",
+      "output": [
+        {
+          "general_finding": "Support device",
+          "specific_finding": "Lines and tubes",
+          "finding_presence": "present",
+          "location": [],
+          "degree": [],
+          "measurement": null,
+          "comparison": "stable"
+        }
+      ]
+    },
+    {
+      "input": "There is increased atelectasis in the right base.",
+      "output": [
+        {
+          "general_finding": "Atelectasis",
+          "specific_finding": null,
+          "finding_presence": "present",
+          "location": [
+            "right base"
+          ],
+          "degree": [
+            "increased"
+          ],
+          "measurement": null,
+          "comparison": "worsened"
+        }
+      ]
+    },
+    {
+      "input": "IMPRESSION: 1. INCREASING BILATERAL PULMONARY ILL-DEFINED OPACITIES CONSISTENT WITH PULMONARY EDEMA. OF NOTE THE SLIGHT PERIPHERAL PREDOMINANCE AND UPPER LOBE PROMINENCE ON THE LAST FILM CAN BE SEEN IN PATIENT'S WITH UNUSUAL CAUSES SUCH AS ATYPICAL INFECTION OR EOSINOPHILIC PNEUMONITIS.",
+      "output": [
+        {
+          "general_finding": "Opacity",
+          "specific_finding": "Ill-defined opacities",
+          "finding_presence": "present",
+          "location": [
+            "bilateral",
+            "pulmonary",
+            "peripheral",
+            "upper lobe"
+          ],
+          "degree": [
+            "increasing"
+          ],
+          "measurement": null,
+          "comparison": "worsened"
+        },
+        {
+          "general_finding": "Edema",
+          "specific_finding": "Pulmonary edema",
+          "finding_presence": "present",
+          "location": [],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Infection",
+          "specific_finding": "Atypical infection",
+          "finding_presence": "uncertain",
+          "location": [],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Pneumonitis",
+          "specific_finding": "Eosinophilic pneumonitis",
+          "finding_presence": "uncertain",
+          "location": [],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    },
+    {
+      "input": "2. INCREASING PATCHY PARENCHYMAL OPACITIES AS WELL AT THE BASES. ATELECTASIS VERSUS CONSOLIDATION.",
+      "output": [
+        {
+          "general_finding": "Opacity",
+          "specific_finding": "Parenchymal opacities",
+          "finding_presence": "present",
+          "location": [
+            "bases"
+          ],
+          "degree": [
+            "patchy",
+            "increasing"
+          ],
+          "measurement": null,
+          "comparison": "worsened"
+        },
+        {
+          "general_finding": "Atelectasis",
+          "specific_finding": null,
+          "finding_presence": "uncertain",
+          "location": [
+            "bases"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        },
+        {
+          "general_finding": "Consolidation",
+          "specific_finding": null,
+          "finding_presence": "uncertain",
+          "location": [
+            "bases"
+          ],
+          "degree": [],
+          "measurement": null,
+          "comparison": null
+        }
+      ]
+    }
+  ]
+}

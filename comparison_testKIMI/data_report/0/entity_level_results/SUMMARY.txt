@@ -1,0 +1,191 @@
+======================================================================
+ENTITY-LEVEL EVALUATION SUMMARY v2.1 (Professional)
+======================================================================
+
+Timestamp: 2026-02-11T15:48:12.529658
+Total samples: 4
+Successful: 4
+Failed: 0
+
+CONFIDENCE INTERVALS (95% Bootstrap):
+----------------------------------------------------------------------
+Structural F1: 0.546 [0.275, 0.817]
+
+PER-FIELD ERROR ANALYSIS:
+----------------------------------------------------------------------
+  degree                   :  39.1% error (25/64)
+  location                 :  37.5% error (24/64)
+  general_finding          :  31.2% error (20/64)
+  specific_finding         :  26.6% error (17/64)
+  finding_presence         :   6.2% error (4/64)
+
+PER-SAMPLE RESULTS:
+----------------------------------------------------------------------
+
+sample0.0.json:
+  📊 STRUCTURAL (Entity-Level):
+    Entities: GT=30, Pred=30
+    Precision: 0.900
+    Recall:    0.900
+    F1-Score:  0.900
+    TP: 27, FP: 3, FN: 3
+  🔬 Field-wise Accuracy:
+    finding: 0.956
+    location: 0.928
+    presence: 0.981
+    other: 0.938
+  🔍 SEMANTIC (Embeddings):
+    pubmedbert: 0.998 (n=27)
+    s_pubmedbert: 0.992 (n=27)
+    general_baseline: 0.954 (n=27)
+    neuml_pubmedbert: 0.956 (n=27)
+  ⚠️  Error Semantic Analysis:
+    FP pubmedbert: 0.995 (high=missed alignment)
+    FP s_pubmedbert: 0.981 (high=missed alignment)
+    FP general_baseline: 0.900 (high=missed alignment)
+    FP neuml_pubmedbert: 0.886 (high=missed alignment)
+  🤖 LLM:
+    gemini_pro: 0.920
+
+sample0.1.json:
+  📊 STRUCTURAL (Entity-Level):
+    Entities: GT=30, Pred=30
+    Precision: 0.300
+    Recall:    0.300
+    F1-Score:  0.300
+    TP: 9, FP: 21, FN: 21
+  🔬 Field-wise Accuracy:
+    finding: 0.904
+    location: 0.111
+    presence: 0.889
+    other: 0.406
+  🔍 SEMANTIC (Embeddings):
+    pubmedbert: 0.982 (n=9)
+    s_pubmedbert: 0.931 (n=9)
+    general_baseline: 0.644 (n=9)
+    neuml_pubmedbert: 0.642 (n=9)
+  ⚠️  Error Semantic Analysis:
+    FP pubmedbert: 0.991 (high=missed alignment)
+    FP s_pubmedbert: 0.960 (high=missed alignment)
+    FP general_baseline: 0.762 (high=missed alignment)
+    FP neuml_pubmedbert: 0.815 (high=missed alignment)
+  🤖 LLM:
+    gemini_pro: 0.040
+
+sample0.2.json:
+  📊 STRUCTURAL (Entity-Level):
+    Entities: GT=30, Pred=30
+    Precision: 0.733
+    Recall:    0.733
+    F1-Score:  0.733
+    TP: 22, FP: 8, FN: 8
+  🔬 Field-wise Accuracy:
+    finding: 0.890
+    location: 0.682
+    presence: 0.977
+    other: 0.909
+  🔍 SEMANTIC (Embeddings):
+    pubmedbert: 0.993 (n=22)
+    s_pubmedbert: 0.972 (n=22)
+    general_baseline: 0.871 (n=22)
+    neuml_pubmedbert: 0.861 (n=22)
+  ⚠️  Error Semantic Analysis:
+    FP pubmedbert: 0.995 (high=missed alignment)
+    FP s_pubmedbert: 0.975 (high=missed alignment)
+    FP general_baseline: 0.837 (high=missed alignment)
+    FP neuml_pubmedbert: 0.888 (high=missed alignment)
+  🤖 LLM:
+    gemini_pro: 0.540
+
+sample0.3.json:
+  📊 STRUCTURAL (Entity-Level):
+    Entities: GT=30, Pred=18
+    Precision: 0.333
+    Recall:    0.200
+    F1-Score:  0.250
+    TP: 6, FP: 12, FN: 24
+  🔬 Field-wise Accuracy:
+    finding: 0.711
+    location: 0.292
+    presence: 1.000
+    other: 0.667
+  🔍 SEMANTIC (Embeddings):
+    pubmedbert: 0.986 (n=6)
+    s_pubmedbert: 0.945 (n=6)
+    general_baseline: 0.676 (n=6)
+    neuml_pubmedbert: 0.701 (n=6)
+  ⚠️  Error Semantic Analysis:
+    FP pubmedbert: 0.990 (high=missed alignment)
+    FP s_pubmedbert: 0.956 (high=missed alignment)
+    FP general_baseline: 0.722 (high=missed alignment)
+    FP neuml_pubmedbert: 0.806 (high=missed alignment)
+  🤖 LLM:
+    gemini_pro: 0.000
+
+======================================================================
+COMPARISON TABLE (Structural vs Semantic vs LLM)
+----------------------------------------------------------------------
+Sample          Structural   PubMedBERT   S-PubMedB    LLM       
+----------------------------------------------------------------------
+0.0             0.900        0.998        0.992        0.920     
+0.1             0.300        0.982        0.931        0.040     
+0.2             0.733        0.993        0.972        0.540     
+0.3             0.250        0.986        0.945        0.000     
+
+======================================================================
+STRUCTURAL ERROR ANALYSIS
+----------------------------------------------------------------------
+Total Merged Entities: 0
+Total Split Entities: 0
+Total Contradictions: 0
+
+======================================================================
+CORRELATION ANALYSIS (Structural vs Semantic)
+----------------------------------------------------------------------
+structural_vs_pubmedbert:
+  Pearson r: 0.960
+  Structural: 0.546 ± 0.278
+  Semantic:   0.990 ± 0.006
+  ✅ High correlation: Metrics are aligned
+
+structural_vs_s_pubmedbert:
+  Pearson r: 0.956
+  Structural: 0.546 ± 0.278
+  Semantic:   0.960 ± 0.024
+  ✅ High correlation: Metrics are aligned
+
+structural_vs_general_baseline:
+  Pearson r: 0.989
+  Structural: 0.546 ± 0.278
+  Semantic:   0.786 ± 0.130
+  ✅ High correlation: Metrics are aligned
+
+structural_vs_neuml_pubmedbert:
+  Pearson r: 0.971
+  Structural: 0.546 ± 0.278
+  Semantic:   0.790 ± 0.125
+  ✅ High correlation: Metrics are aligned
+
+======================================================================
+SEMANTIC-STRUCTURAL DIVERGENCE ANALYSIS
+----------------------------------------------------------------------
+Mean Gap: 0.444
+Mean Normalized Gap: 1.420
+
+High Divergence Samples (semantic >> structural):
+  - sample0.1.json: Structural=0.300, Semantic=0.982
+    Interpretation: Meaning captured but exact matching failed
+  - sample0.3.json: Structural=0.250, Semantic=0.986
+    Interpretation: Meaning captured but exact matching failed
+
+======================================================================
+AGGREGATE STATISTICS
+----------------------------------------------------------------------
+
+Average Structural Precision: 0.567
+Average Structural Recall:    0.533
+Average Structural F1-Score:  0.546
+Average pubmedbert: 0.990 [0.984, 0.995]
+Average s_pubmedbert: 0.960 [0.938, 0.982]
+Average general_baseline: 0.786 [0.660, 0.933]
+Average neuml_pubmedbert: 0.790 [0.672, 0.908]

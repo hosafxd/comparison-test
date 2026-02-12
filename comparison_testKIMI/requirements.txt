@@ -1,0 +1,563 @@
+"""
+Complete Medical Schema Evaluation Pipeline
+===========================================
+End-to-end pipeline for evaluating medical schema extraction models
+
+This pipeline is designed for academic publication and includes:
+1. Proper train/test splitting with duplicate detection
+2. Multi-level evaluation (rule-based + embedding + LLM)
+3. Statistical significance testing
+4. Comprehensive reporting with visualizations
+"""
+
+import json
+import os
+import numpy as np
+from typing import Dict, List, Tuple
+from datetime import datetime
+import hashlib
+
+from medical_schema_evaluator import (
+    MedicalSchemaEvaluator, 
+    StatisticalAnalyzer
+)
+from llm_evaluator import (
+    LLMEvaluator,
+    EmbeddingBasedEvaluator
+)
+
+
+class ComprehensiveEvaluationPipeline:
+    """
+    Complete evaluation pipeline combining all evaluation methods
+    """
+    
+    def __init__(self, 
+                 use_llm: bool = True,
+                 use_embeddings: bool = True,
+                 llm_provider: str = 'gemini'):
+        """
+        Args:
+            use_llm: Enable LLM-based evaluation (requires API key)
+            use_embeddings: Enable embedding-based similarity
+            llm_provider: 'gemini', 'huggingface', or 'together'
+        """
+        self.structural_evaluator = MedicalSchemaEvaluator()
+        
+        self.use_llm = use_llm
+        self.llm_evaluator = None
+        if use_llm:
+            try:
+                self.llm_evaluator = LLMEvaluator(provider=llm_provider)
+                print(f"✓ LLM evaluator initialized ({llm_provider})")
+            except Exception as e:
+                print(f"⚠ LLM evaluator failed to initialize: {e}")
+                self.use_llm = False
+        
+        self.use_embeddings = use_embeddings
+        self.embedding_evaluator = None
+        if use_embeddings:
+            try:
+                self.embedding_evaluator = EmbeddingBasedEvaluator()
+                print("✓ Embedding evaluator initialized")
+            except Exception as e:
+                print(f"⚠ Embedding evaluator failed to initialize: {e}")
+                self.use_embeddings = False
+    
+    def run_complete_evaluation(self,
+                               ground_truth_path: str,
+                               predictions_path: str,
+                               output_dir: str = './evaluation_results',
+                               test_size: float = 0.2,
+                               random_seed: int = 42) -> Dict:
+        """
+        Run complete evaluation pipeline
+        
+        Steps:
+        1. Load and preprocess data
+        2. Detect duplicates
+        3. Split data properly
+        4. Match predictions with ground truth
+        5. Run multi-level evaluation
+        6. Statistical analysis
+        7. Generate comprehensive report
+        
+        Args:
+            ground_truth_path: Path to schema_train.json
+            predictions_path: Path to your model's predictions
+            output_dir: Directory for results
+            test_size: Fraction of data for testing
+            random_seed: Random seed for reproducibility
+            
+        Returns:
+            Complete evaluation results dictionary
+        """
+        print("\n" + "="*70)
+        print("MEDICAL SCHEMA EVALUATION PIPELINE")
+        print("="*70)
+        
+        # Create output directory
+        os.makedirs(output_dir, exist_ok=True)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        # Step 1: Load data
+        print("\n[1/7] Loading data...")
+        with open(ground_truth_path, 'r', encoding='utf-8') as f:
+            ground_truth = json.load(f)
+        with open(predictions_path, 'r', encoding='utf-8') as f:
+            predictions = json.load(f)
+        
+        print(f"  - Ground truth samples: {len(ground_truth)}")
+        print(f"  - Prediction samples: {len(predictions)}")
+        
+        # Step 2: Detect duplicates
+        print("\n[2/7] Detecting duplicates...")
+        duplicates = self.structural_evaluator.detect_duplicates(ground_truth)
+        print(f"  - Found {len(duplicates)} duplicate input groups")
+        print(f"  - Total duplicate samples: {sum(len(v) for v in duplicates.values())}")
+        
+        # Save duplicate report
+        with open(f"{output_dir}/duplicates_{timestamp}.json", 'w') as f:
+            json.dump({
+                'num_duplicate_groups': len(duplicates),
+                'duplicate_indices': {k: v for k, v in list(duplicates.items())[:5]},  # Sample
+                'note': 'Only first 5 groups shown'
+            }, f, indent=2)
+        
+        # Step 3: Split data
+        print("\n[3/7] Splitting data (stratified, no leakage)...")
+        train_data, test_data = self.structural_evaluator.stratified_split(
+            ground_truth, 
+            test_size=test_size,
+            random_state=random_seed
+        )
+        print(f"  - Train set: {len(train_data)} samples")
+        print(f"  - Test set: {len(test_data)} samples")
+        
+        # Step 4: Match predictions with test data
+        print("\n[4/7] Matching predictions with test data...")
+        matched_pairs = self._match_predictions(test_data, predictions)
+        print(f"  - Matched pairs: {len(matched_pairs)}")
+        print(f"  - Unmatched test samples: {len(test_data) - len(matched_pairs)}")
+        
+        # Step 5: Multi-level evaluation
+        print("\n[5/7] Running multi-level evaluation...")
+        
+        # 5a. Structural evaluation
+        print("  [5a] Structural (rule-based) evaluation...")
+        structural_results = []
+        for pair in matched_pairs:
+            result = self.structural_evaluator.compare_schemas(
+                pair['ground_truth'],
+                pair['prediction']
+            )
+            result['input'] = pair['input']
+            structural_results.append(result)
+        
+        structural_metrics = self.structural_evaluator.calculate_aggregate_metrics(
+            structural_results
+        )
+        print(f"      ✓ Overall F1: {structural_metrics.f1_score:.4f}")
+        
+        # 5b. Embedding-based evaluation
+        embedding_scores = []
+        if self.use_embeddings and self.embedding_evaluator:
+            print("  [5b] Semantic (embedding-based) evaluation...")
+            for pair in matched_pairs:
+                sim = self.embedding_evaluator.compute_schema_similarity(
+                    pair['ground_truth'],
+                    pair['prediction']
+                )
+                embedding_scores.append(sim)
+            print(f"      ✓ Avg semantic similarity: {np.mean(embedding_scores):.4f}")
+        else:
+            print("  [5b] Skipping embedding evaluation (not available)")
+        
+        # 5c. LLM-based evaluation
+        llm_results = []
+        if self.use_llm and self.llm_evaluator:
+            print("  [5c] Clinical (LLM-based) evaluation...")
+            print("      (This may take a few minutes...)")
+            
+            # Sample for LLM evaluation if dataset is large
+            sample_size = min(50, len(matched_pairs))  # Limit to 50 for free APIs
+            sampled_pairs = np.random.choice(
+                matched_pairs, 
+                size=sample_size, 
+                replace=False
+            ).tolist()
+            
+            for idx, pair in enumerate(sampled_pairs):
+                if idx % 10 == 0:
+                    print(f"      Progress: {idx}/{sample_size}")
+                
+                try:
+                    result = self.llm_evaluator.evaluate_schema_pair(
+                        pair['ground_truth'],
+                        pair['prediction'],
+                        pair['input']
+                    )
+                    llm_results.append(result)
+                except Exception as e:
+                    print(f"      Error on sample {idx}: {e}")
+            
+            print(f"      ✓ LLM evaluated {len(llm_results)} samples")
+        else:
+            print("  [5c] Skipping LLM evaluation (not available)")
+        
+        # Step 6: Statistical analysis
+        print("\n[6/7] Statistical analysis...")
+        overall_scores = [r['overall_score'] for r in structural_results]
+        
+        ci_lower, ci_upper = StatisticalAnalyzer.bootstrap_confidence_interval(
+            overall_scores
+        )
+        print(f"  - Mean score: {np.mean(overall_scores):.4f}")
+        print(f"  - 95% CI: [{ci_lower:.4f}, {ci_upper:.4f}]")
+        print(f"  - Std dev: {np.std(overall_scores):.4f}")
+        
+        # Step 7: Generate comprehensive report
+        print("\n[7/7] Generating comprehensive report...")
+        
+        report = self._compile_final_report(
+            structural_results=structural_results,
+            structural_metrics=structural_metrics,
+            embedding_scores=embedding_scores,
+            llm_results=llm_results,
+            test_data=test_data,
+            matched_pairs=matched_pairs,
+            timestamp=timestamp
+        )
+        
+        # Save all results
+        output_files = self._save_results(
+            report=report,
+            structural_results=structural_results,
+            llm_results=llm_results,
+            output_dir=output_dir,
+            timestamp=timestamp
+        )
+        
+        print("\n" + "="*70)
+        print("EVALUATION COMPLETE!")
+        print("="*70)
+        print(f"\nResults saved to: {output_dir}/")
+        for filename in output_files:
+            print(f"  - {filename}")
+        
+        return report
+    
+    def _match_predictions(self, 
+                          test_data: List[Dict], 
+                          predictions: List[Dict]) -> List[Dict]:
+        """
+        Match predictions with ground truth by input text
+        
+        Returns list of matched pairs
+        """
+        # Create lookup for predictions
+        pred_lookup = {
+            self._normalize_input(p['input']): p 
+            for p in predictions
+        }
+        
+        matched = []
+        for gt in test_data:
+            normalized_input = self._normalize_input(gt['input'])
+            pred = pred_lookup.get(normalized_input)
+            
+            if pred:
+                matched.append({
+                    'input': gt['input'],
+                    'ground_truth': gt,
+                    'prediction': pred
+                })
+        
+        return matched
+    
+    def _normalize_input(self, text: str) -> str:
+        """Normalize input text for matching"""
+        return text.strip().lower()
+    
+    def _compile_final_report(self, **kwargs) -> Dict:
+        """Compile all results into final report"""
+        
+        structural_results = kwargs['structural_results']
+        structural_metrics = kwargs['structural_metrics']
+        embedding_scores = kwargs['embedding_scores']
+        llm_results = kwargs['llm_results']
+        test_data = kwargs['test_data']
+        matched_pairs = kwargs['matched_pairs']
+        timestamp = kwargs['timestamp']
+        
+        report = {
+            'evaluation_metadata': {
+                'timestamp': timestamp,
+                'test_samples': len(test_data),
+                'matched_samples': len(matched_pairs),
+                'coverage': len(matched_pairs) / len(test_data) if test_data else 0
+            },
+            
+            'structural_evaluation': {
+                'overall_metrics': {
+                    'f1_score': float(structural_metrics.f1_score),
+                    'exact_match_rate': float(structural_metrics.exact_match),
+                    'mean_score': float(np.mean([r['overall_score'] for r in structural_results]))
+                },
+                'field_wise_accuracy': {
+                    field: float(score)
+                    for field, score in structural_metrics.field_wise_accuracy.items()
+                },
+                'confidence_interval_95': {
+                    'lower': float(StatisticalAnalyzer.bootstrap_confidence_interval(
+                        [r['overall_score'] for r in structural_results]
+                    )[0]),
+                    'upper': float(StatisticalAnalyzer.bootstrap_confidence_interval(
+                        [r['overall_score'] for r in structural_results]
+                    )[1])
+                }
+            },
+            
+            'semantic_evaluation': {
+                'enabled': len(embedding_scores) > 0,
+                'avg_similarity': float(np.mean(embedding_scores)) if embedding_scores else 0.0,
+                'std_similarity': float(np.std(embedding_scores)) if embedding_scores else 0.0
+            },
+            
+            'llm_evaluation': {
+                'enabled': len(llm_results) > 0,
+                'num_evaluated': len(llm_results),
+                'summary': self._summarize_llm_results(llm_results) if llm_results else {}
+            },
+            
+            'per_field_analysis': self._analyze_per_field_performance(structural_results),
+            
+            'error_analysis': self._analyze_errors(structural_results),
+            
+            'recommendations': self._generate_recommendations(
+                structural_metrics,
+                embedding_scores,
+                llm_results
+            )
+        }
+        
+        return report
+    
+    def _summarize_llm_results(self, llm_results: List[Dict]) -> Dict:
+        """Summarize LLM evaluation results"""
+        if not llm_results:
+            return {}
+        
+        # Extract scores
+        similarity_scores = [
+            r.get('similarity_score', 0.0) 
+            for r in llm_results 
+            if 'similarity_score' in r
+        ]
+        
+        # Clinical equivalence distribution
+        equivalence_dist = {}
+        for r in llm_results:
+            equiv = r.get('clinical_equivalence', 'unknown')
+            equivalence_dist[equiv] = equivalence_dist.get(equiv, 0) + 1
+        
+        return {
+            'avg_similarity': float(np.mean(similarity_scores)) if similarity_scores else 0.0,
+            'clinical_equivalence_distribution': equivalence_dist,
+            'high_agreement_rate': equivalence_dist.get('high', 0) / len(llm_results) if llm_results else 0.0
+        }
+    
+    def _analyze_per_field_performance(self, structural_results: List[Dict]) -> Dict:
+        """Analyze performance per field with statistics"""
+        
+        field_analysis = {}
+        
+        for field in ['abnormality', 'presence', 'location', 'degree', 'measurement']:
+            scores = []
+            for result in structural_results:
+                if field in result['field_scores']:
+                    scores.extend(result['field_scores'][field])
+            
+            if scores:
+                field_analysis[field] = {
+                    'mean': float(np.mean(scores)),
+                    'std': float(np.std(scores)),
+                    'min': float(np.min(scores)),
+                    'max': float(np.max(scores)),
+                    'perfect_matches': sum(s == 1.0 for s in scores),
+                    'total': len(scores),
+                    'perfect_rate': sum(s == 1.0 for s in scores) / len(scores)
+                }
+        
+        return field_analysis
+    
+    def _analyze_errors(self, structural_results: List[Dict]) -> Dict:
+        """Analyze common error patterns"""
+        
+        low_score_samples = [
+            r for r in structural_results 
+            if r['overall_score'] < 0.5
+        ]
+        
+        return {
+            'num_low_score_samples': len(low_score_samples),
+            'low_score_rate': len(low_score_samples) / len(structural_results) if structural_results else 0,
+            'common_issues': [
+                'Entity count mismatch' if any(
+                    r['num_gt_entities'] != r['num_pred_entities'] 
+                    for r in low_score_samples
+                ) else None,
+                'Location extraction errors' if any(
+                    np.mean(r['field_scores'].get('location', [0])) < 0.5
+                    for r in low_score_samples
+                ) else None,
+                'Presence detection errors' if any(
+                    np.mean(r['field_scores'].get('presence', [0])) < 0.5
+                    for r in low_score_samples
+                ) else None
+            ]
+        }
+    
+    def _generate_recommendations(self, 
+                                 structural_metrics,
+                                 embedding_scores,
+                                 llm_results) -> List[str]:
+        """Generate actionable recommendations based on results"""
+        
+        recommendations = []
+        
+        # Check field performance
+        for field, score in structural_metrics.field_wise_accuracy.items():
+            if score < 0.7:
+                recommendations.append(
+                    f"Improve {field} extraction (current: {score:.2%})"
+                )
+        
+        # Check overall performance
+        if structural_metrics.f1_score < 0.8:
+            recommendations.append(
+                "Consider ensemble methods or model fine-tuning"
+            )
+        
+        # Semantic vs structural gap
+        if embedding_scores and structural_metrics.f1_score < np.mean(embedding_scores) - 0.1:
+            recommendations.append(
+                "Large semantic-structural gap suggests formatting issues"
+            )
+        
+        return recommendations
+    
+    def _save_results(self, **kwargs) -> List[str]:
+        """Save all results to files"""
+        
+        output_dir = kwargs['output_dir']
+        timestamp = kwargs['timestamp']
+        
+        saved_files = []
+        
+        # Main report
+        report_path = f"{output_dir}/evaluation_report_{timestamp}.json"
+        with open(report_path, 'w', encoding='utf-8') as f:
+            json.dump(kwargs['report'], f, indent=2, ensure_ascii=False)
+        saved_files.append(report_path)
+        
+        # Detailed structural results
+        struct_path = f"{output_dir}/structural_results_{timestamp}.json"
+        with open(struct_path, 'w', encoding='utf-8') as f:
+            json.dump(kwargs['structural_results'], f, indent=2, ensure_ascii=False)
+        saved_files.append(struct_path)
+        
+        # LLM results if available
+        if kwargs['llm_results']:
+            llm_path = f"{output_dir}/llm_results_{timestamp}.json"
+            with open(llm_path, 'w', encoding='utf-8') as f:
+                json.dump(kwargs['llm_results'], f, indent=2, ensure_ascii=False)
+            saved_files.append(llm_path)
+        
+        # Human-readable summary
+        summary_path = f"{output_dir}/summary_{timestamp}.txt"
+        self._write_summary_text(kwargs['report'], summary_path)
+        saved_files.append(summary_path)
+        
+        return saved_files
+    
+    def _write_summary_text(self, report: Dict, output_path: str):
+        """Write human-readable summary"""
+        
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write("="*70 + "\n")
+            f.write("MEDICAL SCHEMA EXTRACTION - EVALUATION SUMMARY\n")
+            f.write("="*70 + "\n\n")
+            
+            f.write("OVERALL PERFORMANCE\n")
+            f.write("-" * 40 + "\n")
+            f.write(f"F1 Score: {report['structural_evaluation']['overall_metrics']['f1_score']:.4f}\n")
+            f.write(f"Exact Match Rate: {report['structural_evaluation']['overall_metrics']['exact_match_rate']:.2%}\n")
+            f.write(f"Samples Evaluated: {report['evaluation_metadata']['matched_samples']}\n\n")
+            
+            f.write("FIELD-WISE PERFORMANCE\n")
+            f.write("-" * 40 + "\n")
+            for field, score in report['structural_evaluation']['field_wise_accuracy'].items():
+                f.write(f"{field:15s}: {score:.4f}\n")
+            
+            f.write("\n")
+            f.write("RECOMMENDATIONS\n")
+            f.write("-" * 40 + "\n")
+            for rec in report['recommendations']:
+                f.write(f"• {rec}\n")
+
+
+# ============================================================================
+# Main Execution
+# ============================================================================
+
+def main():
+    """Main execution function"""
+    
+    print("""
+╔══════════════════════════════════════════════════════════════════╗
+║   Medical Schema Extraction - Comprehensive Evaluation Pipeline ║
+╚══════════════════════════════════════════════════════════════════╝
+    """)
+    
+    # Configuration
+    GROUND_TRUTH_PATH = '/mnt/user-data/uploads/schema_train.json'
+    PREDICTIONS_PATH = 'model_predictions.json'  # Your model's output
+    OUTPUT_DIR = './evaluation_results'
+    
+    # Check if predictions file exists
+    if not os.path.exists(PREDICTIONS_PATH):
+        print(f"\n⚠ Predictions file not found: {PREDICTIONS_PATH}")
+        print("\nTo run evaluation, you need:")
+        print("1. Your model's predictions in the same format as schema_train.json")
+        print("2. Each prediction must have 'instruction', 'input', and 'output' fields")
+        print("\nExample prediction format:")
+        print(json.dumps({
+            "instruction": "Extract medical entities...",
+            "input": "No fracture in skull.",
+            "output": [{"abnormality": "fracture", "presence": "absent", "location": ["skull"]}]
+        }, indent=2))
+        return
+    
+    # Initialize pipeline
+    pipeline = ComprehensiveEvaluationPipeline(
+        use_llm=True,  # Set to False if no API key
+        use_embeddings=True,
+        llm_provider='gemini'  # or 'huggingface'
+    )
+    
+    # Run evaluation
+    results = pipeline.run_complete_evaluation(
+        ground_truth_path=GROUND_TRUTH_PATH,
+        predictions_path=PREDICTIONS_PATH,
+        output_dir=OUTPUT_DIR,
+        test_size=0.2,
+        random_seed=42
+    )
+    
+    print("\n✓ Evaluation complete!")
+    print(f"\nOverall F1 Score: {results['structural_evaluation']['overall_metrics']['f1_score']:.4f}")
+
+
+if __name__ == '__main__':
+    main()

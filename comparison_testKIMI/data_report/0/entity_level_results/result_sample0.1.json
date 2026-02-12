@@ -1,0 +1,140 @@
+{
+  "gt_file": "gt0.json",
+  "pred_file": "sample0.1.json",
+  "timestamp": "2026-02-11T15:16:13.877514",
+  "status": "success",
+  "entity_metrics": {
+    "total_gt": 30,
+    "total_pred": 30,
+    "true_positives": 9,
+    "false_positives": 21,
+    "false_negatives": 21,
+    "precision": 0.3,
+    "recall": 0.3,
+    "f1_score": 0.3,
+    "avg_match_quality": 0.646587539822967,
+    "contradictions": 0,
+    "field_wise_accuracy": {
+      "finding": 0.9037946065266927,
+      "location": 0.1111111111111111,
+      "presence": 0.8888888888888888,
+      "other": 0.4062525276784543
+    },
+    "structural_errors": {
+      "merged_entities": [],
+      "split_entities": [],
+      "degree_mixups": [],
+      "contradictions": []
+    },
+    "field_error_analysis": {
+      "general_finding": {
+        "accuracy": 0.3333333333333333,
+        "total": 9,
+        "errors": 6,
+        "error_rate": 0.6666666666666666
+      },
+      "specific_finding": {
+        "accuracy": 0.5555555555555556,
+        "total": 9,
+        "errors": 4,
+        "error_rate": 0.4444444444444444
+      },
+      "finding_presence": {
+        "accuracy": 0.7777777777777778,
+        "total": 9,
+        "errors": 2,
+        "error_rate": 0.2222222222222222
+      },
+      "location": {
+        "accuracy": 0.1111111111111111,
+        "total": 9,
+        "errors": 8,
+        "error_rate": 0.8888888888888888
+      },
+      "degree": {
+        "accuracy": 0.0,
+        "total": 9,
+        "errors": 9,
+        "error_rate": 1.0
+      }
+    }
+  },
+  "embedding_scores": {
+    "pubmedbert": {
+      "mean": 0.9823787013689677,
+      "std": 0.00389797350330657,
+      "count": 9,
+      "type": "true_positives"
+    },
+    "s_pubmedbert": {
+      "mean": 0.9310050275590684,
+      "std": 0.019171067680242192,
+      "count": 9,
+      "type": "true_positives"
+    },
+    "general_baseline": {
+      "mean": 0.6443010767300924,
+      "std": 0.10598920907095072,
+      "count": 9,
+      "type": "true_positives"
+    },
+    "neuml_pubmedbert": {
+      "mean": 0.6415153112676408,
+      "std": 0.07735112694316866,
+      "count": 9,
+      "type": "true_positives"
+    }
+  },
+  "error_analysis": {
+    "fp_semantic_scores": {
+      "pubmedbert": {
+        "mean": 0.9906004582132611,
+        "std": 0.003018789551081332,
+        "count": 21
+      },
+      "s_pubmedbert": {
+        "mean": 0.959911911260514,
+        "std": 0.007017513163921019,
+        "count": 21
+      },
+      "general_baseline": {
+        "mean": 0.7622881077584767,
+        "std": 0.06110354578910124,
+        "count": 21
+      },
+      "neuml_pubmedbert": {
+        "mean": 0.8153473479407174,
+        "std": 0.05046843776314044,
+        "count": 21
+      }
+    },
+    "fn_semantic_scores": {
+      "pubmedbert": {
+        "mean": 0.9902980270839873,
+        "std": 0.0035322606408523024,
+        "count": 21
+      },
+      "s_pubmedbert": {
+        "mean": 0.960412411462693,
+        "std": 0.006898650580176066,
+        "count": 21
+      },
+      "general_baseline": {
+        "mean": 0.7696364777428764,
+        "std": 0.053467713841455315,
+        "count": 21
+      },
+      "neuml_pubmedbert": {
+        "mean": 0.8126346412159148,
+        "std": 0.05181615388313902,
+        "count": 21
+      }
+    }
+  },
+  "llm_scores": {
+    "gemini_pro": {
+      "mean": 0.04,
+      "count": 5
+    }
+  }
+}

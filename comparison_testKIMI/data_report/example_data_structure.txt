@@ -1,0 +1,17 @@
+{
+  "report": "Full radiology report...",  // ← MASTER TEXT
+  "inputs": [                            // ← SENTENCE-LEVEL SPLITS
+    {
+      "input": "Single sentence from report",
+      "output": [                        // ← ENTITIES for this sentence
+        {
+          "general_finding": "...",
+          "specific_finding": "...",
+          "finding_presence": "present/absent/uncertain",
+          ...
+        }
+      ]
+    }
+  ]
+}
+

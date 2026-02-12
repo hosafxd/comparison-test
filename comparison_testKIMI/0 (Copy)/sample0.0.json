@@ -1,0 +1,449 @@
+{
+  "report": "FINDINGS: Visualized thyroid gland is unremarkable. The heart is normal in size with a trace physiologic pericardial effusion. No coronary artery calcification is seen. No mediastinal, axillary, or hilar lymphadenopathy is present. The ascending aorta is normal in caliber. Bovine aortic arch anatomy is present. No surface irregularity is seen along thoracic aorta to suggest intimal flap, dissection, or atheromatous ulcer. Lack of noncontrast images limits ability to assess for intramural hematoma. The main pulmonary arteries normal in caliber. While not a dedicated evaluation for pulmonary embolus, no filling defects are seen within the pulmonary arterial vasculature. The trachea and central airways are patent. No focal consolidation, effusion or edema is present. Visualized portions of the upper abdomen demonstrate a 8-mm hypodense lesion at the hepatic dome, which is too small to characterize. Fatty liver is present. Cholelithiasis is present without evidence of cholecystitis. Visualized osseous structures demonstrate no suspicious osseous lesions. IMPRESSION: 1. NO ACUTE CARDIOPULMONARY FINDINGS. NO SURFACE IRREGULARITY OF THE THORACIC AORTA TO SUGGEST INTIMAL FLAP, DISSECTION, OR PENETRATING ATHEROMATOUS ULCER. 2. ABILITY TO EVALUATE FOR INTRAMURAL HEMATOMA IS LIMITED WITHOUT NONCONTRAST IMAGES. INTRAMURAL HEMATOMA IS UNLIKELY GIVEN NO EVIDENCE OF AORTIC WALL THICKENING. NONETHELESS, IF CLINICAL CONCERN PERSISTS, SUGGEST RE-IMAGING WITH NONCONTRAST EVALUATION. 3. CHOLELITHIASIS WITHOUT CHOLECYSTITIS.",
+  "inputs": [
+    {
+      "input": "FINDINGS: Visualized thyroid gland is unremarkable.",
+      "output": [
+        {
+          "general_finding": "Thyroid abnormality",
+          "specific_finding": "None",
+          "finding_presence": "absent",
+          "location": [
+            "thyroid gland"
+          ],
+          "degree": [
+            "unremarkable"
+          ],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "The heart is normal in size with a trace physiologic pericardial effusion.",
+      "output": [
+        {
+          "general_finding": "Cardiomegaly",
+          "specific_finding": "None",
+          "finding_presence": "absent",
+          "location": [
+            "heart"
+          ],
+          "degree": [
+            "normal"
+          ],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Effusion",
+          "specific_finding": "Pericardial effusion",
+          "finding_presence": "present",
+          "location": [
+            "pericardium"
+          ],
+          "degree": [
+            "moderate"
+          ],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "No coronary artery calcification is seen.",
+      "output": [
+        {
+          "general_finding": "Calcification",
+          "specific_finding": "Coronary artery calcification",
+          "finding_presence": "absent",
+          "location": [
+            "coronary artery"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "No mediastinal, axillary, or hilar lymphadenopathy is present.",
+      "output": [
+        {
+          "general_finding": "Lymphadenopathy",
+          "specific_finding": "None",
+          "finding_presence": "absent",
+          "location": [
+            "mediastinal",
+            "hilar"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "The ascending aorta is normal in caliber.",
+      "output": [
+        {
+          "general_finding": "Aortic dilatation",
+          "specific_finding": "None",
+          "finding_presence": "present",
+          "location": [
+            "ascending aorta"
+          ],
+          "degree": [
+            "mild"
+          ],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "Bovine aortic arch anatomy is present.",
+      "output": [
+        {
+          "general_finding": "Anatomical variant",
+          "specific_finding": "Bovine aortic arch anatomy",
+          "finding_presence": "present",
+          "location": [
+            "aortic arch"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "No surface irregularity is seen along thoracic aorta to suggest intimal flap, dissection, or atheromatous ulcer.",
+      "output": [
+        {
+          "general_finding": "Surface irregularity",
+          "specific_finding": "Intimal flap",
+          "finding_presence": "absent",
+          "location": [
+            "thoracic aorta"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Surface irregularity",
+          "specific_finding": "Dissection",
+          "finding_presence": "absent",
+          "location": [
+            "thoracic aorta"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Surface irregularity",
+          "specific_finding": "Atheromatous ulcer",
+          "finding_presence": "present",
+          "location": [
+            "abdominal aorta"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "Lack of noncontrast images limits ability to assess for intramural hematoma.",
+      "output": [
+        {
+          "general_finding": "Hematoma",
+          "specific_finding": "Intramural hematoma",
+          "finding_presence": "absent",
+          "location": [],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "The main pulmonary arteries normal in caliber.",
+      "output": [
+        {
+          "general_finding": "Pulmonary artery dilatation",
+          "specific_finding": "None",
+          "finding_presence": "absent",
+          "location": [
+            "main pulmonary arteries"
+          ],
+          "degree": [
+            "normal"
+          ],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "While not a dedicated evaluation for pulmonary embolus, no filling defects are seen within the pulmonary arterial vasculature.",
+      "output": [
+        {
+          "general_finding": "Filling defect",
+          "specific_finding": "Pulmonary embolus",
+          "finding_presence": "absent",
+          "location": [
+            "pulmonary arterial vasculature"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "The trachea and central airways are patent.",
+      "output": [
+        {
+          "general_finding": "Airway obstruction",
+          "specific_finding": "None",
+          "finding_presence": "absent",
+          "location": [
+            "trachea",
+            "central airways"
+          ],
+          "degree": [
+            "narrowed"
+          ],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "No focal consolidation, effusion or edema is present.",
+      "output": [
+        {
+          "general_finding": "Consolidation",
+          "specific_finding": "Focal consolidation",
+          "finding_presence": "absent",
+          "location": [],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Effusion",
+          "specific_finding": "None",
+          "finding_presence": "absent",
+          "location": [],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Edema",
+          "specific_finding": "None",
+          "finding_presence": "absent",
+          "location": [],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "Visualized portions of the upper abdomen demonstrate a 8-mm hypodense lesion at the hepatic dome, which is too small to characterize.",
+      "output": [
+        {
+          "general_finding": "Lesion",
+          "specific_finding": "Hypodense lesion",
+          "finding_presence": "present",
+          "location": [
+            "liver"
+          ],
+          "degree": [
+            "too small to characterize"
+          ],
+          "measurement": "10-mm",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "Fatty liver is present.",
+      "output": [
+        {
+          "general_finding": "Steatosis",
+          "specific_finding": "Fatty liver",
+          "finding_presence": "present",
+          "location": [
+            "liver"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "Cholelithiasis is present without evidence of cholecystitis.",
+      "output": [
+        {
+          "general_finding": "Cholelithiasis",
+          "specific_finding": "None",
+          "finding_presence": "present",
+          "location": [
+            "gallbladder"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Cholecystitis",
+          "specific_finding": "None",
+          "finding_presence": "absent",
+          "location": [
+            "gallbladder"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "Visualized osseous structures demonstrate no suspicious osseous lesions.",
+      "output": [
+        {
+          "general_finding": "Lesion",
+          "specific_finding": "Osseous lesion",
+          "finding_presence": "present",
+          "location": [
+            "osseous structures"
+          ],
+          "degree": [
+            "suspicious"
+          ],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "IMPRESSION: 1. NO ACUTE CARDIOPULMONARY FINDINGS.",
+      "output": [
+        {
+          "general_finding": "Cardiopulmonary findings",
+          "specific_finding": "Acute cardiopulmonary findings",
+          "finding_presence": "absent",
+          "location": [
+            "cardiopulmonary"
+          ],
+          "degree": [
+            "acute"
+          ],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "NO SURFACE IRREGULARITY OF THE THORACIC AORTA TO SUGGEST INTIMAL FLAP, DISSECTION, OR PENETRATING ATHEROMATOUS ULCER.",
+      "output": [
+        {
+          "general_finding": "Surface irregularity",
+          "specific_finding": "Intimal flap",
+          "finding_presence": "absent",
+          "location": [
+            "thoracic aorta"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Surface irregularity",
+          "specific_finding": "Dissection",
+          "finding_presence": "absent",
+          "location": [
+            "thoracic aorta"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Surface irregularity",
+          "specific_finding": "Penetrating atheromatous ulcer",
+          "finding_presence": "absent",
+          "location": [
+            "thoracic aorta"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "2. ABILITY TO EVALUATE FOR INTRAMURAL HEMATOMA IS LIMITED WITHOUT NONCONTRAST IMAGES. INTRAMURAL HEMATOMA IS UNLIKELY GIVEN NO EVIDENCE OF AORTIC WALL THICKENING. NONETHELESS, IF CLINICAL CONCERN PERSISTS, SUGGEST RE-IMAGING WITH NONCONTRAST EVALUATION.",
+      "output": [
+        {
+          "general_finding": "Hematoma",
+          "specific_finding": "Intramural hematoma",
+          "finding_presence": "uncertain",
+          "location": [
+            "aortic wall"
+          ],
+          "degree": [
+            "suspicious"
+          ],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Wall thickening",
+          "specific_finding": "Aortic wall thickening",
+          "finding_presence": "absent",
+          "location": [
+            "aortic wall"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    },
+    {
+      "input": "3. CHOLELITHIASIS WITHOUT CHOLECYSTITIS.",
+      "output": [
+        {
+          "general_finding": "Cholelithiasis",
+          "specific_finding": "None",
+          "finding_presence": "present",
+          "location": [
+            "gallbladder"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        },
+        {
+          "general_finding": "Cholecystitis",
+          "specific_finding": "None",
+          "finding_presence": "absent",
+          "location": [
+            "gallbladder"
+          ],
+          "degree": [],
+          "measurement": "None",
+          "comparison": "None"
+        }
+      ]
+    }
+  ]
+}
