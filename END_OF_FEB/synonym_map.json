@@ -1,0 +1,543 @@
+{
+  "_comment": "Medical NER synonym map for chest CT evaluation. Format: 'surface_term': { 'canonical': str, 'confidence': float }. Confidence 1.0 = definitionally identical. 0.9 = clinically near-identical. 0.8 = strong synonym, occasional specificity gap. 0.7 = related but ambiguous — partial credit. Compound keys use '|' as separator between obs and location parts.",
+  "_confidence_guide": {
+    "1.00": "Definitionally identical — no clinical difference",
+    "0.95": "Near-identical in chest CT context, safe to equate",
+    "0.90": "Standard medical synonym, consistently used interchangeably",
+    "0.85": "Strong synonym — minor specificity gap acceptable",
+    "0.80": "Common synonym — slight semantic difference, context-dependent",
+    "0.75": "Related term — some overlap but not full equivalence",
+    "0.70": "Debatable — partial credit only, flag for review"
+  },
+  "effusion": {
+    "canonical": "effusion",
+    "confidence": 1.0
+  },
+  "fluid accumulation": {
+    "canonical": "effusion",
+    "confidence": 0.95
+  },
+  "fluid collection": {
+    "canonical": "effusion",
+    "confidence": 0.9
+  },
+  "pleural fluid": {
+    "canonical": "effusion",
+    "confidence": 0.95
+  },
+  "pleural collection": {
+    "canonical": "effusion",
+    "confidence": 0.9
+  },
+  "bilateral pleural collection": {
+    "canonical": "effusion",
+    "confidence": 0.9
+  },
+  "pleural effusion": {
+    "canonical": "effusion",
+    "confidence": 1.0
+  },
+  "pericardial fluid": {
+    "canonical": "pericardial effusion",
+    "confidence": 0.95
+  },
+  "pericardial fluid collection": {
+    "canonical": "pericardial effusion",
+    "confidence": 0.9
+  },
+  "pericardial effusion": {
+    "canonical": "pericardial effusion",
+    "confidence": 1.0
+  },
+  "splenomegaly": {
+    "canonical": "splenomegaly",
+    "confidence": 1.0
+  },
+  "splenic enlargement": {
+    "canonical": "splenomegaly",
+    "confidence": 0.95
+  },
+  "enlarged|spleen": {
+    "canonical": "splenomegaly",
+    "confidence": 0.95
+  },
+  "enlargement|spleen": {
+    "canonical": "splenomegaly",
+    "confidence": 0.95
+  },
+  "enlarged spleen": {
+    "canonical": "splenomegaly",
+    "confidence": 0.95
+  },
+  "spleen enlargement": {
+    "canonical": "splenomegaly",
+    "confidence": 0.95
+  },
+  "cardiomegaly": {
+    "canonical": "cardiomegaly",
+    "confidence": 1.0
+  },
+  "cardiac enlargement": {
+    "canonical": "cardiomegaly",
+    "confidence": 0.95
+  },
+  "enlarged heart": {
+    "canonical": "cardiomegaly",
+    "confidence": 0.95
+  },
+  "enlarged|heart": {
+    "canonical": "cardiomegaly",
+    "confidence": 0.95
+  },
+  "enlargement|heart": {
+    "canonical": "cardiomegaly",
+    "confidence": 0.95
+  },
+  "enlarged|cardiac": {
+    "canonical": "cardiomegaly",
+    "confidence": 0.95
+  },
+  "enlargement|cardiac": {
+    "canonical": "cardiomegaly",
+    "confidence": 0.95
+  },
+  "hepatomegaly": {
+    "canonical": "hepatomegaly",
+    "confidence": 1.0
+  },
+  "hepatic enlargement": {
+    "canonical": "hepatomegaly",
+    "confidence": 0.95
+  },
+  "enlarged hepatic silhouette": {
+    "canonical": "hepatomegaly",
+    "confidence": 0.9
+  },
+  "liver enlargement": {
+    "canonical": "hepatomegaly",
+    "confidence": 0.95
+  },
+  "enlarged liver": {
+    "canonical": "hepatomegaly",
+    "confidence": 0.95
+  },
+  "enlarged|liver": {
+    "canonical": "hepatomegaly",
+    "confidence": 0.95
+  },
+  "enlargement|liver": {
+    "canonical": "hepatomegaly",
+    "confidence": 0.95
+  },
+  "enlarged|hepatic": {
+    "canonical": "hepatomegaly",
+    "confidence": 0.95
+  },
+  "enlargement|hepatic": {
+    "canonical": "hepatomegaly",
+    "confidence": 0.95
+  },
+  "lymphadenopathy": {
+    "canonical": "lymphadenopathy",
+    "confidence": 1.0
+  },
+  "adenopathy": {
+    "canonical": "lymphadenopathy",
+    "confidence": 1.0
+  },
+  "lymph node enlargement": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.95
+  },
+  "lymphadenopathy mediastinal": {
+    "canonical": "lymphadenopathy",
+    "confidence": 1.0
+  },
+  "enlarged lymph nodes": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.95
+  },
+  "enlarged lymph node": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.95
+  },
+  "enlarged|lymph node": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.95
+  },
+  "enlarged|lymph nodes": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.95
+  },
+  "enlargement|lymph node": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.95
+  },
+  "enlargement|lymph nodes": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.95
+  },
+  "enlarged|lymphatic": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.9
+  },
+  "enlargement|lymphatic": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.9
+  },
+  "mediastinal lymph node enlargement": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.95
+  },
+  "hilar lymph node enlargement": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.9
+  },
+  "atelectasis": {
+    "canonical": "atelectasis",
+    "confidence": 1.0
+  },
+  "collapse": {
+    "canonical": "atelectasis",
+    "confidence": 0.85
+  },
+  "volume loss": {
+    "canonical": "atelectasis",
+    "confidence": 0.9
+  },
+  "linear atelectasis": {
+    "canonical": "atelectasis",
+    "confidence": 0.95
+  },
+  "subsegmental atelectasis": {
+    "canonical": "atelectasis",
+    "confidence": 0.95
+  },
+  "discoid atelectasis": {
+    "canonical": "atelectasis",
+    "confidence": 0.95
+  },
+  "bibasilar atelectasis": {
+    "canonical": "atelectasis",
+    "confidence": 0.95
+  },
+  "basilar atelectasis": {
+    "canonical": "atelectasis",
+    "confidence": 0.95
+  },
+  "basal atelectasis": {
+    "canonical": "atelectasis",
+    "confidence": 0.95
+  },
+  "partial collapse": {
+    "canonical": "atelectasis",
+    "confidence": 0.85
+  },
+  "nodule": {
+    "canonical": "nodule",
+    "confidence": 1.0
+  },
+  "pulmonary nodule": {
+    "canonical": "nodule",
+    "confidence": 0.95
+  },
+  "lung nodule": {
+    "canonical": "nodule",
+    "confidence": 0.95
+  },
+  "subsolid nodule": {
+    "canonical": "nodule",
+    "confidence": 0.9
+  },
+  "ground glass nodule": {
+    "canonical": "nodule",
+    "confidence": 0.85
+  },
+  "small opacity": {
+    "canonical": "nodule",
+    "confidence": 0.7,
+    "_note": "Debatable — opacity is broader than nodule. Use partial credit."
+  },
+  "coronary artery calcification": {
+    "canonical": "coronary artery calcification",
+    "confidence": 1.0
+  },
+  "calcified plaque": {
+    "canonical": "coronary artery calcification",
+    "confidence": 0.8,
+    "_note": "Confident only in coronary artery context. May be aortic plaque in other contexts."
+  },
+  "arterial calcification": {
+    "canonical": "calcification",
+    "confidence": 0.8
+  },
+  "vascular calcification": {
+    "canonical": "calcification",
+    "confidence": 0.8
+  },
+  "calcification": {
+    "canonical": "calcification",
+    "confidence": 1.0
+  },
+  "calcifications": {
+    "canonical": "calcification",
+    "confidence": 1.0
+  },
+  "calcification|coronary artery": {
+    "canonical": "coronary artery calcification",
+    "confidence": 1.0
+  },
+  "calcification|coronary arteries": {
+    "canonical": "coronary artery calcification",
+    "confidence": 1.0
+  },
+  "calcification|coronary": {
+    "canonical": "coronary artery calcification",
+    "confidence": 0.95
+  },
+  "coronary artery calcification|left anterior descending artery": {
+    "canonical": "coronary artery calcification",
+    "confidence": 1.0
+  },
+  "calcification|left anterior descending": {
+    "canonical": "coronary artery calcification",
+    "confidence": 1.0
+  },
+  "calcification|lad": {
+    "canonical": "coronary artery calcification",
+    "confidence": 1.0
+  },
+  "lytic lesions": {
+    "canonical": "lytic lesions",
+    "confidence": 1.0
+  },
+  "lytic bone lesions": {
+    "canonical": "lytic lesions",
+    "confidence": 0.95
+  },
+  "osseous lytic lesions": {
+    "canonical": "lytic lesions",
+    "confidence": 0.95
+  },
+  "lytic lesions|bones": {
+    "canonical": "lytic lesions",
+    "confidence": 1.0
+  },
+  "lytic lesions|osseous": {
+    "canonical": "lytic lesions",
+    "confidence": 0.95
+  },
+  "lytic lesions|visualized bones": {
+    "canonical": "lytic lesions",
+    "confidence": 1.0
+  },
+  "blastic lesions": {
+    "canonical": "blastic lesions",
+    "confidence": 1.0,
+    "_note": "Do NOT map to lytic lesions — opposite pathology"
+  },
+  "pneumothorax": {
+    "canonical": "pneumothorax",
+    "confidence": 1.0
+  },
+  "pericardial fluid|pericardial": {
+    "canonical": "pericardial effusion",
+    "confidence": 1.0
+  },
+  "fluid accumulation|pericardial": {
+    "canonical": "pericardial effusion",
+    "confidence": 0.95
+  },
+  "fluid collection|pericardial": {
+    "canonical": "pericardial effusion",
+    "confidence": 0.9
+  },
+  "effusion|pleural": {
+    "canonical": "effusion",
+    "confidence": 1.0
+  },
+  "effusion|bilateral": {
+    "canonical": "effusion",
+    "confidence": 1.0
+  },
+  "effusion|pericardial": {
+    "canonical": "pericardial effusion",
+    "confidence": 1.0
+  },
+  "dissection|aorta": {
+    "canonical": "aortic dissection",
+    "confidence": 1.0
+  },
+  "dissection|thoracic aorta": {
+    "canonical": "aortic dissection",
+    "confidence": 1.0
+  },
+  "aortic dissection": {
+    "canonical": "aortic dissection",
+    "confidence": 1.0
+  },
+  "aneurysm|aorta": {
+    "canonical": "aortic aneurysm",
+    "confidence": 1.0
+  },
+  "aneurysm|descending aorta": {
+    "canonical": "aortic aneurysm",
+    "confidence": 1.0
+  },
+  "aortic aneurysm": {
+    "canonical": "aortic aneurysm",
+    "confidence": 1.0
+  },
+  "calcification|aorta": {
+    "canonical": "aortic calcification",
+    "confidence": 1.0
+  },
+  "calcification|aortic": {
+    "canonical": "aortic calcification",
+    "confidence": 1.0
+  },
+  "aortic calcification": {
+    "canonical": "aortic calcification",
+    "confidence": 1.0
+  },
+  "atelectasis|left lung base": {
+    "canonical": "atelectasis",
+    "confidence": 1.0
+  },
+  "atelectasis|left base": {
+    "canonical": "atelectasis",
+    "confidence": 1.0
+  },
+  "atelectasis|right lung base": {
+    "canonical": "atelectasis",
+    "confidence": 1.0
+  },
+  "atelectasis|right base": {
+    "canonical": "atelectasis",
+    "confidence": 1.0
+  },
+  "atelectasis|bilateral": {
+    "canonical": "atelectasis",
+    "confidence": 1.0
+  },
+  "effusion|left lung base": {
+    "canonical": "effusion",
+    "confidence": 1.0
+  },
+  "effusion|right lung base": {
+    "canonical": "effusion",
+    "confidence": 1.0
+  },
+  "effusion|left": {
+    "canonical": "effusion",
+    "confidence": 1.0
+  },
+  "effusion|right": {
+    "canonical": "effusion",
+    "confidence": 1.0
+  },
+  "thrombus|svc": {
+    "canonical": "svc thrombosis",
+    "confidence": 1.0
+  },
+  "thrombus|superior vena cava": {
+    "canonical": "svc thrombosis",
+    "confidence": 1.0
+  },
+  "svc thrombosis": {
+    "canonical": "svc thrombosis",
+    "confidence": 1.0
+  },
+  "svc thrombus": {
+    "canonical": "svc thrombosis",
+    "confidence": 1.0
+  },
+  "metastases|liver": {
+    "canonical": "hepatic metastases",
+    "confidence": 1.0
+  },
+  "metastatic disease|liver": {
+    "canonical": "hepatic metastases",
+    "confidence": 1.0
+  },
+  "hepatic metastases": {
+    "canonical": "hepatic metastases",
+    "confidence": 1.0
+  },
+  "liver metastases": {
+    "canonical": "hepatic metastases",
+    "confidence": 1.0
+  },
+  "opacity|right lung base": {
+    "canonical": "opacity",
+    "confidence": 0.95
+  },
+  "opacity|left lung base": {
+    "canonical": "opacity",
+    "confidence": 0.95
+  },
+  "opacity|right lower lobe": {
+    "canonical": "opacity",
+    "confidence": 0.95
+  },
+  "opacity|left lower lobe": {
+    "canonical": "opacity",
+    "confidence": 0.95
+  },
+  "fibrosis|bilateral paramediastinal": {
+    "canonical": "paramediastinal fibrosis",
+    "confidence": 1.0
+  },
+  "paramediastinal fibrosis": {
+    "canonical": "paramediastinal fibrosis",
+    "confidence": 1.0
+  },
+  "enlargement|mediastinal lymph nodes": {
+    "canonical": "lymphadenopathy",
+    "confidence": 0.95
+  },
+  "stenosis|aorta": {
+    "canonical": "aortic stenosis",
+    "confidence": 1.0
+  },
+  "aortic stenosis": {
+    "canonical": "aortic stenosis",
+    "confidence": 1.0
+  },
+  "osseous metastases": {
+    "canonical": "lytic lesions",
+    "confidence": 0.7
+  },
+  "calcified plaque|coronary artery": {
+    "canonical": "coronary artery calcification",
+    "confidence": 0.9
+  },
+  "coronary artery|calcified plaque": {
+    "canonical": "coronary artery calcification",
+    "confidence": 0.9
+  },
+  "arterial calcification|left anterior descending artery": {
+    "canonical": "coronary artery calcification",
+    "confidence": 0.85
+  },
+  "left anterior descending artery|arterial calcification": {
+    "canonical": "coronary artery calcification",
+    "confidence": 0.85
+  },
+  "arterial calcification|lad": {
+    "canonical": "coronary artery calcification",
+    "confidence": 0.85
+  },
+  "lad|arterial calcification": {
+    "canonical": "coronary artery calcification",
+    "confidence": 0.85
+  },
+  "pleural fluid|bilateral": {
+    "canonical": "effusion",
+    "confidence": 0.95
+  },
+  "bilateral|pleural fluid": {
+    "canonical": "effusion",
+    "confidence": 0.95
+  }
+}
