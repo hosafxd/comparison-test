@@ -1,0 +1,77 @@
+{
+  "dataset": "",
+  "doc_key": "unit_test",
+  "report": "CT of the chest demonstrates a moderate left-sided pleural effusion with associated left lower lobe atelectasis. The cardiac silhouette appears mildly enlarged. A small pericardial effusion is noted. Coronary artery calcifications are identified at the left anterior descending artery. No pneumothorax is visualized. Subcarinal and mediastinal lymph node enlargement is present. The liver appears enlarged in the upper abdominal structures.",
+  "entities": [
+    {
+      "observation": "effusion",
+      "observation_presence": "present",
+      "location": [
+        "left",
+        "pleural"
+      ],
+      "degree": [
+        "moderate"
+      ]
+    },
+    {
+      "observation": "cardiomegaly",
+      "observation_presence": "present",
+      "location": [],
+      "degree": [
+        "mild"
+      ]
+    },
+    {
+      "observation": "coronary artery calcification",
+      "observation_presence": "present",
+      "location": [
+        "left anterior descending artery"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "lymphadenopathy",
+      "observation_presence": "present",
+      "location": [
+        "subcarinal",
+        "mediastinal"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "pulmonary embolism",
+      "observation_presence": "present",
+      "location": [
+        "bilateral pulmonary arteries"
+      ],
+      "degree": [
+        "acute"
+      ]
+    },
+    {
+      "observation": "tracheal deviation",
+      "observation_presence": "present",
+      "location": [
+        "trachea"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "esophageal wall thickening",
+      "observation_presence": "present",
+      "location": [
+        "esophagus"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "adrenal nodule",
+      "observation_presence": "present",
+      "location": [
+        "left adrenal gland"
+      ],
+      "degree": []
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": 85,
+  "report": "FINDINGS: There are small axillary and mediastinal lymph nodes that do not meet CT requirement for pathologic enlargement. There are scattered vascular calcifications. There is no pericardial effusion. The heart and great vessels are otherwise unremarkable. Lung windows reveal somewhat nodular biapical scarring, unchanged from prior study. There are scattered somewhat ground glass nodular opacities at the left base. There has been overall improvement in the ill-defined opacities previously noted within the right middle and lower lobes. Minimal residual interstitial thickening and / or scarring remains. The incompletely visualized upper abdomen reveals a biliary stent. There is new pneumobilia. There has been interval increase in the size and number of now innumerable rounded low attenuation foci throughout the liver, consistent with metastatic disease. There is prominence of the pancreatic head with dilatation of the pancreatic duct and distal atrophy. Surgical clips are present in the region of the tail of the pancreas and streak artifact somewhat limits evaluation of that locale. There is elevation of the left hemidiaphragm. The incompletely visualized kidneys and adrenals are grossly unremarkable. Soft tissue densities within the left upper quadrant likely represents opacified loops of small bowel. BONE WINDOWS: Osseous structures demonstrate degenerative changes, without suspicious lytic or blastic foci. IMPRESSION: 1) Interval increase in size and number of innumerable low attenuation foci within the liver. Appearance is worrisome / consistent with metastatic disease. 2) There has been interval improvement in the patchy right middle lobe and right lower lobe opacities demonstrating a somewhat central lobular distribution. Appearance of distribution likely represents aspiration and / or aspiration pneumonia. New somewhat nodular ground glass opacities at the left base likely also represent aspiration, however, given patient's history of metastatic disease a metastatic spread to this locale cannot be excluded and if clinically indicated follow up should be performed to assess resolution.",
+  "entities": [
+    {
+      "observation": "small",
+      "observation_presence": "present",
+      "location": [
+        "axillary lymph nodes",
+        "mediastinal lymph nodes"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "enlargement",
+      "observation_presence": "absent",
+      "location": [
+        "axillary lymph nodes",
+        "mediastinal lymph nodes"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "vascular calcifications",
+      "observation_presence": "present",
+      "location": [],
+      "degree": [
+        "scattered"
+      ]
+    },
+    {
+      "observation": "pericardial effusion",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "unremarkable",
+      "observation_presence": "present",
+      "location": [
+        "heart",
+        "great vessels"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "scarring",
+      "observation_presence": "present",
+      "location": [
+        "biapical"
+      ],
+      "degree": [
+        "nodular"
+      ]
+    },
+    {
+      "observation": "ground glass opacities",
+      "observation_presence": "present",
+      "location": [
+        "left base"
+      ],
+      "degree": [
+        "nodular"
+      ]
+    },
+    {
+      "observation": "opacities",
+      "observation_presence": "present",
+      "location": [
+        "right middle lobe",
+        "right lower lobe"
+      ],
+      "degree": [
+        "patchy",
+        "central lobular distribution"
+      ]
+    },
+    {
+      "observation": "interstitial thickening",
+      "observation_presence": "present",
+      "location": [
+        "right middle lobe",
+        "right lower lobe"
+      ],
+      "degree": [
+        "minimal",
+        "residual"
+      ]
+    },
+    {
+      "observation": "scarring",
+      "observation_presence": "present",
+      "location": [],
+      "degree": [
+        "residual"
+      ]
+    },
+    {
+      "observation": "stent",
+      "observation_presence": "present",
+      "location": [
+        "biliary"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "pneumobilia",
+      "observation_presence": "present",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "low attenuation foci",
+      "observation_presence": "present",
+      "location": [
+        "liver"
+      ],
+      "degree": [
+        "innumerable",
+        "rounded"
+      ]
+    },
+    {
+      "observation": "metastatic disease",
+      "observation_presence": "present",
+      "location": [
+        "liver"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "prominence",
+      "observation_presence": "present",
+      "location": [
+        "pancreatic head"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "dilatation",
+      "observation_presence": "present",
+      "location": [
+        "pancreatic duct"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "atrophy",
+      "observation_presence": "present",
+      "location": [
+        "distal",
+        "pancreatic duct"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "surgical clips",
+      "observation_presence": "present",
+      "location": [
+        "tail of the pancreas"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "streak artifact",
+      "observation_presence": "present",
+      "location": [
+        "tail of the pancreas"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "elevation",
+      "observation_presence": "present",
+      "location": [
+        "left hemidiaphragm"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "unremarkable",
+      "observation_presence": "present",
+      "location": [
+        "kidneys",
+        "adrenals"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "soft tissue densities",
+      "observation_presence": "present",
+      "location": [
+        "left upper quadrant"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "opacified loops of small bowel",
+      "observation_presence": "uncertain",
+      "location": [
+        "left upper quadrant"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "degenerative changes",
+      "observation_presence": "present",
+      "location": [
+        "osseous structures"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "lytic foci",
+      "observation_presence": "absent",
+      "location": [
+        "osseous structures"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "blastic foci",
+      "observation_presence": "absent",
+      "location": [
+        "osseous structures"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "aspiration pneumonia",
+      "observation_presence": "uncertain",
+      "location": [
+        "right middle lobe",
+        "right lower lobe"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "aspiration",
+      "observation_presence": "uncertain",
+      "location": [
+        "left base"
+      ],
+      "degree": [
+        "somewhat nodular ground glass"
+      ]
+    },
+    {
+      "observation": "metastatic spread",
+      "observation_presence": "uncertain",
+      "location": [
+        "left base"
+      ],
+      "degree": []
+    }
+  ]
+}

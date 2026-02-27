@@ -1,0 +1,251 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": 76,
+  "report": "FINDINGS: The upper margin of imaging is the junction of the brachiocephalic veins. A large thrombus originating above the imaged region fills more than half the lumen of the upper SVC encircling the PICC line and ends just above insertion of azygos vein. Inferior to that the lumen of the SVC is patent for a length of 6 cm to the cavoatrial junction (4 B: 83 and 504:31). The pulmonary arteries are enlarged centrally, but free of emboli. The large hyperdense (45 HU) fluid collection, with a small gas bubble (4 B: 96), that surrounds the ascending aorta is unchanged, 2.9 cm in largest diameter at the level of left coronary artery (4:111), likely a post-surgical hematoma. A single aortic lumen runs from the repaired aortic valve to the proximal end of the aortic arch, about 5 cm long (6 a: 12-40), continuing in a large aortic dissection running through the thoracic aorta to the abdomen; evaluated in more detail on last CT torso. A large fenestration of the intimal flap is still present in the proximal descending aorta. The descending aorta is aneurysmal; and there is a mild increase in transverse diameter at multiple levels; for example from 4.8 cm to 5 cm (6:41 to 4:91). Small lymph nodes in the mediastinum do not meet the CT criteria for pathologic enlargement. There is no hilar or axillary lymphadenopathy according to size criteria. There is a trace pericardial effusion. The airways are patent to the subsegmental levels. There are similar ground-glass patchy airspace opacities in both lungs. There is stable opacity at the right lung base concerning for aspiration. Small bilateral, nonhemorrhagic pleural effusions and adjacent bibasilar atelectasis are unchanged. OSSEOUS STRUCTURES: Mild deformity in the posterior left ribs, likely from prior fracture. No suspicious lytic or sclerotic lesion. Right second rib fracture is not imaged. IMPRESSION: 1. Thrombus in upper SVC originates in brachiocephalic veins surround PICC line. 6 cm of SVC is patent from azygos insertion to cavoatrial junction. 2. Similar configuration of aortic dissection, incompletely imaged and better demonstrated on Torso CT on _ _ _. 3. Mild interval increase in transverse diameter of descending thoracic aorta. 4. Similar nonhemorrhagic mild-to-moderate bilateral pleural effusions and adjacent atelectasis. 5. Persistent bilateral ground-glass opacities, worse at the right lung base. DiffDg includes aspiration, infection, or atelectasis. Item 1, 2, 4 and 5 discussed with Dr. _ _ _ _ _ _ by Dr. _ _ _ _ _ _ from Radiology at 8:00 p. m. on _ _ _. Email sent to Dr. _ _ _ _ _ _ and Dr. _ _ _ _ _ _; and d / _ _ _ _ _ _ _ _ _ by phone on _ _ _ at 5 pm.",
+  "entities": [
+    {
+      "observation": "thrombus",
+      "observation_presence": "present",
+      "location": [
+        "upper SVC",
+        "brachiocephalic veins",
+        "PICC line",
+        "azygos vein"
+      ],
+      "degree": [
+        "large"
+      ]
+    },
+    {
+      "observation": "patent",
+      "observation_presence": "present",
+      "location": [
+        "SVC",
+        "azygos insertion",
+        "cavoatrial junction"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "enlarged",
+      "observation_presence": "present",
+      "location": [
+        "pulmonary arteries"
+      ],
+      "degree": [
+        "centrally"
+      ]
+    },
+    {
+      "observation": "emboli",
+      "observation_presence": "absent",
+      "location": [
+        "pulmonary arteries"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "fluid collection",
+      "observation_presence": "present",
+      "location": [
+        "ascending aorta"
+      ],
+      "degree": [
+        "large",
+        "hyperdense"
+      ]
+    },
+    {
+      "observation": "gas bubble",
+      "observation_presence": "present",
+      "location": [
+        "ascending aorta"
+      ],
+      "degree": [
+        "small"
+      ]
+    },
+    {
+      "observation": "hematoma",
+      "observation_presence": "uncertain",
+      "location": [
+        "ascending aorta"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "repaired",
+      "observation_presence": "present",
+      "location": [
+        "aortic valve"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "single",
+      "observation_presence": "present",
+      "location": [
+        "aortic lumen from the repaired aortic valve to the proximal end of the aortic arch"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "aortic dissection",
+      "observation_presence": "present",
+      "location": [
+        "thoracic aorta",
+        "abdomen"
+      ],
+      "degree": [
+        "large"
+      ]
+    },
+    {
+      "observation": "fenestration",
+      "observation_presence": "present",
+      "location": [
+        "intimal flap",
+        "proximal descending aorta"
+      ],
+      "degree": [
+        "large"
+      ]
+    },
+    {
+      "observation": "aneurysmal",
+      "observation_presence": "present",
+      "location": [
+        "descending aorta"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "small",
+      "observation_presence": "present",
+      "location": [
+        "mediastinum lymph nodes"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "enlargement",
+      "observation_presence": "absent",
+      "location": [
+        "mediastinal lymph nodes"
+      ],
+      "degree": [
+        "pathologic"
+      ]
+    },
+    {
+      "observation": "lymphadenopathy",
+      "observation_presence": "absent",
+      "location": [
+        "hilar",
+        "axillary"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "pericardial effusion",
+      "observation_presence": "present",
+      "location": [],
+      "degree": [
+        "trace"
+      ]
+    },
+    {
+      "observation": "patent",
+      "observation_presence": "present",
+      "location": [
+        "airways to the subsegmental levels"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "ground-glass opacities",
+      "observation_presence": "present",
+      "location": [
+        "both lungs"
+      ],
+      "degree": [
+        "ground-glass",
+        "patchy"
+      ]
+    },
+    {
+      "observation": "opacity",
+      "observation_presence": "present",
+      "location": [
+        "right lung base"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "aspiration",
+      "observation_presence": "uncertain",
+      "location": [
+        "right lung base"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "pleural effusions",
+      "observation_presence": "present",
+      "location": [
+        "bilateral"
+      ],
+      "degree": [
+        "small",
+        "nonhemorrhagic",
+        "mild-to-moderate"
+      ]
+    },
+    {
+      "observation": "atelectasis",
+      "observation_presence": "present",
+      "location": [
+        "adjacent bibasilar"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "deformity",
+      "observation_presence": "present",
+      "location": [
+        "posterior left ribs"
+      ],
+      "degree": [
+        "mild"
+      ]
+    },
+    {
+      "observation": "fracture",
+      "observation_presence": "uncertain",
+      "location": [
+        "posterior left ribs"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "lytic lesion",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "sclerotic lesion",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "fracture",
+      "observation_presence": "absent",
+      "location": [
+        "right second rib"
+      ],
+      "degree": []
+    }
+  ]
+}

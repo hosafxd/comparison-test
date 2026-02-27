@@ -1,0 +1,113 @@
+======================================================================
+ENTITY-LEVEL EVALUATION SUMMARY v3.0
+(Mixed-Method Field Scoring + Composite)
+======================================================================
+
+Timestamp: 2026-02-21T19:29:11.370299
+Total samples: 2
+Successful: 2
+Failed: 0
+
+CONFIDENCE INTERVALS (95% Bootstrap):
+----------------------------------------------------------------------
+Structural F1: 0.836 [0.691, 0.982]
+
+RULE-BASED VALIDATION SUMMARY:
+----------------------------------------------------------------------
+  sample1.0.json: 0 violations (E:0 W:0 I:0) | ontology: 18%
+  sample1.1.json: 1 violations (E:1 W:0 I:0) | ontology: 25%
+
+PER-FIELD ERROR ANALYSIS (exact match):
+----------------------------------------------------------------------
+  observation              :  34.8% error (16/46)
+  degree                   :  19.6% error (9/46)
+  location                 :  17.4% error (8/46)
+  observation_presence     :   2.2% error (1/46)
+
+====================================================================================================
+COMPARISON TABLE
+----------------------------------------------------------------------------------------------------
+Sample          F1       FL(mean)   Coverage   FL(adj)    LLM      Composite    Rules 
+----------------------------------------------------------------------------------------------------
+1.0             0.982    0.950      0.964      0.916      0.960    0.8792       0     
+1.1             0.691    0.432      0.679      0.293      0.550    0.1612       1     
+
+======================================================================
+PER-SAMPLE DETAILED RESULTS
+----------------------------------------------------------------------
+
+sample1.0.json:
+  STRUCTURAL:
+    Entities: GT=27, Pred=28
+    Precision: 0.964  Recall: 1.000  F1: 0.982
+    TP=27  FP=1  FN=0
+  SAPBERT FIELD-WISE ACCURACY:
+    finding: 0.983
+    location: 0.997
+    presence: 1.000
+    other: 0.864
+  MIXED-METHOD FIELD SCORES (weighted mean: 0.950):
+    observation         : 0.963
+    location            : 0.982
+    degree              : 0.864
+    Coverage:  0.964
+    Adjusted:  0.916
+  LLM:
+    gemini_pro: 0.960 (n=5)
+  COMPOSITE: 0.8792
+
+sample1.1.json:
+  STRUCTURAL:
+    Entities: GT=27, Pred=28
+    Precision: 0.679  Recall: 0.704  F1: 0.691
+    TP=19  FP=9  FN=8
+  SAPBERT FIELD-WISE ACCURACY:
+    finding: 0.677
+    location: 0.916
+    presence: 0.947
+    other: 0.754
+  MIXED-METHOD FIELD SCORES (weighted mean: 0.432):
+    observation         : 0.210
+    location            : 0.653
+    degree              : 0.754
+    Coverage:  0.679
+    Adjusted:  0.293
+  LLM:
+    gemini_pro: 0.550 (n=5)
+  COMPOSITE: 0.1612
+  CONTRADICTIONS: 1
+    - ?: GT=absent vs Pred=present
+
+======================================================================
+FIELD-LEVEL SCORES PER SAMPLE
+----------------------------------------------------------------------
+
+  sample1.0.json (weighted: 0.950, coverage: 0.964, adjusted: 0.916):
+    observation         : 0.963
+    location            : 0.982
+    degree              : 0.864
+
+  sample1.1.json (weighted: 0.432, coverage: 0.679, adjusted: 0.293):
+    observation         : 0.210
+    location            : 0.653
+    degree              : 0.754
+
+======================================================================
+STRUCTURAL ERROR ANALYSIS
+----------------------------------------------------------------------
+Total Merged Entities: 0
+Total Split Entities:  0
+Total Contradictions:  1
+
+CONTRADICTION EXAMPLES:
+  1. Unknown: GT='absent' vs Pred='present'
+
+======================================================================
+AGGREGATE STATISTICS
+----------------------------------------------------------------------
+
+Avg Structural Precision: 0.821
+Avg Structural Recall:    0.852
+Avg Structural F1:        0.836
+Avg FL(adjusted):         0.604 [0.293, 0.916]
+Avg Composite:            0.5202 [0.1612, 0.8792]

@@ -1,0 +1,103 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": 100,
+  "report": "FINDINGS: Coronary artery calcification is noted in the left anterior descending artery. There is mild bilateral pleural effusion. Hepatomegaly is present with fatty changes. The spleen appears enlarged. Mediastinal lymphadenopathy is seen with nodes measuring up to 1.2 cm. There is no pneumothorax or pericardial effusion. Minimal atelectasis is present at the left lung base. A small nodule is identified in the right upper lobe. No suspicious lytic lesions are seen in the visualized bones.",
+  "entities": [
+    {
+      "observation": "calcification",
+      "observation_presence": "present",
+      "location": [
+        "coronary artery",
+        "left anterior descending artery"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "fluid accumulation",
+      "observation_presence": "present",
+      "location": [
+        "pleural space",
+        "bilateral"
+      ],
+      "degree": [
+        "mild"
+      ]
+    },
+    {
+      "observation": "enlargement",
+      "observation_presence": "present",
+      "location": [
+        "liver"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "enlarged",
+      "observation_presence": "present",
+      "location": [
+        "spleen"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "enlarged lymph nodes",
+      "observation_presence": "present",
+      "location": [
+        "mediastinum"
+      ],
+      "degree": [
+        "up to 1.2 cm"
+      ]
+    },
+    {
+      "observation": "pneumothorax",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "fluid accumulation",
+      "observation_presence": "absent",
+      "location": [
+        "pericardial"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "collapse",
+      "observation_presence": "present",
+      "location": [
+        "left lower lobe"
+      ],
+      "degree": [
+        "minimal"
+      ]
+    },
+    {
+      "observation": "nodule",
+      "observation_presence": "present",
+      "location": [
+        "right upper lobe"
+      ],
+      "degree": [
+        "small"
+      ]
+    },
+    {
+      "observation": "lytic lesions",
+      "observation_presence": "absent",
+      "location": [
+        "osseous structures"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "fatty changes",
+      "observation_presence": "present",
+      "location": [
+        "liver"
+      ],
+      "degree": []
+    }
+  ]
+}

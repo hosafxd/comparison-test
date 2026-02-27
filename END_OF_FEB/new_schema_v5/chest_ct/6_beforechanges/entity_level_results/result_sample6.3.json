@@ -1,0 +1,219 @@
+{
+  "gt_file": "gt6.json",
+  "pred_file": "sample6.3.json",
+  "timestamp": "2026-02-24T19:17:40.502949",
+  "status": "success",
+  "entity_metrics": {
+    "total_gt": 8,
+    "total_pred": 8,
+    "true_positives": 4,
+    "false_positives": 4,
+    "false_negatives": 4,
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1_score": 0.5,
+    "avg_match_quality": 0.9999999999999999,
+    "contradictions": 0,
+    "field_wise_accuracy": {
+      "finding": 1.0,
+      "location": 1.0,
+      "presence": 1.0,
+      "other": 1.0
+    },
+    "structural_errors": {
+      "merged_entities": [],
+      "split_entities": [],
+      "degree_mixups": [],
+      "contradictions": []
+    },
+    "field_error_analysis": {
+      "observation": {
+        "accuracy": 1.0,
+        "total": 4,
+        "errors": 0,
+        "error_rate": 0.0
+      },
+      "observation_presence": {
+        "accuracy": 1.0,
+        "total": 4,
+        "errors": 0,
+        "error_rate": 0.0
+      },
+      "location": {
+        "accuracy": 1.0,
+        "total": 4,
+        "errors": 0,
+        "error_rate": 0.0
+      },
+      "degree": {
+        "accuracy": 1.0,
+        "total": 4,
+        "errors": 0,
+        "error_rate": 0.0
+      }
+    }
+  },
+  "field_level_scores": {
+    "weighted_mean": 1.0,
+    "per_field": {
+      "observation": 1.0,
+      "location": 1.0,
+      "degree": 1.0
+    },
+    "coverage": 0.5,
+    "adjusted_score": 0.5,
+    "tp_count": 4,
+    "pair_scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "llm_scores": {
+    "gemini_pro": {
+      "mean": 1.0,
+      "count": 4
+    }
+  },
+  "composite_score": 0.5,
+  "fp_fn_analysis": {
+    "fp_count": 4,
+    "fn_count": 4,
+    "fp_severity": 0.25,
+    "fn_severity": 0.75,
+    "fp_detail": {
+      "count": 4,
+      "present_ratio": 0.25,
+      "presence_distribution": {
+        "present": 1,
+        "absent": 2,
+        "uncertain": 1
+      },
+      "location_fill_rate": 0.5,
+      "degree_fill_rate": 0.5,
+      "entities": [
+        {
+          "observation": "effusion",
+          "observation_presence": "absent",
+          "location": [
+            "left",
+            "pleural"
+          ],
+          "degree": [
+            "moderate"
+          ]
+        },
+        {
+          "observation": "cardiomegaly",
+          "observation_presence": "absent",
+          "location": [],
+          "degree": [
+            "mild"
+          ]
+        },
+        {
+          "observation": "coronary artery calcification",
+          "observation_presence": "uncertain",
+          "location": [
+            "left anterior descending artery"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "pneumothorax",
+          "observation_presence": "present",
+          "location": [],
+          "degree": []
+        }
+      ]
+    },
+    "fn_detail": {
+      "count": 4,
+      "present_ratio": 0.75,
+      "presence_distribution": {
+        "present": 3,
+        "absent": 1,
+        "uncertain": 0
+      },
+      "location_fill_rate": 0.5,
+      "degree_fill_rate": 0.5,
+      "entities": [
+        {
+          "observation": "effusion",
+          "observation_presence": "present",
+          "location": [
+            "left",
+            "pleural"
+          ],
+          "degree": [
+            "moderate"
+          ]
+        },
+        {
+          "observation": "cardiomegaly",
+          "observation_presence": "present",
+          "location": [],
+          "degree": [
+            "mild"
+          ]
+        },
+        {
+          "observation": "coronary artery calcification",
+          "observation_presence": "present",
+          "location": [
+            "left anterior descending artery"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "pneumothorax",
+          "observation_presence": "absent",
+          "location": [],
+          "degree": []
+        }
+      ]
+    }
+  },
+  "v2_metadata": {
+    "detected_modality": "chest_ct",
+    "rule_violations": [
+      {
+        "rule_id": "PRES-001",
+        "severity": "error",
+        "message": "Finding marked 'absent' but has severity degrees: ['moderate']",
+        "field": "degree"
+      },
+      {
+        "rule_id": "PRES-001",
+        "severity": "error",
+        "message": "Finding marked 'absent' but has severity degrees: ['mild']",
+        "field": "degree"
+      }
+    ],
+    "rule_violation_count": 2,
+    "rule_violation_by_severity": {
+      "error": 2,
+      "warning": 0,
+      "info": 0
+    },
+    "workflow_stats": {
+      "ontology_match_rate": 0.75,
+      "category_distribution": {
+        "unknown": 2,
+        "atelectasis_collapse": 1,
+        "cardiac_structural_functional": 1,
+        "pericardial_disorders": 1,
+        "coronary_artery_findings": 1,
+        "pleural_disorders": 1,
+        "thoracic_masses_nodules": 1
+      },
+      "conflicts_detected": [],
+      "unmatched_findings": [
+        "effusion",
+        "hepatomegaly"
+      ]
+    },
+    "validation_applied": true
+  }
+}

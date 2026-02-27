@@ -1,0 +1,243 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": 30,
+  "report": "FINDINGS: Since _ _ _, the large, infiltrating left paramediastinal mass has minimally increased. For example, at the level of the arch vessels, the shortest diameter of the soft tissue lesion extending to the lateral tracheal wall, grew from 18 mm to 21 mm. The lesion is still inseparable from the left walls of the aorta, esophagus and the trachea without frank invasion. The lesion also encases great velssels. There is no bone erosion. Scattered mediastinal lymph nodes are unchanged with no lymphadenopathy using CT criteria. There is no pleural or pericardial effusion. Airways are patent to the subsegmental level. The aorta is severely atherosclerotic. Prior aortic valve replacement is noted. Coronary artery calcification, great vessels atherosclerosis and mitral annulus calcifications are unchanged. Right middle lobe atelectasis, slightly improved since _ _ _, still worse than in _ _ _. Left lower lobe atelectasis is likely due to left hemidiaphragm elevation. Bilateral paramediastinal radiation fibrosis is stable. 6-mm right lower lobe triangular opacity is unchanged since _ _ _, likely benign (4:125). The upper thoracic spine is heterogeneous, demineralized and one vertebra is more sclerotic than in _ _ _, could be due to permeative tumor involvement or treatment changes. This study was not tailored for subdiaphragmatic evaluation except to note unchanged thickening of the left adrenal gland and prior cholecystectomy. IMPRESSION: 1. Minimal enlargement of left paramediastinal mass, still encasing the great vessels, inseparable from the aortic arch and the lateral wall of the esophagus and trachea with no frank invasion. 2. Heterogeneous upper thoracic spine could be due to demineralization, permeation or treatment-related, but there is no bone destruction substantial enough to compromise the vertebral canal or structural integrity of the spine. A bone scan could further characterize this, if clinically relevant. 3. Partial improvement of right middle lobe collapse. Persistent mild left lower lobe atelectasis due to hemidiaphragm elevation. Unchanged paramediastinal radiation fibrosis. 4. Stable right lower lobe triangular opacity, since _ _ _, likely benign. 5. Stable thickening of the left adrenal gland, since _ _ _, likely benign. 6. Atherosclerosis of the aorta, great vessels and coronary arteries. Prior AVR.",
+  "entities": [
+    {
+      "observation": "mass",
+      "observation_presence": "present",
+      "location": [
+        "left paramediastinal"
+      ],
+      "degree": [
+        "enlarged",
+        "infiltrative"
+      ]
+    },
+    {
+      "observation": "soft tissue lesion",
+      "observation_presence": "present",
+      "location": [
+        "at the level of the arch vessels",
+        "lateral tracheal wall",
+        "left walls of the aorta",
+        "esophagus",
+        "trachea"
+      ],
+      "degree": [
+        "inseparable"
+      ]
+    },
+    {
+      "observation": "encases",
+      "observation_presence": "present",
+      "location": [
+        "great vessels"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "bone erosion",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "multiple",
+      "observation_presence": "present",
+      "location": [
+        "mediastinal lymph nodes"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "lymphadenopathy",
+      "observation_presence": "absent",
+      "location": [
+        "mediastinal"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "pleural effusion",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "pericardial effusion",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "patent",
+      "observation_presence": "present",
+      "location": [
+        "airways to the subsegmental level"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "atherosclerotic",
+      "observation_presence": "present",
+      "location": [
+        "aorta"
+      ],
+      "degree": [
+        "moderate"
+      ]
+    },
+    {
+      "observation": "aortic valve replacement",
+      "observation_presence": "present",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "calcification",
+      "observation_presence": "present",
+      "location": [
+        "coronary artery"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "atherosclerosis",
+      "observation_presence": "present",
+      "location": [
+        "aorta",
+        "great vessels",
+        "coronary arteries"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "calcifications",
+      "observation_presence": "present",
+      "location": [
+        "mitral annulus"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "atelectasis",
+      "observation_presence": "present",
+      "location": [
+        "right middle lobe"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "atelectasis",
+      "observation_presence": "present",
+      "location": [
+        "left lower lobe"
+      ],
+      "degree": [
+        "mild"
+      ]
+    },
+    {
+      "observation": "elevation",
+      "observation_presence": "present",
+      "location": [
+        "left hemidiaphragm"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "radiation fibrosis",
+      "observation_presence": "present",
+      "location": [
+        "bilateral paramediastinal"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "opacity",
+      "observation_presence": "present",
+      "location": [
+        "right lower lobe"
+      ],
+      "degree": [
+        "wedge-shaped",
+        "likely benign"
+      ]
+    },
+    {
+      "observation": "heterogeneous",
+      "observation_presence": "present",
+      "location": [
+        "upper thoracic spine"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "demineralized",
+      "observation_presence": "present",
+      "location": [
+        "upper thoracic spine"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "sclerotic",
+      "observation_presence": "present",
+      "location": [
+        "upper thoracic spine",
+        "one vertebra"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "tumor",
+      "observation_presence": "uncertain",
+      "location": [],
+      "degree": [
+        "permeative"
+      ]
+    },
+    {
+      "observation": "collapse",
+      "observation_presence": "present",
+      "location": [
+        "right middle lobe"
+      ],
+      "degree": [
+        "partial"
+      ]
+    },
+    {
+      "observation": "thickening",
+      "observation_presence": "present",
+      "location": [
+        "left adrenal gland"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "cholecystectomy",
+      "observation_presence": "present",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "bone destruction",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "nodule",
+      "observation_presence": "present",
+      "location": [
+        "right upper lobe"
+      ],
+      "degree": [
+        "small",
+        "3-mm"
+      ]
+    }
+  ]
+}

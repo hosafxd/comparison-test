@@ -1,0 +1,88 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": 100,
+  "report": "FINDINGS: Coronary artery calcification is noted in the left anterior descending artery. There is mild bilateral pleural effusion. Hepatomegaly is present with fatty changes. The spleen appears enlarged. Mediastinal lymphadenopathy is seen with nodes measuring up to 1.2 cm. There is no pneumothorax or pericardial effusion. Minimal atelectasis is present at the left lung base. A small nodule is identified in the right upper lobe. No suspicious lytic lesions are seen in the visualized bones.",
+  "entities": [
+    {
+      "observation": "coronary artery calcification",
+      "observation_presence": "present",
+      "location": [
+        "left anterior descending artery"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "effusion",
+      "observation_presence": "present",
+      "location": [
+        "pleural",
+        "bilateral"
+      ],
+      "degree": [
+        "mild"
+      ]
+    },
+    {
+      "observation": "hepatomegaly",
+      "observation_presence": "present",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "splenomegaly",
+      "observation_presence": "present",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "lymphadenopathy",
+      "observation_presence": "present",
+      "location": [
+        "mediastinal"
+      ],
+      "degree": [
+        "1.2 cm"
+      ]
+    },
+    {
+      "observation": "pneumothorax",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "pericardial effusion",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "atelectasis",
+      "observation_presence": "present",
+      "location": [
+        "left lung base"
+      ],
+      "degree": [
+        "minimal"
+      ]
+    },
+    {
+      "observation": "nodule",
+      "observation_presence": "present",
+      "location": [
+        "right upper lobe"
+      ],
+      "degree": [
+        "small"
+      ]
+    },
+    {
+      "observation": "lytic lesions",
+      "observation_presence": "absent",
+      "location": [
+        "bones"
+      ],
+      "degree": []
+    }
+  ]
+}

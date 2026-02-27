@@ -1,0 +1,204 @@
+{
+  "gt_file": "gt2.json",
+  "pred_file": "sample2.0.json",
+  "timestamp": "2026-02-21T19:33:29.129172",
+  "status": "success",
+  "entity_metrics": {
+    "total_gt": 27,
+    "total_pred": 28,
+    "true_positives": 27,
+    "false_positives": 1,
+    "false_negatives": 0,
+    "precision": 0.9642857142857143,
+    "recall": 1.0,
+    "f1_score": 0.9818181818181818,
+    "avg_match_quality": 0.9633272543659918,
+    "contradictions": 0,
+    "field_wise_accuracy": {
+      "finding": 0.9760178614545751,
+      "location": 0.9986226293775771,
+      "presence": 0.9222222222222222,
+      "other": 0.8888888888888888
+    },
+    "structural_errors": {
+      "merged_entities": [],
+      "split_entities": [],
+      "degree_mixups": [],
+      "contradictions": []
+    },
+    "field_error_analysis": {
+      "observation": {
+        "accuracy": 0.9259259259259259,
+        "total": 27,
+        "errors": 2,
+        "error_rate": 0.07407407407407407
+      },
+      "observation_presence": {
+        "accuracy": 0.8888888888888888,
+        "total": 27,
+        "errors": 3,
+        "error_rate": 0.1111111111111111
+      },
+      "location": {
+        "accuracy": 0.9629629629629629,
+        "total": 27,
+        "errors": 1,
+        "error_rate": 0.037037037037037035
+      },
+      "degree": {
+        "accuracy": 0.8888888888888888,
+        "total": 27,
+        "errors": 3,
+        "error_rate": 0.1111111111111111
+      }
+    }
+  },
+  "field_level_scores": {
+    "weighted_mean": 0.8537,
+    "per_field": {
+      "observation": 0.9259,
+      "location": 0.963,
+      "degree": 0.8889
+    },
+    "coverage": 0.9643,
+    "adjusted_score": 0.8232,
+    "tp_count": 27,
+    "pair_scores": [
+      0.55,
+      1.0,
+      0.8,
+      1.0,
+      1.0,
+      0.8,
+      0.3,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.55,
+      1.0,
+      1.0,
+      0.8,
+      1.0,
+      0.65,
+      1.0,
+      0.3,
+      1.0,
+      1.0,
+      1.0,
+      0.3,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "llm_scores": {
+    "gemini_pro": {
+      "mean": 1.0,
+      "count": 5
+    }
+  },
+  "composite_score": 0.8232,
+  "fp_fn_analysis": {
+    "fp_count": 1,
+    "fn_count": 0,
+    "fp_severity": 0.0,
+    "fn_severity": 0.0,
+    "fp_detail": {
+      "count": 1,
+      "present_ratio": 0.0,
+      "presence_distribution": {
+        "present": 0,
+        "absent": 0,
+        "uncertain": 1
+      },
+      "location_fill_rate": 1.0,
+      "degree_fill_rate": 1.0,
+      "entities": [
+        {
+          "observation": "pneumonia",
+          "observation_presence": "uncertain",
+          "location": [
+            "right lung base"
+          ],
+          "degree": [
+            "developing"
+          ]
+        }
+      ]
+    },
+    "fn_detail": {
+      "count": 0,
+      "present_ratio": 0.0,
+      "presence_distribution": {
+        "present": 0,
+        "absent": 0,
+        "uncertain": 0
+      },
+      "location_fill_rate": 0.0,
+      "degree_fill_rate": 0.0,
+      "entities": []
+    }
+  },
+  "v2_metadata": {
+    "detected_modality": "chest_ct",
+    "rule_violations": [
+      {
+        "rule_id": "PRES-001",
+        "severity": "error",
+        "message": "Finding marked 'absent' but has severity degrees: ['pathologic']",
+        "field": "degree"
+      },
+      {
+        "rule_id": "LOC-001",
+        "severity": "error",
+        "message": "Effusion found in invalid location: ['bilateral']",
+        "field": "location"
+      }
+    ],
+    "rule_violation_count": 2,
+    "rule_violation_by_severity": {
+      "error": 2,
+      "warning": 0,
+      "info": 0
+    },
+    "workflow_stats": {
+      "ontology_match_rate": 0.21428571428571427,
+      "category_distribution": {
+        "unknown": 22,
+        "aortic_and_major_arterial_pathology": 1,
+        "thoracic_masses_nodules": 1,
+        "pericardial_disorders": 1,
+        "pulmonary_infections_inflammatory": 2,
+        "atelectasis_collapse": 1
+      },
+      "conflicts_detected": [],
+      "unmatched_findings": [
+        "clot",
+        "patent",
+        "enlarged",
+        "emboli",
+        "fluid collection",
+        "gas bubble",
+        "hematoma",
+        "repaired",
+        "single",
+        "fenestration",
+        "aneurysmal",
+        "minimal",
+        "enlargement",
+        "patent",
+        "ground-glass opacities",
+        "opacity",
+        "pleural effusions",
+        "deformity",
+        "fracture",
+        "lytic lesion",
+        "sclerotic lesion",
+        "fracture"
+      ]
+    },
+    "validation_applied": true
+  }
+}

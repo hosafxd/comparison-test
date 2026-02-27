@@ -1,0 +1,202 @@
+{
+  "gt_file": "gt5.json",
+  "pred_file": "sample5.4.json",
+  "timestamp": "2026-02-23T22:23:20.656346",
+  "status": "success",
+  "entity_metrics": {
+    "total_gt": 10,
+    "total_pred": 10,
+    "true_positives": 7,
+    "false_positives": 3,
+    "false_negatives": 3,
+    "precision": 0.7,
+    "recall": 0.7,
+    "f1_score": 0.7,
+    "avg_match_quality": 0.731451870713915,
+    "contradictions": 0,
+    "field_wise_accuracy": {
+      "finding": 0.47148681964193073,
+      "location": 0.9523809523809523,
+      "presence": 1.0,
+      "other": 0.5714285714285714
+    },
+    "structural_errors": {
+      "merged_entities": [],
+      "split_entities": [],
+      "degree_mixups": [],
+      "contradictions": []
+    },
+    "field_error_analysis": {
+      "observation": {
+        "accuracy": 0.0,
+        "total": 7,
+        "errors": 7,
+        "error_rate": 1.0
+      },
+      "observation_presence": {
+        "accuracy": 1.0,
+        "total": 7,
+        "errors": 0,
+        "error_rate": 0.0
+      },
+      "location": {
+        "accuracy": 0.8571428571428571,
+        "total": 7,
+        "errors": 1,
+        "error_rate": 0.14285714285714285
+      },
+      "degree": {
+        "accuracy": 0.5714285714285714,
+        "total": 7,
+        "errors": 3,
+        "error_rate": 0.42857142857142855
+      }
+    }
+  },
+  "field_level_scores": {
+    "weighted_mean": 0.4393,
+    "per_field": {
+      "observation": 0.0,
+      "location": 0.9286,
+      "degree": 0.5714
+    },
+    "coverage": 0.7,
+    "adjusted_score": 0.3075,
+    "tp_count": 7,
+    "pair_scores": [
+      0.375,
+      0.35,
+      0.35,
+      0.55,
+      0.55,
+      0.35,
+      0.55
+    ]
+  },
+  "llm_scores": {
+    "gemini_pro": {
+      "mean": 0.06000000000000001,
+      "count": 5
+    }
+  },
+  "composite_score": 0.0185,
+  "fp_fn_analysis": {
+    "fp_count": 3,
+    "fn_count": 3,
+    "fp_severity": 1.0,
+    "fn_severity": 0.667,
+    "fp_detail": {
+      "count": 3,
+      "present_ratio": 1.0,
+      "presence_distribution": {
+        "present": 3,
+        "absent": 0,
+        "uncertain": 0
+      },
+      "location_fill_rate": 1.0,
+      "degree_fill_rate": 0.333,
+      "entities": [
+        {
+          "observation": "vascular calcification",
+          "observation_presence": "present",
+          "location": [
+            "aorta"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "hepatic steatosis",
+          "observation_presence": "present",
+          "location": [
+            "liver"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "pneumothorax",
+          "observation_presence": "present",
+          "location": [
+            "right"
+          ],
+          "degree": [
+            "small"
+          ]
+        }
+      ]
+    },
+    "fn_detail": {
+      "count": 3,
+      "present_ratio": 0.667,
+      "presence_distribution": {
+        "present": 2,
+        "absent": 1,
+        "uncertain": 0
+      },
+      "location_fill_rate": 0.667,
+      "degree_fill_rate": 0.333,
+      "entities": [
+        {
+          "observation": "coronary artery calcification",
+          "observation_presence": "present",
+          "location": [
+            "left anterior descending artery"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "lymphadenopathy",
+          "observation_presence": "present",
+          "location": [
+            "mediastinal"
+          ],
+          "degree": [
+            "1.2 cm"
+          ]
+        },
+        {
+          "observation": "pericardial effusion",
+          "observation_presence": "absent",
+          "location": [],
+          "degree": []
+        }
+      ]
+    }
+  },
+  "v2_metadata": {
+    "detected_modality": "chest_ct",
+    "rule_violations": [
+      {
+        "rule_id": "SEV-002",
+        "severity": "info",
+        "message": "'Trace' typically used for fluids, applied to: pericardial effusion",
+        "field": null
+      }
+    ],
+    "rule_violation_count": 1,
+    "rule_violation_by_severity": {
+      "error": 0,
+      "warning": 0,
+      "info": 1
+    },
+    "workflow_stats": {
+      "ontology_match_rate": 0.4,
+      "category_distribution": {
+        "unknown": 6,
+        "thoracic_masses_nodules": 1,
+        "pleural_disorders": 1,
+        "pericardial_disorders": 1,
+        "parenchymal_opacities": 1
+      },
+      "conflicts_detected": [],
+      "unmatched_findings": [
+        "vascular calcification",
+        "pleural thickening",
+        "hepatic steatosis",
+        "normal spleen size",
+        "mass",
+        "blastic lesions"
+      ]
+    },
+    "validation_applied": true
+  }
+}

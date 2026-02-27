@@ -1,0 +1,90 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": 100,
+  "report": "FINDINGS: Coronary artery calcification is noted in the left anterior descending artery. There is mild bilateral pleural effusion. Hepatomegaly is present with fatty changes. The spleen appears enlarged. Mediastinal lymphadenopathy is seen with nodes measuring up to 1.2 cm. There is no pneumothorax or pericardial effusion. Minimal atelectasis is present at the left lung base. A small nodule is identified in the right upper lobe. No suspicious lytic lesions are seen in the visualized bones.",
+  "entities": [
+    {
+      "observation": "calcified plaque",
+      "observation_presence": "present",
+      "location": [
+        "coronary artery",
+        "left anterior descending artery"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "pleural fluid",
+      "observation_presence": "present",
+      "location": [
+        "bilateral"
+      ],
+      "degree": [
+        "mild"
+      ]
+    },
+    {
+      "observation": "hepatic enlargement",
+      "observation_presence": "present",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "splenic enlargement",
+      "observation_presence": "present",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "adenopathy",
+      "observation_presence": "present",
+      "location": [
+        "mediastinal"
+      ],
+      "degree": [
+        "up to 1.2 cm"
+      ]
+    },
+    {
+      "observation": "pneumothorax",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "fluid accumulation",
+      "observation_presence": "absent",
+      "location": [
+        "pericardial"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "volume loss",
+      "observation_presence": "present",
+      "location": [
+        "left lung base"
+      ],
+      "degree": [
+        "minimal"
+      ]
+    },
+    {
+      "observation": "pulmonary nodule",
+      "observation_presence": "present",
+      "location": [
+        "right upper lobe"
+      ],
+      "degree": [
+        "small"
+      ]
+    },
+    {
+      "observation": "lytic bone lesions",
+      "observation_presence": "absent",
+      "location": [
+        "visualized bones"
+      ],
+      "degree": []
+    }
+  ]
+}

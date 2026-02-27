@@ -1,0 +1,76 @@
+{
+  "dataset": "",
+  "doc_key": "unit_test",
+  "report": "CT of the chest demonstrates a moderate left-sided pleural effusion with associated left lower lobe atelectasis. The cardiac silhouette appears mildly enlarged. A small pericardial effusion is noted. Coronary artery calcifications are identified at the left anterior descending artery. No pneumothorax is visualized. Subcarinal and mediastinal lymph node enlargement is present. The liver appears enlarged in the upper abdominal structures.",
+  "entities": [
+    {
+      "observation": "pleural fluid",
+      "observation_presence": "present",
+      "location": [
+        "left",
+        "pleural"
+      ],
+      "degree": [
+        "moderate"
+      ]
+    },
+    {
+      "observation": "volume loss",
+      "observation_presence": "present",
+      "location": [
+        "left lower lobe"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "cardiac enlargement",
+      "observation_presence": "present",
+      "location": [],
+      "degree": [
+        "mild"
+      ]
+    },
+    {
+      "observation": "pericardial fluid",
+      "observation_presence": "present",
+      "location": [
+        "pericardial"
+      ],
+      "degree": [
+        "small"
+      ]
+    },
+    {
+      "observation": "calcification",
+      "observation_presence": "present",
+      "location": [
+        "coronary artery",
+        "lad"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "pneumothorax",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "adenopathy",
+      "observation_presence": "present",
+      "location": [
+        "subcarinal",
+        "mediastinal"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "hepatic enlargement",
+      "observation_presence": "present",
+      "location": [
+        "liver"
+      ],
+      "degree": []
+    }
+  ]
+}

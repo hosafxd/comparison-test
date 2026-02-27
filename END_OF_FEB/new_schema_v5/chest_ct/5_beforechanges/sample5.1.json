@@ -1,0 +1,108 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": 100,
+  "report": "FINDINGS: Coronary artery calcification is noted in the left anterior descending artery. There is mild bilateral pleural effusion. Hepatomegaly is present with fatty changes. The spleen appears enlarged. Mediastinal lymphadenopathy is seen with nodes measuring up to 1.2 cm. There is no pneumothorax or pericardial effusion. Minimal atelectasis is present at the left lung base. A small nodule is identified in the right upper lobe. No suspicious lytic lesions are seen in the visualized bones.",
+  "entities": [
+    {
+      "observation": "atherosclerosis",
+      "observation_presence": "present",
+      "location": [
+        "coronary arteries"
+      ],
+      "degree": [
+        "severe"
+      ]
+    },
+    {
+      "observation": "fluid collection",
+      "observation_presence": "present",
+      "location": [
+        "pleural cavity",
+        "left"
+      ],
+      "degree": [
+        "moderate"
+      ]
+    },
+    {
+      "observation": "enlargement",
+      "observation_presence": "present",
+      "location": [
+        "hepatic"
+      ],
+      "degree": [
+        "moderate"
+      ]
+    },
+    {
+      "observation": "lymphadenopathy",
+      "observation_presence": "absent",
+      "location": [
+        "mediastinal"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "pneumothorax",
+      "observation_presence": "present",
+      "location": [
+        "right"
+      ],
+      "degree": [
+        "small"
+      ]
+    },
+    {
+      "observation": "pericardial effusion",
+      "observation_presence": "present",
+      "location": [],
+      "degree": [
+        "trace"
+      ]
+    },
+    {
+      "observation": "consolidation",
+      "observation_presence": "present",
+      "location": [
+        "left lung base"
+      ],
+      "degree": [
+        "dense"
+      ]
+    },
+    {
+      "observation": "mass",
+      "observation_presence": "present",
+      "location": [
+        "right upper lobe"
+      ],
+      "degree": [
+        "large"
+      ]
+    },
+    {
+      "observation": "blastic lesions",
+      "observation_presence": "present",
+      "location": [
+        "spine"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "adenopathy",
+      "observation_presence": "present",
+      "location": [
+        "hilar"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "cirrhosis",
+      "observation_presence": "present",
+      "location": [
+        "liver"
+      ],
+      "degree": []
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "gt_file": "gt1.json",
+  "pred_file": "sample1.1.json",
+  "timestamp": "2026-02-21T19:24:14.843800",
+  "status": "success",
+  "entity_metrics": {
+    "total_gt": 27,
+    "total_pred": 28,
+    "true_positives": 19,
+    "false_positives": 9,
+    "false_negatives": 8,
+    "precision": 0.6785714285714286,
+    "recall": 0.7037037037037037,
+    "f1_score": 0.6909090909090909,
+    "avg_match_quality": 0.8107077278588948,
+    "contradictions": 1,
+    "field_wise_accuracy": {
+      "finding": 0.6773830981631028,
+      "location": 0.9161406929729976,
+      "presence": 0.9473684210526315,
+      "other": 0.7543859649122806
+    },
+    "structural_errors": {
+      "merged_entities": [],
+      "split_entities": [],
+      "degree_mixups": [],
+      "contradictions": [
+        {
+          "observation": "lymphadenopathy",
+          "gt_presence": "absent",
+          "pred_presence": "present"
+        }
+      ]
+    },
+    "field_error_analysis": {
+      "observation": {
+        "accuracy": 0.21052631578947367,
+        "total": 19,
+        "errors": 15,
+        "error_rate": 0.7894736842105263
+      },
+      "observation_presence": {
+        "accuracy": 0.9473684210526315,
+        "total": 19,
+        "errors": 1,
+        "error_rate": 0.05263157894736842
+      },
+      "location": {
+        "accuracy": 0.631578947368421,
+        "total": 19,
+        "errors": 7,
+        "error_rate": 0.3684210526315789
+      },
+      "degree": {
+        "accuracy": 0.7368421052631579,
+        "total": 19,
+        "errors": 5,
+        "error_rate": 0.2631578947368421
+      }
+    }
+  },
+  "field_level_scores": {
+    "weighted_mean": 0.4319,
+    "per_field": {
+      "observation": 0.2105,
+      "location": 0.6526,
+      "degree": 0.7544
+    },
+    "coverage": 0.6786,
+    "adjusted_score": 0.2931,
+    "tp_count": 19,
+    "pair_scores": [
+      0.0667,
+      0.34,
+      0.55,
+      0.55,
+      0.0,
+      0.55,
+      0.35,
+      0.55,
+      0.2,
+      0.55,
+      0.8,
+      1.0,
+      0.2,
+      0.35,
+      0.2,
+      0.2,
+      0.2,
+      0.55,
+      1.0
+    ]
+  },
+  "llm_scores": {
+    "gemini_pro": {
+      "mean": 0.55,
+      "count": 5
+    }
+  },
+  "composite_score": 0.1612,
+  "fp_fn_analysis": {
+    "fp_count": 9,
+    "fn_count": 8,
+    "fp_severity": 0.778,
+    "fn_severity": 0.625,
+    "fp_detail": {
+      "count": 9,
+      "present_ratio": 0.778,
+      "presence_distribution": {
+        "present": 7,
+        "absent": 0,
+        "uncertain": 0,
+        "other": 2
+      },
+      "location_fill_rate": 1.0,
+      "degree_fill_rate": 0.444,
+      "entities": [
+        {
+          "observation": "lymph nodes",
+          "observation_presence": "present",
+          "location": [
+            "mediastinal"
+          ],
+          "degree": [
+            "enlarged"
+          ]
+        },
+        {
+          "observation": "pleural effusion",
+          "observation_presence": "present",
+          "location": [
+            "bilateral"
+          ],
+          "degree": [
+            "small"
+          ]
+        },
+        {
+          "observation": "airways",
+          "observation_presence": "unknown",
+          "location": [
+            "subsegmental level"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "valve replacement",
+          "observation_presence": "present",
+          "location": [
+            "aortic"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "coronary disease",
+          "observation_presence": "present",
+          "location": [
+            "arteries"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "osteopenia",
+          "observation_presence": "present",
+          "location": [
+            "thoracic spine"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "tumor",
+          "observation_presence": "unknown",
+          "location": [
+            "spine"
+          ],
+          "degree": [
+            "permeative"
+          ]
+        },
+        {
+          "observation": "adrenal nodule",
+          "observation_presence": "present",
+          "location": [
+            "left adrenal"
+          ],
+          "degree": [
+            "stable thickening"
+          ]
+        },
+        {
+          "observation": "destructive lesion",
+          "observation_presence": "present",
+          "location": [
+            "spine"
+          ],
+          "degree": []
+        }
+      ]
+    },
+    "fn_detail": {
+      "count": 8,
+      "present_ratio": 0.625,
+      "presence_distribution": {
+        "present": 5,
+        "absent": 2,
+        "uncertain": 1
+      },
+      "location_fill_rate": 0.625,
+      "degree_fill_rate": 0.125,
+      "entities": [
+        {
+          "observation": "scattered",
+          "observation_presence": "present",
+          "location": [
+            "mediastinal lymph nodes"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "pericardial effusion",
+          "observation_presence": "absent",
+          "location": [],
+          "degree": []
+        },
+        {
+          "observation": "patent",
+          "observation_presence": "present",
+          "location": [
+            "airways to the subsegmental level"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "calcification",
+          "observation_presence": "present",
+          "location": [
+            "coronary artery"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "calcifications",
+          "observation_presence": "present",
+          "location": [
+            "mitral annulus"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "tumor",
+          "observation_presence": "uncertain",
+          "location": [],
+          "degree": [
+            "permeative"
+          ]
+        },
+        {
+          "observation": "thickening",
+          "observation_presence": "present",
+          "location": [
+            "left adrenal gland"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "bone destruction",
+          "observation_presence": "absent",
+          "location": [],
+          "degree": []
+        }
+      ]
+    }
+  },
+  "v2_metadata": {
+    "detected_modality": "chest_ct",
+    "rule_violations": [
+      {
+        "rule_id": "LOC-001",
+        "severity": "error",
+        "message": "Effusion found in invalid location: ['bilateral']",
+        "field": "location"
+      }
+    ],
+    "rule_violation_count": 1,
+    "rule_violation_by_severity": {
+      "error": 1,
+      "warning": 0,
+      "info": 0
+    },
+    "workflow_stats": {
+      "ontology_match_rate": 0.25,
+      "category_distribution": {
+        "unknown": 21,
+        "thoracic_masses_nodules": 1,
+        "pleural_disorders": 2,
+        "pericardial_disorders": 1,
+        "valvular_disorders": 1,
+        "parenchymal_opacities": 1,
+        "atelectasis_collapse": 1
+      },
+      "conflicts_detected": [],
+      "unmatched_findings": [
+        "lesion",
+        "soft tissue density",
+        "surrounds",
+        "bone erosion",
+        "lymph nodes",
+        "airways",
+        "aortic calcification",
+        "valve replacement",
+        "coronary disease",
+        "vascular calcification",
+        "elevation",
+        "post-radiation scarring",
+        "nodule",
+        "mixed attenuation",
+        "osteopenia",
+        "sclerosis",
+        "tumor",
+        "bronchial obstruction",
+        "adrenal nodule",
+        "cholecystectomy",
+        "destructive lesion"
+      ]
+    },
+    "validation_applied": true
+  }
+}

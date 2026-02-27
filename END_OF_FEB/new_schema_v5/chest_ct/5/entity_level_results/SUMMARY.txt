@@ -1,0 +1,197 @@
+======================================================================
+ENTITY-LEVEL EVALUATION SUMMARY v3.0
+(Mixed-Method Field Scoring + Composite)
+======================================================================
+
+Timestamp: 2026-02-24T20:53:20.140310
+Total samples: 5
+Successful: 5
+Failed: 0
+
+CONFIDENCE INTERVALS (95% Bootstrap):
+----------------------------------------------------------------------
+Structural F1: 0.747 [0.597, 0.911]
+
+RULE-BASED VALIDATION SUMMARY:
+----------------------------------------------------------------------
+  sample5.0.json: 0 violations (E:0 W:0 I:0) | ontology: 9%
+  sample5.1.json: 1 violations (E:0 W:0 I:1) | ontology: 36%
+  sample5.2.json: 0 violations (E:0 W:0 I:0) | ontology: 30%
+  sample5.3.json: 0 violations (E:0 W:0 I:0) | ontology: 30%
+  sample5.4.json: 1 violations (E:0 W:0 I:1) | ontology: 40%
+
+PER-FIELD ERROR ANALYSIS (exact match):
+----------------------------------------------------------------------
+  observation              :  78.9% error (30/38)
+  location                 :  42.1% error (16/38)
+  degree                   :  21.1% error (8/38)
+  observation_presence     :   5.3% error (2/38)
+
+====================================================================================================
+COMPARISON TABLE
+----------------------------------------------------------------------------------------------------
+Sample          F1       FL(mean)   Coverage   FL(adj)    LLM      Composite    Rules 
+----------------------------------------------------------------------------------------------------
+5.0             0.857    0.737      0.818      0.603      0.530    0.3196       0     
+5.1             0.476    0.220      0.455      0.100      0.080    0.0080       1     
+5.2             1.000    0.903      1.000      0.903      0.960    0.8669       0     
+5.3             0.700    0.875      0.700      0.613      1.000    0.6125       0     
+5.4             0.700    0.368      0.700      0.258      0.200    0.0515       1     
+
+======================================================================
+PER-SAMPLE DETAILED RESULTS
+----------------------------------------------------------------------
+
+sample5.0.json:
+  STRUCTURAL:
+    Entities: GT=10, Pred=11
+    Precision: 0.818  Recall: 0.900  F1: 0.857
+    TP=9  FP=2  FN=1
+  SAPBERT FIELD-WISE ACCURACY:
+    finding: 0.785
+    location: 0.829
+    presence: 1.000
+    other: 0.889
+  MIXED-METHOD FIELD SCORES (weighted mean: 0.737):
+    observation         : 0.761
+    location            : 0.556
+    degree              : 1.000
+    Coverage:  0.818
+    Adjusted:  0.603
+  LLM:
+    gemini_pro: 0.530 (n=5)
+  COMPOSITE: 0.3196
+
+sample5.1.json:
+  STRUCTURAL:
+    Entities: GT=10, Pred=11
+    Precision: 0.455  Recall: 0.500  F1: 0.476
+    TP=5  FP=6  FN=5
+  SAPBERT FIELD-WISE ACCURACY:
+    finding: 0.641
+    location: 0.880
+    presence: 0.800
+    other: 0.400
+  MIXED-METHOD FIELD SCORES (weighted mean: 0.220):
+    observation         : 0.200
+    location            : 0.600
+    degree              : 0.400
+    Coverage:  0.455
+    Adjusted:  0.100
+  LLM:
+    gemini_pro: 0.080 (n=5)
+  COMPOSITE: 0.0080
+  CONTRADICTIONS: 1
+    - pericardial effusion: GT=absent vs Pred=present
+
+sample5.2.json:
+  STRUCTURAL:
+    Entities: GT=10, Pred=10
+    Precision: 1.000  Recall: 1.000  F1: 1.000
+    TP=10  FP=0  FN=0
+  SAPBERT FIELD-WISE ACCURACY:
+    finding: 0.770
+    location: 0.874
+    presence: 1.000
+    other: 0.900
+  MIXED-METHOD FIELD SCORES (weighted mean: 0.903):
+    observation         : 0.940
+    location            : 0.800
+    degree              : 1.000
+    Coverage:  1.000
+    Adjusted:  0.903
+  LLM:
+    gemini_pro: 0.960 (n=5)
+  COMPOSITE: 0.8669
+
+sample5.3.json:
+  STRUCTURAL:
+    Entities: GT=10, Pred=10
+    Precision: 0.700  Recall: 0.700  F1: 0.700
+    TP=7  FP=3  FN=3
+  SAPBERT FIELD-WISE ACCURACY:
+    finding: 0.828
+    location: 0.981
+    presence: 1.000
+    other: 0.857
+  MIXED-METHOD FIELD SCORES (weighted mean: 0.875):
+    observation         : 0.786
+    location            : 1.000
+    degree              : 0.857
+    Coverage:  0.700
+    Adjusted:  0.613
+  LLM:
+    gemini_pro: 1.000 (n=5)
+  COMPOSITE: 0.6125
+
+sample5.4.json:
+  STRUCTURAL:
+    Entities: GT=10, Pred=10
+    Precision: 0.700  Recall: 0.700  F1: 0.700
+    TP=7  FP=3  FN=3
+  SAPBERT FIELD-WISE ACCURACY:
+    finding: 0.584
+    location: 0.910
+    presence: 0.857
+    other: 0.714
+  MIXED-METHOD FIELD SCORES (weighted mean: 0.368):
+    observation         : 0.143
+    location            : 0.786
+    degree              : 0.714
+    Coverage:  0.700
+    Adjusted:  0.258
+  LLM:
+    gemini_pro: 0.200 (n=5)
+  COMPOSITE: 0.0515
+  CONTRADICTIONS: 1
+    - pericardial effusion: GT=absent vs Pred=present
+
+======================================================================
+FIELD-LEVEL SCORES PER SAMPLE
+----------------------------------------------------------------------
+
+  sample5.0.json (weighted: 0.737, coverage: 0.818, adjusted: 0.603):
+    observation         : 0.761
+    location            : 0.556
+    degree              : 1.000
+
+  sample5.1.json (weighted: 0.220, coverage: 0.455, adjusted: 0.100):
+    observation         : 0.200
+    location            : 0.600
+    degree              : 0.400
+
+  sample5.2.json (weighted: 0.903, coverage: 1.000, adjusted: 0.903):
+    observation         : 0.940
+    location            : 0.800
+    degree              : 1.000
+
+  sample5.3.json (weighted: 0.875, coverage: 0.700, adjusted: 0.613):
+    observation         : 0.786
+    location            : 1.000
+    degree              : 0.857
+
+  sample5.4.json (weighted: 0.368, coverage: 0.700, adjusted: 0.258):
+    observation         : 0.143
+    location            : 0.786
+    degree              : 0.714
+
+======================================================================
+STRUCTURAL ERROR ANALYSIS
+----------------------------------------------------------------------
+Total Merged Entities: 0
+Total Split Entities:  0
+Total Contradictions:  2
+
+CONTRADICTION EXAMPLES:
+  1. pericardial effusion: GT='absent' vs Pred='present'
+  2. pericardial effusion: GT='absent' vs Pred='present'
+
+======================================================================
+AGGREGATE STATISTICS
+----------------------------------------------------------------------
+
+Avg Structural Precision: 0.735
+Avg Structural Recall:    0.760
+Avg Structural F1:        0.747
+Avg FL(adjusted):         0.495 [0.264, 0.727]
+Avg Composite:            0.3717 [0.0964, 0.6529]

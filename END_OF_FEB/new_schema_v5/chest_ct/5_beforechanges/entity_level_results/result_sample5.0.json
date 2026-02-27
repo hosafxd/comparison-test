@@ -1,0 +1,215 @@
+{
+  "gt_file": "gt5.json",
+  "pred_file": "sample5.0.json",
+  "timestamp": "2026-02-23T22:07:43.998956",
+  "status": "success",
+  "entity_metrics": {
+    "total_gt": 10,
+    "total_pred": 11,
+    "true_positives": 6,
+    "false_positives": 5,
+    "false_negatives": 4,
+    "precision": 0.5454545454545454,
+    "recall": 0.6,
+    "f1_score": 0.5714285714285713,
+    "avg_match_quality": 0.9057667737205825,
+    "contradictions": 0,
+    "field_wise_accuracy": {
+      "finding": 0.8860353430112203,
+      "location": 0.8933977302577759,
+      "presence": 1.0,
+      "other": 0.8333333333333334
+    },
+    "structural_errors": {
+      "merged_entities": [],
+      "split_entities": [],
+      "degree_mixups": [],
+      "contradictions": []
+    },
+    "field_error_analysis": {
+      "observation": {
+        "accuracy": 0.5,
+        "total": 6,
+        "errors": 3,
+        "error_rate": 0.5
+      },
+      "observation_presence": {
+        "accuracy": 1.0,
+        "total": 6,
+        "errors": 0,
+        "error_rate": 0.0
+      },
+      "location": {
+        "accuracy": 0.3333333333333333,
+        "total": 6,
+        "errors": 4,
+        "error_rate": 0.6666666666666666
+      },
+      "degree": {
+        "accuracy": 0.8333333333333334,
+        "total": 6,
+        "errors": 1,
+        "error_rate": 0.16666666666666666
+      }
+    }
+  },
+  "field_level_scores": {
+    "weighted_mean": 0.5667,
+    "per_field": {
+      "observation": 0.5,
+      "location": 0.5,
+      "degree": 0.8333
+    },
+    "coverage": 0.5455,
+    "adjusted_score": 0.3091,
+    "tp_count": 6,
+    "pair_scores": [
+      0.375,
+      0.375,
+      0.0,
+      1.0,
+      1.0,
+      0.65
+    ]
+  },
+  "llm_scores": {
+    "gemini_pro": {
+      "mean": 0.95,
+      "count": 5
+    }
+  },
+  "composite_score": 0.2936,
+  "fp_fn_analysis": {
+    "fp_count": 5,
+    "fn_count": 4,
+    "fp_severity": 0.8,
+    "fn_severity": 0.75,
+    "fp_detail": {
+      "count": 5,
+      "present_ratio": 0.8,
+      "presence_distribution": {
+        "present": 4,
+        "absent": 1,
+        "uncertain": 0
+      },
+      "location_fill_rate": 1.0,
+      "degree_fill_rate": 0.2,
+      "entities": [
+        {
+          "observation": "enlargement",
+          "observation_presence": "present",
+          "location": [
+            "liver"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "enlarged",
+          "observation_presence": "present",
+          "location": [
+            "spleen"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "fluid accumulation",
+          "observation_presence": "absent",
+          "location": [
+            "pericardial"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "collapse",
+          "observation_presence": "present",
+          "location": [
+            "left lower lobe"
+          ],
+          "degree": [
+            "minimal"
+          ]
+        },
+        {
+          "observation": "fatty changes",
+          "observation_presence": "present",
+          "location": [
+            "liver"
+          ],
+          "degree": []
+        }
+      ]
+    },
+    "fn_detail": {
+      "count": 4,
+      "present_ratio": 0.75,
+      "presence_distribution": {
+        "present": 3,
+        "absent": 1,
+        "uncertain": 0
+      },
+      "location_fill_rate": 0.25,
+      "degree_fill_rate": 0.25,
+      "entities": [
+        {
+          "observation": "hepatomegaly",
+          "observation_presence": "present",
+          "location": [],
+          "degree": []
+        },
+        {
+          "observation": "splenomegaly",
+          "observation_presence": "present",
+          "location": [],
+          "degree": []
+        },
+        {
+          "observation": "pericardial effusion",
+          "observation_presence": "absent",
+          "location": [],
+          "degree": []
+        },
+        {
+          "observation": "atelectasis",
+          "observation_presence": "present",
+          "location": [
+            "left lung base"
+          ],
+          "degree": [
+            "minimal"
+          ]
+        }
+      ]
+    }
+  },
+  "v2_metadata": {
+    "detected_modality": "chest_ct",
+    "rule_violations": [],
+    "rule_violation_count": 0,
+    "rule_violation_by_severity": {
+      "error": 0,
+      "warning": 0,
+      "info": 0
+    },
+    "workflow_stats": {
+      "ontology_match_rate": 0.09090909090909091,
+      "category_distribution": {
+        "unknown": 10,
+        "pleural_disorders": 1
+      },
+      "conflicts_detected": [],
+      "unmatched_findings": [
+        "calcification",
+        "fluid accumulation",
+        "enlargement",
+        "enlarged",
+        "enlarged lymph nodes",
+        "fluid accumulation",
+        "collapse",
+        "nodule",
+        "lytic lesions",
+        "fatty changes"
+      ]
+    },
+    "validation_applied": true
+  }
+}

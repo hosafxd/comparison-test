@@ -1,0 +1,351 @@
+{
+  "gt_file": "gt2.json",
+  "pred_file": "sample2.1.json",
+  "timestamp": "2026-02-21T19:38:13.196114",
+  "status": "success",
+  "entity_metrics": {
+    "total_gt": 27,
+    "total_pred": 24,
+    "true_positives": 17,
+    "false_positives": 7,
+    "false_negatives": 10,
+    "precision": 0.7083333333333334,
+    "recall": 0.6296296296296297,
+    "f1_score": 0.6666666666666667,
+    "avg_match_quality": 0.7978039148975822,
+    "contradictions": 5,
+    "field_wise_accuracy": {
+      "finding": 0.8681991941788617,
+      "location": 0.9233160848711051,
+      "presence": 0.7058823529411765,
+      "other": 0.3235294117647059
+    },
+    "structural_errors": {
+      "merged_entities": [],
+      "split_entities": [],
+      "degree_mixups": [],
+      "contradictions": [
+        {
+          "observation": "emboli",
+          "gt_presence": "absent",
+          "pred_presence": "present"
+        },
+        {
+          "observation": "hematoma",
+          "gt_presence": "uncertain",
+          "pred_presence": "present"
+        },
+        {
+          "observation": "lymphadenopathy",
+          "gt_presence": "absent",
+          "pred_presence": "present"
+        },
+        {
+          "observation": "pericardial effusion",
+          "gt_presence": "present",
+          "pred_presence": "absent"
+        },
+        {
+          "observation": "aspiration",
+          "gt_presence": "uncertain",
+          "pred_presence": "present"
+        }
+      ]
+    },
+    "field_error_analysis": {
+      "observation": {
+        "accuracy": 0.7058823529411765,
+        "total": 17,
+        "errors": 5,
+        "error_rate": 0.29411764705882354
+      },
+      "observation_presence": {
+        "accuracy": 0.7058823529411765,
+        "total": 17,
+        "errors": 5,
+        "error_rate": 0.29411764705882354
+      },
+      "location": {
+        "accuracy": 0.6470588235294118,
+        "total": 17,
+        "errors": 6,
+        "error_rate": 0.35294117647058826
+      },
+      "degree": {
+        "accuracy": 0.29411764705882354,
+        "total": 17,
+        "errors": 12,
+        "error_rate": 0.7058823529411765
+      }
+    }
+  },
+  "field_level_scores": {
+    "weighted_mean": 0.4172,
+    "per_field": {
+      "observation": 0.7059,
+      "location": 0.6912,
+      "degree": 0.3235
+    },
+    "coverage": 0.6296,
+    "adjusted_score": 0.2627,
+    "tp_count": 17,
+    "pair_scores": [
+      0.7375,
+      0.35,
+      0.0,
+      0.55,
+      0.24,
+      0.55,
+      0.825,
+      0.8,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.65,
+      0.24,
+      0.8,
+      1.0,
+      0.35
+    ]
+  },
+  "llm_scores": {
+    "gemini_pro": {
+      "mean": 0.27999999999999997,
+      "count": 5
+    }
+  },
+  "composite_score": 0.0736,
+  "fp_fn_analysis": {
+    "fp_count": 7,
+    "fn_count": 10,
+    "fp_severity": 1.0,
+    "fn_severity": 0.5,
+    "fp_detail": {
+      "count": 7,
+      "present_ratio": 1.0,
+      "presence_distribution": {
+        "present": 7,
+        "absent": 0,
+        "uncertain": 0
+      },
+      "location_fill_rate": 1.0,
+      "degree_fill_rate": 0.571,
+      "entities": [
+        {
+          "observation": "stenosis",
+          "observation_presence": "present",
+          "location": [
+            "SVC"
+          ],
+          "degree": [
+            "severe"
+          ]
+        },
+        {
+          "observation": "tear",
+          "observation_presence": "present",
+          "location": [
+            "intimal flap"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "narrowed",
+          "observation_presence": "present",
+          "location": [
+            "airways"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "lytic lesion",
+          "observation_presence": "present",
+          "location": [
+            "spine"
+          ],
+          "degree": [
+            "suspicious"
+          ]
+        },
+        {
+          "observation": "sclerotic lesion",
+          "observation_presence": "present",
+          "location": [
+            "spine"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "tumor",
+          "observation_presence": "present",
+          "location": [
+            "mediastinum"
+          ],
+          "degree": [
+            "large"
+          ]
+        },
+        {
+          "observation": "edema",
+          "observation_presence": "present",
+          "location": [
+            "lungs"
+          ],
+          "degree": [
+            "mild"
+          ]
+        }
+      ]
+    },
+    "fn_detail": {
+      "count": 10,
+      "present_ratio": 0.5,
+      "presence_distribution": {
+        "present": 5,
+        "absent": 4,
+        "uncertain": 1
+      },
+      "location_fill_rate": 0.8,
+      "degree_fill_rate": 0.3,
+      "entities": [
+        {
+          "observation": "patent",
+          "observation_presence": "present",
+          "location": [
+            "SVC",
+            "azygos insertion",
+            "cavoatrial junction"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "gas bubble",
+          "observation_presence": "present",
+          "location": [
+            "ascending aorta"
+          ],
+          "degree": [
+            "small"
+          ]
+        },
+        {
+          "observation": "single",
+          "observation_presence": "present",
+          "location": [
+            "aortic lumen from the repaired aortic valve to the proximal end of the aortic arch"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "fenestration",
+          "observation_presence": "present",
+          "location": [
+            "intimal flap",
+            "proximal descending aorta"
+          ],
+          "degree": [
+            "large"
+          ]
+        },
+        {
+          "observation": "enlargement",
+          "observation_presence": "absent",
+          "location": [
+            "mediastinal lymph nodes"
+          ],
+          "degree": [
+            "pathologic"
+          ]
+        },
+        {
+          "observation": "patent",
+          "observation_presence": "present",
+          "location": [
+            "airways to the subsegmental levels"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "fracture",
+          "observation_presence": "uncertain",
+          "location": [
+            "posterior left ribs"
+          ],
+          "degree": []
+        },
+        {
+          "observation": "lytic lesion",
+          "observation_presence": "absent",
+          "location": [],
+          "degree": []
+        },
+        {
+          "observation": "sclerotic lesion",
+          "observation_presence": "absent",
+          "location": [],
+          "degree": []
+        },
+        {
+          "observation": "fracture",
+          "observation_presence": "absent",
+          "location": [
+            "right second rib"
+          ],
+          "degree": []
+        }
+      ]
+    }
+  },
+  "v2_metadata": {
+    "detected_modality": "chest_ct",
+    "rule_violations": [
+      {
+        "rule_id": "LOC-001",
+        "severity": "error",
+        "message": "Effusion found in invalid location: ['bilateral']",
+        "field": "location"
+      }
+    ],
+    "rule_violation_count": 1,
+    "rule_violation_by_severity": {
+      "error": 1,
+      "warning": 0,
+      "info": 0
+    },
+    "workflow_stats": {
+      "ontology_match_rate": 0.25,
+      "category_distribution": {
+        "unknown": 18,
+        "aortic_and_major_arterial_pathology": 1,
+        "thoracic_masses_nodules": 1,
+        "pericardial_disorders": 1,
+        "parenchymal_opacities": 1,
+        "pulmonary_infections_inflammatory": 1,
+        "atelectasis_collapse": 1
+      },
+      "conflicts_detected": [],
+      "unmatched_findings": [
+        "thrombus",
+        "stenosis",
+        "normal size",
+        "emboli",
+        "fluid collection",
+        "hematoma",
+        "damaged",
+        "tear",
+        "aneurysmal",
+        "enlarged",
+        "narrowed",
+        "opacity",
+        "pleural effusions",
+        "fracture",
+        "lytic lesion",
+        "sclerotic lesion",
+        "tumor",
+        "edema"
+      ]
+    },
+    "validation_applied": true
+  }
+}

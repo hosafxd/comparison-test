@@ -1,0 +1,79 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": 100,
+  "report": "FINDINGS: Coronary artery calcification is noted in the left anterior descending artery. There is mild bilateral pleural effusion. Hepatomegaly is present with fatty changes. The spleen appears enlarged. Mediastinal lymphadenopathy is seen with nodes measuring up to 1.2 cm. There is no pneumothorax or pericardial effusion. Minimal atelectasis is present at the left lung base. A small nodule is identified in the right upper lobe. No suspicious lytic lesions are seen in the visualized bones.",
+  "entities": [
+    {
+      "observation": "arterial calcification",
+      "observation_presence": "present",
+      "location": [
+        "left anterior descending artery"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "bilateral pleural collection",
+      "observation_presence": "present",
+      "location": [],
+      "degree": [
+        "mild"
+      ]
+    },
+    {
+      "observation": "enlarged hepatic silhouette",
+      "observation_presence": "present",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "splenomegaly",
+      "observation_presence": "present",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "mediastinal lymph node enlargement",
+      "observation_presence": "present",
+      "location": [],
+      "degree": [
+        "1.2 cm"
+      ]
+    },
+    {
+      "observation": "pneumothorax",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "pericardial fluid",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    },
+    {
+      "observation": "linear atelectasis",
+      "observation_presence": "present",
+      "location": [
+        "left base"
+      ],
+      "degree": [
+        "minimal"
+      ]
+    },
+    {
+      "observation": "small opacity",
+      "observation_presence": "present",
+      "location": [
+        "right upper lobe"
+      ],
+      "degree": []
+    },
+    {
+      "observation": "osseous metastases",
+      "observation_presence": "absent",
+      "location": [],
+      "degree": []
+    }
+  ]
+}
