@@ -1,0 +1,49 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": "sample0.0",
+  "report": "Tiny nodular density in the right upper lobe concerning for pulmonary nodule. No pleural fluid accumulation. Mild dilatation of aorta. Sclerotic bone changes. Coronary artery calcification noted in left anterior descending artery.",
+  "entities": [
+    {
+      "anchor": "density (observation:present)",
+      "related": [
+        "nodular (degree:present)",
+        "tiny (degree:present)",
+        "right upper lobe (location:present)",
+        "nodule (observation:uncertain)"
+      ]
+    },
+    {
+      "anchor": "nodule (observation:uncertain)",
+      "related": [
+        "pulmonary (location:present)",
+        "right upper lobe (location:present)"
+      ]
+    },
+    {
+      "anchor": "fluid accumulation (observation:absent)",
+      "related": [
+        "pleural (location:present)"
+      ]
+    },
+    {
+      "anchor": "dilatation (observation:present)",
+      "related": [
+        "aorta (location:present)",
+        "mild (degree:present)"
+      ]
+    },
+    {
+      "anchor": "changes (observation:present)",
+      "related": [
+        "sclerotic (degree:present)",
+        "bone (location:present)"
+      ]
+    },
+    {
+      "anchor": "coronary artery calcification (observation:present)",
+      "related": [
+        "left anterior descending (location:present)"
+      ]
+    }
+  ]
+}

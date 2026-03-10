@@ -1,0 +1,43 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": "sample0.1",
+  "report": "Large consolidation in the rul [right upper lobe] representing pulmonary nodule. Small pleural effusion present. Severe aortic ectasia. Lytic vertebral changes.",
+  "entities": [
+    {
+      "anchor": "consolidation (observation:present)",
+      "related": [
+        "large (degree:present)",
+        "rul [right upper lobe] (location:present)",
+        "nodule (observation:present)"
+      ]
+    },
+    {
+      "anchor": "nodule (observation:present)",
+      "related": [
+        "pulmonary (location:present)",
+        "rul [right upper lobe] (location:present)"
+      ]
+    },
+    {
+      "anchor": "effusion (observation:present)",
+      "related": [
+        "pleural (location:present)",
+        "small (degree:present)"
+      ]
+    },
+    {
+      "anchor": "ectasia (observation:present)",
+      "related": [
+        "aorta (location:present)",
+        "severe (degree:present)"
+      ]
+    },
+    {
+      "anchor": "changes (observation:present)",
+      "related": [
+        "lytic (degree:present)",
+        "vertebral (location:present)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": "sample1.2",
+  "report": "Gas within an inflamed diverticulum in the sigmoid colon. No renal obstruction.",
+  "entities": [
+    {
+      "anchor": "gas (observation:present)",
+      "related": [
+        "sigmoid (location:present)",
+        "colon (location:present)",
+        "diverticulum (location:present)"
+      ]
+    },
+    {
+      "anchor": "diverticulum (location:present)",
+      "related": [
+        "sigmoid (location:present)",
+        "colon (location:present)",
+        "inflamed (degree:present)"
+      ]
+    },
+    {
+      "anchor": "renal obstruction (observation:absent)",
+      "related": []
+    }
+  ]
+}

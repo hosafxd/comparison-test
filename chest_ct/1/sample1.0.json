@@ -1,0 +1,27 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": "sample1.0",
+  "report": "Air in sigmoid colon concerning for diverticulum. No hydronephrosis.",
+  "entities": [
+    {
+      "anchor": "air (observation:present)",
+      "related": [
+        "sigmoid (location:present)",
+        "colon (location:present)",
+        "diverticulum (observation:uncertain)"
+      ]
+    },
+    {
+      "anchor": "diverticulum (observation:uncertain)",
+      "related": [
+        "sigmoid (location:present)",
+        "colon (location:present)",
+        "inflamed (degree:present)"
+      ]
+    },
+    {
+      "anchor": "hydronephrosis (observation:absent)",
+      "related": []
+    }
+  ]
+}

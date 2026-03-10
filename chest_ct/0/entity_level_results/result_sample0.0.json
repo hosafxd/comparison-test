@@ -1,0 +1,119 @@
+{
+  "gt_file": "GT0.json",
+  "pred_file": "sample0.0.json",
+  "timestamp": "2026-03-10T20:25:23.237123",
+  "status": "success",
+  "entity_metrics": {
+    "total_gt": 6,
+    "total_pred": 6,
+    "true_positives": 6,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "avg_match_quality": 0.9500000000000001,
+    "contradiction_count": 0,
+    "field_wise_accuracy": {},
+    "structural_errors": {
+      "merged_entities": [],
+      "split_entities": [],
+      "degree_mixups": [],
+      "contradictions": []
+    },
+    "field_error_analysis": {
+      "observation": {
+        "accuracy": 0.3333333333333333,
+        "total": 6,
+        "errors": 4,
+        "error_rate": 0.6666666666666666
+      },
+      "observation_presence": {
+        "accuracy": 1.0,
+        "total": 6,
+        "errors": 0,
+        "error_rate": 0.0
+      },
+      "location": {
+        "accuracy": 0.3333333333333333,
+        "total": 6,
+        "errors": 4,
+        "error_rate": 0.6666666666666666
+      },
+      "degree": {
+        "accuracy": 0.8333333333333334,
+        "total": 6,
+        "errors": 1,
+        "error_rate": 0.16666666666666666
+      }
+    }
+  },
+  "field_level_scores": {
+    "weighted_mean": 0.9225,
+    "per_field": {
+      "observation": 0.9583,
+      "location": 0.8333,
+      "degree": 1.0
+    },
+    "coverage": 1.0,
+    "adjusted_score": 0.9225,
+    "tp_count": 6,
+    "pair_scores": [
+      0.94,
+      1.0,
+      0.965,
+      0.93,
+      0.7,
+      1.0
+    ]
+  },
+  "llm_scores": {
+    "gemini_pro": {
+      "mean": 0.96,
+      "count": 5
+    }
+  },
+  "composite_score": 0.8856,
+  "fp_fn_analysis": {
+    "fp_count": 0,
+    "fn_count": 0,
+    "fp_severity": 0.0,
+    "fn_severity": 0.0,
+    "fp_detail": {
+      "count": 0,
+      "present_ratio": 0.0,
+      "presence_distribution": {
+        "present": 0,
+        "absent": 0,
+        "uncertain": 0
+      },
+      "location_fill_rate": 0.0,
+      "degree_fill_rate": 0.0,
+      "entities": []
+    },
+    "fn_detail": {
+      "count": 0,
+      "present_ratio": 0.0,
+      "presence_distribution": {
+        "present": 0,
+        "absent": 0,
+        "uncertain": 0
+      },
+      "location_fill_rate": 0.0,
+      "degree_fill_rate": 0.0,
+      "entities": []
+    }
+  },
+  "v2_metadata": {
+    "detected_modality": "general",
+    "rule_violations": [],
+    "rule_violation_count": 0,
+    "rule_violation_by_severity": {
+      "error": 0,
+      "warning": 0,
+      "info": 0
+    },
+    "workflow_stats": {},
+    "validation_applied": true
+  }
+}

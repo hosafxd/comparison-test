@@ -1,0 +1,26 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": "sample1.3",
+  "report": "Fluid outside diverticulum in descending colon. Hydronephrosis noted.",
+  "entities": [
+    {
+      "anchor": "fluid (observation:present)",
+      "related": [
+        "descending (location:present)",
+        "colon (location:present)",
+        "diverticulum (location:present)"
+      ]
+    },
+    {
+      "anchor": "diverticulum (location:present)",
+      "related": [
+        "descending (location:present)",
+        "colon (location:present)"
+      ]
+    },
+    {
+      "anchor": "hydronephrosis (observation:present)",
+      "related": []
+    }
+  ]
+}

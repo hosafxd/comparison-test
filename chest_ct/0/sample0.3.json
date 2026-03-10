@@ -1,0 +1,42 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": "sample0.3",
+  "report": "Large opacity within consolidation in left lower lobe. Moderate pleural effusion. Severe aortic stenosis. Lytic changes in ribs.",
+  "entities": [
+    {
+      "anchor": "opacity (observation:present)",
+      "related": [
+        "large (degree:present)",
+        "left lower lobe (location:present)",
+        "consolidation (location:present)"
+      ]
+    },
+    {
+      "anchor": "consolidation (location:present)",
+      "related": [
+        "left lower lobe (location:present)"
+      ]
+    },
+    {
+      "anchor": "effusion (observation:present)",
+      "related": [
+        "pleural (location:present)",
+        "moderate (degree:present)"
+      ]
+    },
+    {
+      "anchor": "stenosis (observation:present)",
+      "related": [
+        "aorta (location:present)",
+        "severe (degree:present)"
+      ]
+    },
+    {
+      "anchor": "changes (observation:present)",
+      "related": [
+        "lytic (degree:present)",
+        "ribs (location:present)"
+      ]
+    }
+  ]
+}

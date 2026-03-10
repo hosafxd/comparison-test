@@ -1,0 +1,50 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": "sample0.2",
+  "report": "Small nodular opacity within pulmonary nodule in rul [right upper lobe]. No pleural effusion. Mild aortic ectasia. Sclerotic vertebral changes. CAC [coronary artery calcification] in lad [left anterior descending].",
+  "entities": [
+    {
+      "anchor": "opacity (observation:present)",
+      "related": [
+        "small (degree:present)",
+        "nodular (degree:present)",
+        "rul [right upper lobe] (location:present)",
+        "pulmonary (location:present)",
+        "nodule (location:present)"
+      ]
+    },
+    {
+      "anchor": "nodule (location:present)",
+      "related": [
+        "pulmonary (location:present)",
+        "rul [right upper lobe] (location:present)"
+      ]
+    },
+    {
+      "anchor": "effusion (observation:absent)",
+      "related": [
+        "pleural (location:present)"
+      ]
+    },
+    {
+      "anchor": "ectasia (observation:present)",
+      "related": [
+        "aorta (location:present)",
+        "mild (degree:present)"
+      ]
+    },
+    {
+      "anchor": "changes (observation:present)",
+      "related": [
+        "sclerotic (degree:present)",
+        "vertebral (location:present)"
+      ]
+    },
+    {
+      "anchor": "cac [coronary artery calcification] (observation:present)",
+      "related": [
+        "lad [left anterior descending] (location:present)"
+      ]
+    }
+  ]
+}

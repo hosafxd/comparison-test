@@ -1,0 +1,26 @@
+{
+  "dataset": "mimic-chest-ct",
+  "doc_key": "sample1.1",
+  "report": "Fluid in sigmoid colon suspicious for malignancy. Hydronephrosis present.",
+  "entities": [
+    {
+      "anchor": "fluid (observation:present)",
+      "related": [
+        "sigmoid (location:present)",
+        "colon (location:present)",
+        "malignancy (observation:uncertain)"
+      ]
+    },
+    {
+      "anchor": "malignancy (observation:uncertain)",
+      "related": [
+        "sigmoid (location:present)",
+        "colon (location:present)"
+      ]
+    },
+    {
+      "anchor": "hydronephrosis (observation:present)",
+      "related": []
+    }
+  ]
+}

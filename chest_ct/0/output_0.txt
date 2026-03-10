@@ -1,0 +1,170 @@
+======================================================================
+ENTITY-LEVEL EVALUATION v4.0 (ATOMIC Graph + Composite)
+======================================================================
+
+  Data Directory: new_schema_obsLoc/chest_ct/0
+  Ground Truth:   GT0.json
+  Match Threshold: 0.7
+
+  LLM Models (1):
+    [ok] gemini_pro: models/gemini-2.5-pro
+======================================================================
+
+======================================================================
+  STARTING EVALUATION
+======================================================================
+
+======================================================================
+BATCH EVALUATION
+======================================================================
+  Directory:  new_schema_obsLoc/chest_ct/0
+  GT:         GT0.json
+  Test files: 4
+
+  Initializing Semantic Medical Matcher (SapBERT)...
+⚡ Using cached model: cambridgeltl/SapBERT-from-PubMedBERT-fulltext
+✅ Loaded for matching: cambridgeltl/SapBERT-from-PubMedBERT-fulltext
+  ✅ SapBERT similarity function created
+  Evaluator ready!
+  V2.0 Rule-Based Validator + Modality Router initialized
+
+  Detected Modality — GT: chest_ct, Pred: general
+⚠️  Modality 'general' not supported, using general evaluation
+    No rule violations found
+  ℹ️  Reports differ (expected for cross-model comparison)
+  Entity Count: GT=6 | Pred=6
+
+  STRUCTURAL:
+    Precision: 1.000  Recall: 1.000  F1: 1.000
+    TP=6 | FP=0 | FN=0
+
+  FIELD-LEVEL (6 TP pairs):
+    Weighted Mean:  0.957
+    Coverage:       1.000
+    Adjusted Score: 0.957
+
+  LLM Evaluation:
+    gemini_pro...    [DEBUG] Looking up rate limit for: 'gemini-2.5-pro'
+   [DEBUG] Found sleep time: 20.0s
+✓ gemini modeli başlatıldı: models/gemini-2.5-pro
+  Rate limit: Her istek arası 20.0 saniye bekleme
+  [DEBUG] Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently exp
+  ⚠️ Retrying in 20.0s...
+ok 0.940 (n=5)
+
+  COMPOSITE: 0.8995 = FL_adj(0.957) × LLM(0.940)
+
+    Saved: result_sample0.0.json
+
+  Detected Modality — GT: chest_ct, Pred: chest_ct
+    Workflow pre-processed 5 entities
+    No rule violations found
+  ℹ️  Reports differ (expected for cross-model comparison)
+  Entity Count: GT=6 | Pred=5
+
+  STRUCTURAL:
+    Precision: 1.000  Recall: 0.833  F1: 0.909
+    TP=5 | FP=0 | FN=1
+    Contradictions: 2
+
+  FIELD-LEVEL (5 TP pairs):
+    Weighted Mean:  0.460
+    Coverage:       0.833
+    Adjusted Score: 0.383
+
+  LLM Evaluation:
+    gemini_pro...    [DEBUG] Looking up rate limit for: 'gemini-2.5-pro'
+   [DEBUG] Found sleep time: 20.0s
+✓ gemini modeli başlatıldı: models/gemini-2.5-pro
+  Rate limit: Her istek arası 20.0 saniye bekleme
+ok 0.280 (n=5)
+
+  COMPOSITE: 0.1073 = FL_adj(0.383) × LLM(0.280)
+
+  FP/FN: 0 FP, 1 FN
+    FN: cac [coronary artery calcification] [present]
+    Ontology match rate: 20.0%
+
+    Saved: result_sample0.1.json
+
+  Detected Modality — GT: chest_ct, Pred: chest_ct
+    Workflow pre-processed 6 entities
+    No rule violations found
+  ℹ️  Reports differ (expected for cross-model comparison)
+  Entity Count: GT=6 | Pred=6
+
+  STRUCTURAL:
+    Precision: 0.833  Recall: 0.833  F1: 0.833
+    TP=5 | FP=1 | FN=1
+
+  FIELD-LEVEL (5 TP pairs):
+    Weighted Mean:  0.960
+    Coverage:       0.833
+    Adjusted Score: 0.800
+
+  LLM Evaluation:
+    gemini_pro...    [DEBUG] Looking up rate limit for: 'gemini-2.5-pro'
+   [DEBUG] Found sleep time: 20.0s
+✓ gemini modeli başlatıldı: models/gemini-2.5-pro
+  Rate limit: Her istek arası 20.0 saniye bekleme
+  [DEBUG] Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently exp
+  ⚠️ Retrying in 20.0s...
+  [DEBUG] Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently exp
+  ⚠️ Retrying in 20.0s...
+ok 0.960 (n=5)
+
+  COMPOSITE: 0.7680 = FL_adj(0.800) × LLM(0.960)
+
+  FP/FN: 1 FP, 1 FN
+    FP: nodule [present]
+    FN: nodule [uncertain]
+    Ontology match rate: 0.0%
+
+    Saved: result_sample0.2.json
+
+  Detected Modality — GT: chest_ct, Pred: general
+⚠️  Modality 'general' not supported, using general evaluation
+    No rule violations found
+  ℹ️  Reports differ (expected for cross-model comparison)
+  Entity Count: GT=6 | Pred=5
+
+  STRUCTURAL:
+    Precision: 0.800  Recall: 0.667  F1: 0.727
+    TP=4 | FP=1 | FN=2
+    Contradictions: 1
+
+  FIELD-LEVEL (4 TP pairs):
+    Weighted Mean:  0.425
+    Coverage:       0.667
+    Adjusted Score: 0.283
+
+  LLM Evaluation:
+    gemini_pro...    [DEBUG] Looking up rate limit for: 'gemini-2.5-pro'
+   [DEBUG] Found sleep time: 20.0s
+✓ gemini modeli başlatıldı: models/gemini-2.5-pro
+  Rate limit: Her istek arası 20.0 saniye bekleme
+ok 0.125 (n=4)
+
+  COMPOSITE: 0.0354 = FL_adj(0.283) × LLM(0.125)
+
+  FP/FN: 1 FP, 2 FN
+    FP: consolidation [present]
+    FN: nodule [uncertain]
+    FN: cac [coronary artery calcification] [present]
+
+    Saved: result_sample0.3.json
+
+  Summary saved: new_schema_obsLoc/chest_ct/0/entity_level_results/SUMMARY.txt
+
+====================================================================================================
+  FINAL COMPARISON TABLE
+====================================================================================================
+Sample       F1       FL(mean)   Coverage   FL(adj)    LLM      Composite    Rules 
+----------------------------------------------------------------------------------------------------
+0.0          1.000    0.957      1.000      0.957      0.940    0.8995       0     
+0.1          0.909    0.460      0.833      0.383      0.280    0.1073       0     
+0.2          0.833    0.960      0.833      0.800      0.960    0.7680       0     
+0.3          0.727    0.425      0.667      0.283      0.125    0.0354       0     
+----------------------------------------------------------------------------------------------------
+
+  DONE!
